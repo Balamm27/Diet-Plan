@@ -100,6 +100,66 @@ DISH_VISUALS = {
     "ladys-finger": {"icon": "✨", "avatar": "OK"},
 }
 
+RECIPE_AMOUNT_PLANS = {
+    ("flax-seed-water", "Flax Seeds"): ["1 tbsp", "2 tbsp", "3 tbsp", "4 tbsp", "5 tbsp", "6 tbsp"],
+    ("flax-seed-water", "Water"): ["12 to 14 oz", "24 to 28 oz", "36 to 42 oz", "48 to 56 oz", "60 to 70 oz", "72 to 84 oz"],
+    ("celery-juice", "Celery"): ["4 to 5 stalks", "8 to 10 stalks", "12 to 15 stalks", "16 to 20 stalks", "20 to 25 stalks", "24 to 30 stalks"],
+    ("celery-juice", "Water"): ["2 to 3 tbsp", "1/4 cup", "1/3 cup", "1/2 cup", "2/3 cup", "3/4 cup"],
+    ("mango-smoothie", "Mango"): ["1 heaping cup", "2 heaping cups", "3 cups", "4 cups", "5 cups", "6 cups"],
+    ("mango-smoothie", "Banana"): ["1 medium", "2 medium", "3 medium", "4 medium", "5 medium", "6 medium"],
+    ("mango-smoothie", "Coconut Water"): ["3/4 to 1 cup", "1 1/2 to 2 cups", "2 1/4 to 3 cups", "3 to 4 cups", "3 3/4 to 5 cups", "4 1/2 to 6 cups"],
+    ("berry-smoothie", "Dragon Fruit"): ["1 cup", "2 cups", "3 cups", "4 cups", "5 cups", "6 cups"],
+    ("berry-smoothie", "Blueberries"): ["3/4 cup", "1 1/2 cups", "2 1/4 cups", "3 cups", "3 3/4 cups", "4 1/2 cups"],
+    ("berry-smoothie", "Banana"): ["1 medium", "2 medium", "3 medium", "4 medium", "5 medium", "6 medium"],
+    ("berry-smoothie", "Coconut Water"): ["3/4 cup", "1 1/2 cups", "2 1/4 cups", "3 cups", "3 3/4 cups", "4 1/2 cups"],
+    ("orange-chicken", "Chicken Breast"): ["6 to 8 oz", "12 to 16 oz", "18 to 24 oz", "24 to 32 oz", "30 to 40 oz", "36 to 48 oz"],
+    ("orange-chicken", "Navel Orange"): ["1 whole", "2 whole", "3 whole", "4 whole", "5 whole", "6 whole"],
+    ("orange-chicken", "Broccoli"): ["1 1/2 to 2 cups florets", "3 to 4 cups florets", "4 1/2 to 6 cups florets", "6 to 8 cups florets", "7 1/2 to 10 cups florets", "9 to 12 cups florets"],
+    ("orange-chicken", "Coconut Oil"): ["1 tsp", "2 tsp", "1 tbsp", "4 tsp", "5 tsp", "2 tbsp"],
+    ("orange-chicken", "Olive Oil"): ["1 tsp", "2 tsp", "1 tbsp", "4 tsp", "5 tsp", "2 tbsp"],
+    ("orange-chicken", "Sesame Seeds"): ["1 tsp", "2 tsp", "1 tbsp", "4 tsp", "5 tsp", "2 tbsp"],
+    ("sweet-potatoes", "Sweet Potatoes"): ["1 large or 2 small", "2 large or 4 small", "3 large or 6 small", "4 large or 8 small", "5 large or 10 small", "6 large or 12 small"],
+    ("sweet-potatoes", "Chickpeas"): ["3/4 cup", "1 1/2 cups", "2 1/4 cups", "3 cups", "3 3/4 cups", "4 1/2 cups"],
+    ("sweet-potatoes", "Walnuts"): ["2 tbsp", "1/4 cup", "6 tbsp", "1/2 cup", "10 tbsp", "3/4 cup"],
+    ("sweet-potatoes", "Coriander"): ["1 tbsp chopped", "2 tbsp chopped", "3 tbsp chopped", "1/4 cup chopped", "5 tbsp chopped", "3/8 cup chopped"],
+    ("sweet-potatoes", "Mint"): ["1 tbsp chopped", "2 tbsp chopped", "3 tbsp chopped", "1/4 cup chopped", "5 tbsp chopped", "3/8 cup chopped"],
+    ("sweet-potatoes", "Basil"): ["1 tbsp chopped", "2 tbsp chopped", "3 tbsp chopped", "1/4 cup chopped", "5 tbsp chopped", "3/8 cup chopped"],
+    ("sweet-potatoes", "Thyme"): ["1 tsp leaves", "2 tsp leaves", "1 tbsp leaves", "4 tsp leaves", "5 tsp leaves", "2 tbsp leaves"],
+    ("sweet-potatoes", "Olive Oil"): ["2 tsp", "4 tsp", "2 tbsp", "8 tsp", "10 tsp", "4 tbsp"],
+    ("beans", "Green Beans"): ["1 1/2 cups", "3 cups", "4 1/2 cups", "6 cups", "7 1/2 cups", "9 cups"],
+    ("beans", "Olive Oil"): ["1 tsp", "2 tsp", "1 tbsp", "4 tsp", "5 tsp", "2 tbsp"],
+    ("cauliflower", "Cauliflower"): ["2 cups florets", "4 cups florets", "6 cups florets", "8 cups florets", "10 cups florets", "12 cups florets"],
+    ("cauliflower", "Olive Oil"): ["1 tsp", "2 tsp", "1 tbsp", "4 tsp", "5 tsp", "2 tbsp"],
+    ("ladys-finger", "Lady's Finger (Okra)"): ["1 1/2 cups", "3 cups", "4 1/2 cups", "6 cups", "7 1/2 cups", "9 cups"],
+    ("ladys-finger", "Olive Oil"): ["1 tsp", "2 tsp", "1 tbsp", "4 tsp", "5 tsp", "2 tbsp"],
+}
+
+WEEKLY_BUY_PLANS = {
+    "coconut water": ["2 to 3 liters", "4 to 5 liters", "6 to 7 liters", "8 to 9 liters", "10 to 11 liters", "12 to 13 liters"],
+    "banana": ["7 bananas", "14 bananas", "21 bananas", "28 bananas", "35 bananas", "42 bananas"],
+    "blueberries": ["3 cups", "5 cups", "7 cups", "9 cups", "11 cups", "13 cups"],
+    "dragon fruit": ["3 dragon fruits", "5 dragon fruits", "7 dragon fruits", "9 dragon fruits", "11 dragon fruits", "13 dragon fruits"],
+    "mango": ["4 mangoes", "7 mangoes", "10 mangoes", "13 mangoes", "16 mangoes", "19 mangoes"],
+    "navel orange": ["4 oranges", "7 oranges", "10 oranges", "13 oranges", "16 oranges", "19 oranges"],
+    "basil": ["1 bunch", "1 bunch", "2 bunches", "2 bunches", "3 bunches", "3 bunches"],
+    "coriander": ["1 bunch", "1 bunch", "2 bunches", "2 bunches", "3 bunches", "3 bunches"],
+    "mint": ["1 bunch", "1 bunch", "2 bunches", "2 bunches", "3 bunches", "3 bunches"],
+    "thyme": ["1 small bunch", "1 small bunch", "1 small bunch", "2 small bunches", "2 small bunches", "2 small bunches"],
+    "chickpeas": ["2 cans or 3 cups cooked", "3 cans or 4 1/2 cups cooked", "4 cans or 6 cups cooked", "5 cans or 7 1/2 cups cooked", "6 cans or 9 cups cooked", "7 cans or 10 1/2 cups cooked"],
+    "coconut oil": ["1 small jar", "1 small jar", "1 small jar", "2 small jars", "2 small jars", "2 small jars"],
+    "flax seeds": ["1 cup (about 250 g)", "2 cups (about 500 g)", "3 cups (about 750 g)", "4 cups (about 1 kg)", "5 cups (about 1.25 kg)", "6 cups (about 1.5 kg)"],
+    "olive oil": ["1 bottle", "1 bottle", "1 bottle", "2 bottles", "2 bottles", "2 bottles"],
+    "sesame seeds": ["1 small packet or jar", "1 small packet or jar", "1 small packet or jar", "1 small packet or jar", "2 small packets or jars", "2 small packets or jars"],
+    "walnuts": ["1 1/2 cups", "3 cups", "4 1/2 cups", "6 cups", "7 1/2 cups", "9 cups"],
+    "broccoli": ["4 medium heads", "7 medium heads", "10 medium heads", "13 medium heads", "16 medium heads", "19 medium heads"],
+    "cauliflower": ["2 medium heads", "3 medium heads", "4 medium heads", "5 medium heads", "6 medium heads", "7 medium heads"],
+    "celery": ["3 bunches", "5 bunches", "7 bunches", "9 bunches", "11 bunches", "13 bunches"],
+    "green beans": ["1 1/2 lb", "3 lb", "4 1/2 lb", "6 lb", "7 1/2 lb", "9 lb"],
+    "okra": ["1 1/2 lb", "3 lb", "4 1/2 lb", "6 lb", "7 1/2 lb", "9 lb"],
+    "sweet potatoes": ["6 medium sweet potatoes", "10 medium sweet potatoes", "14 medium sweet potatoes", "18 medium sweet potatoes", "22 medium sweet potatoes", "26 medium sweet potatoes"],
+    "chicken breast": ["2 lb", "3 1/2 lb", "5 lb", "6 1/2 lb", "8 lb", "9 1/2 lb"],
+}
+
 RECIPE_DETAILS = {
     "flax-seed-water": {
         "title": "Flax Seed Water",
@@ -305,6 +365,10 @@ WEEKLY_QUANTITY_GUIDE = {
 DEFAULT_STORE = "Whole Foods / Fred Meyer / QFC"
 
 
+def build_plan_map(values: list[str]) -> dict[str, str]:
+    return {str(index + 1): value for index, value in enumerate(values)}
+
+
 def clean(value: object) -> str:
     if value is None:
         return ""
@@ -436,6 +500,7 @@ def build_recipes(workbook_recipes: dict[str, list[str]]) -> tuple[list[dict], d
                     "name": display_name(canonical),
                     "canonical": canonical,
                     "amount": ingredient["amount"],
+                    "amountPlan": build_plan_map(RECIPE_AMOUNT_PLANS[(recipe_id, ingredient["name"])]),
                 }
             )
         recipe = {
@@ -510,6 +575,7 @@ def build_weekly_supply_list(recipe_by_id: dict[str, dict], store_lookup: dict[s
             {
                 "name": display_name(canonical),
                 "quantity": guide["quantity"],
+                "buyPlan": build_plan_map(WEEKLY_BUY_PLANS[canonical]),
                 "store": store,
             }
         )
@@ -544,7 +610,9 @@ def build_daily_supply_list(days: list[dict], dishes: list[dict], recipe_by_id: 
                         {
                             "name": ingredient["name"],
                             "used": ingredient["amount"],
+                            "usedPlan": ingredient["amountPlan"],
                             "buy": guide["quantity"] if guide else "See weekly supply list",
+                            "buyPlan": build_plan_map(WEEKLY_BUY_PLANS[ingredient["canonical"]]) if ingredient["canonical"] in WEEKLY_BUY_PLANS else build_plan_map(["See weekly supply list"] * 6),
                             "store": store,
                         }
                     )
@@ -830,6 +898,42 @@ def build_html(data: dict) -> str:
     }}
     .section-heading.compact {{
       margin-top: 0;
+    }}
+    .people-control {{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(24, 35, 41, 0.08);
+    }}
+    .people-control span {{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }}
+    .people-stepper {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }}
+    .people-stepper button {{
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: white;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(255, 92, 138, 0.18);
+    }}
+    .people-stepper strong {{
+      min-width: 18px;
+      text-align: center;
+      font-size: 16px;
     }}
     .section-heading h2 {{
       margin: 0;
@@ -1296,6 +1400,14 @@ def build_html(data: dict) -> str:
             <h2>Recipe Focus</h2>
             <p>Only one recipe opens at a time so the page stays calm and easy to scan.</p>
           </div>
+          <div class="people-control" id="recipe-people-control">
+            <span>Recipe people</span>
+            <div class="people-stepper">
+              <button type="button" id="recipe-minus">-</button>
+              <strong id="recipe-people-count">1</strong>
+              <button type="button" id="recipe-plus">+</button>
+            </div>
+          </div>
         </div>
         <div id="recipe-empty" class="panel">
           <h3>Choose a meal card above</h3>
@@ -1312,6 +1424,14 @@ def build_html(data: dict) -> str:
             <div class="section-sticker">🛒 One-person weekly buy guide</div>
             <h2>Weekly Supply Buy List</h2>
             <p>These quantities are estimated for one person following this exact weekly plan.</p>
+          </div>
+          <div class="people-control" id="shopping-people-control">
+            <span>Shopping people</span>
+            <div class="people-stepper">
+              <button type="button" id="shopping-minus">-</button>
+              <strong id="shopping-people-count">1</strong>
+              <button type="button" id="shopping-plus">+</button>
+            </div>
           </div>
         </div>
         <div class="shopping-toggle-row">
@@ -1387,9 +1507,17 @@ def build_html(data: dict) -> str:
     const toggleWeeklySupply = document.getElementById("toggle-weekly-supply");
     const openDayShopping = document.getElementById("open-day-shopping");
     const openWeeklyShopping = document.getElementById("open-weekly-shopping");
+    const recipePeopleCount = document.getElementById("recipe-people-count");
+    const shoppingPeopleCount = document.getElementById("shopping-people-count");
+    const recipeMinus = document.getElementById("recipe-minus");
+    const recipePlus = document.getElementById("recipe-plus");
+    const shoppingMinus = document.getElementById("shopping-minus");
+    const shoppingPlus = document.getElementById("shopping-plus");
 
     let activeDayId = storedDay && data.days.some((day) => day.id === storedDay) ? storedDay : data.defaultDay;
     let activeRecipeId = null;
+    let recipePeople = 1;
+    let shoppingPeople = 1;
 
     function renderDayChips() {{
       dayTrack.innerHTML = "";
@@ -1456,7 +1584,7 @@ def build_html(data: dict) -> str:
       const ingredients = recipe.ingredients.map((ingredient) => `
         <li>
           <strong>${{ingredient.name}}</strong>
-          <span class="buy-quantity">Use: ${{ingredient.amount}}</span>
+          <span class="buy-quantity">Use: ${{ingredient.amountPlan[String(recipePeople)] || ingredient.amount}}</span>
         </li>
       `).join("");
       const steps = recipe.steps.map((step) => `<li>${{step}}</li>`).join("");
@@ -1494,8 +1622,8 @@ def build_html(data: dict) -> str:
             ${{group.items.map((item) => `
               <li>
                 <strong>${{item.name}}</strong>
-                <span class="used-quantity">Use today: ${{item.used}}</span>
-                <span class="buy-quantity">Buy for the week: ${{item.buy}}</span>
+                <span class="used-quantity">Use today: ${{(item.usedPlan && item.usedPlan[String(shoppingPeople)]) || item.used}}</span>
+                <span class="buy-quantity">Buy for the week: ${{(item.buyPlan && item.buyPlan[String(shoppingPeople)]) || item.buy}}</span>
                 <span>Best place to buy: ${{item.store}}</span>
               </li>
             `).join("")}}
@@ -1516,7 +1644,7 @@ def build_html(data: dict) -> str:
             ${{group.items.map((item) => `
               <li>
                 <strong>${{item.name}}</strong>
-                <span class="buy-quantity">Buy for the week: ${{item.quantity}}</span>
+                <span class="buy-quantity">Buy for the week: ${{(item.buyPlan && item.buyPlan[String(shoppingPeople)]) || item.quantity}}</span>
                 <span>Best place to buy: ${{item.store}}</span>
               </li>
             `).join("")}}
@@ -1596,6 +1724,8 @@ def build_html(data: dict) -> str:
 
     function render() {{
       const day = data.days.find((entry) => entry.id === activeDayId) || data.days[0];
+      recipePeopleCount.textContent = String(recipePeople);
+      shoppingPeopleCount.textContent = String(shoppingPeople);
       selectedDayTitle.textContent = day.name;
       selectedDayCopy.textContent = `${{day.name}} is focused for fast scanning: meals first, recipes next, shopping last.`;
       renderDayChips();
@@ -1620,6 +1750,22 @@ def build_html(data: dict) -> str:
     openWeeklyShopping.addEventListener("click", () => {{
       openSection(weeklySupplySection, toggleWeeklySupply, "Open Weekly Supply List", "Close Weekly Supply List");
       openSection(weeklyShoppingSection, toggleWeeklyShopping, "Open Weekly Store List", "Close Weekly Store List");
+    }});
+    recipeMinus.addEventListener("click", () => {{
+      recipePeople = Math.max(1, recipePeople - 1);
+      render();
+    }});
+    recipePlus.addEventListener("click", () => {{
+      recipePeople = Math.min(6, recipePeople + 1);
+      render();
+    }});
+    shoppingMinus.addEventListener("click", () => {{
+      shoppingPeople = Math.max(1, shoppingPeople - 1);
+      render();
+    }});
+    shoppingPlus.addEventListener("click", () => {{
+      shoppingPeople = Math.min(6, shoppingPeople + 1);
+      render();
     }});
 
     renderWeeklySupply();

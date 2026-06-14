@@ -408,12 +408,28 @@
         {
           "name": "Flax Seeds",
           "canonical": "flax seeds",
-          "amount": "1 tbsp"
+          "amount": "1 tbsp",
+          "amountPlan": {
+            "1": "1 tbsp",
+            "2": "2 tbsp",
+            "3": "3 tbsp",
+            "4": "4 tbsp",
+            "5": "5 tbsp",
+            "6": "6 tbsp"
+          }
         },
         {
           "name": "Water",
           "canonical": "water",
-          "amount": "12 to 14 oz"
+          "amount": "12 to 14 oz",
+          "amountPlan": {
+            "1": "12 to 14 oz",
+            "2": "24 to 28 oz",
+            "3": "36 to 42 oz",
+            "4": "48 to 56 oz",
+            "5": "60 to 70 oz",
+            "6": "72 to 84 oz"
+          }
         }
       ],
       "steps": [
@@ -437,12 +453,28 @@
         {
           "name": "Celery",
           "canonical": "celery",
-          "amount": "4 to 5 stalks"
+          "amount": "4 to 5 stalks",
+          "amountPlan": {
+            "1": "4 to 5 stalks",
+            "2": "8 to 10 stalks",
+            "3": "12 to 15 stalks",
+            "4": "16 to 20 stalks",
+            "5": "20 to 25 stalks",
+            "6": "24 to 30 stalks"
+          }
         },
         {
           "name": "Water",
           "canonical": "water",
-          "amount": "2 to 3 tbsp if blending"
+          "amount": "2 to 3 tbsp if blending",
+          "amountPlan": {
+            "1": "2 to 3 tbsp",
+            "2": "1/4 cup",
+            "3": "1/3 cup",
+            "4": "1/2 cup",
+            "5": "2/3 cup",
+            "6": "3/4 cup"
+          }
         }
       ],
       "steps": [
@@ -466,17 +498,41 @@
         {
           "name": "Mango",
           "canonical": "mango",
-          "amount": "1 heaping cup"
+          "amount": "1 heaping cup",
+          "amountPlan": {
+            "1": "1 heaping cup",
+            "2": "2 heaping cups",
+            "3": "3 cups",
+            "4": "4 cups",
+            "5": "5 cups",
+            "6": "6 cups"
+          }
         },
         {
           "name": "Banana",
           "canonical": "banana",
-          "amount": "1 medium"
+          "amount": "1 medium",
+          "amountPlan": {
+            "1": "1 medium",
+            "2": "2 medium",
+            "3": "3 medium",
+            "4": "4 medium",
+            "5": "5 medium",
+            "6": "6 medium"
+          }
         },
         {
           "name": "Coconut Water",
           "canonical": "coconut water",
-          "amount": "3/4 to 1 cup"
+          "amount": "3/4 to 1 cup",
+          "amountPlan": {
+            "1": "3/4 to 1 cup",
+            "2": "1 1/2 to 2 cups",
+            "3": "2 1/4 to 3 cups",
+            "4": "3 to 4 cups",
+            "5": "3 3/4 to 5 cups",
+            "6": "4 1/2 to 6 cups"
+          }
         }
       ],
       "steps": [
@@ -504,22 +560,54 @@
         {
           "name": "Dragon Fruit",
           "canonical": "dragon fruit",
-          "amount": "1 cup"
+          "amount": "1 cup",
+          "amountPlan": {
+            "1": "1 cup",
+            "2": "2 cups",
+            "3": "3 cups",
+            "4": "4 cups",
+            "5": "5 cups",
+            "6": "6 cups"
+          }
         },
         {
           "name": "Blueberries",
           "canonical": "blueberries",
-          "amount": "3/4 cup"
+          "amount": "3/4 cup",
+          "amountPlan": {
+            "1": "3/4 cup",
+            "2": "1 1/2 cups",
+            "3": "2 1/4 cups",
+            "4": "3 cups",
+            "5": "3 3/4 cups",
+            "6": "4 1/2 cups"
+          }
         },
         {
           "name": "Banana",
           "canonical": "banana",
-          "amount": "1 medium"
+          "amount": "1 medium",
+          "amountPlan": {
+            "1": "1 medium",
+            "2": "2 medium",
+            "3": "3 medium",
+            "4": "4 medium",
+            "5": "5 medium",
+            "6": "6 medium"
+          }
         },
         {
           "name": "Coconut Water",
           "canonical": "coconut water",
-          "amount": "3/4 cup"
+          "amount": "3/4 cup",
+          "amountPlan": {
+            "1": "3/4 cup",
+            "2": "1 1/2 cups",
+            "3": "2 1/4 cups",
+            "4": "3 cups",
+            "5": "3 3/4 cups",
+            "6": "4 1/2 cups"
+          }
         }
       ],
       "steps": [
@@ -548,32 +636,80 @@
         {
           "name": "Chicken Breast",
           "canonical": "chicken breast",
-          "amount": "6 to 8 oz"
+          "amount": "6 to 8 oz",
+          "amountPlan": {
+            "1": "6 to 8 oz",
+            "2": "12 to 16 oz",
+            "3": "18 to 24 oz",
+            "4": "24 to 32 oz",
+            "5": "30 to 40 oz",
+            "6": "36 to 48 oz"
+          }
         },
         {
           "name": "Navel Orange",
           "canonical": "navel orange",
-          "amount": "1 whole"
+          "amount": "1 whole",
+          "amountPlan": {
+            "1": "1 whole",
+            "2": "2 whole",
+            "3": "3 whole",
+            "4": "4 whole",
+            "5": "5 whole",
+            "6": "6 whole"
+          }
         },
         {
           "name": "Broccoli",
           "canonical": "broccoli",
-          "amount": "1 1/2 to 2 cups florets"
+          "amount": "1 1/2 to 2 cups florets",
+          "amountPlan": {
+            "1": "1 1/2 to 2 cups florets",
+            "2": "3 to 4 cups florets",
+            "3": "4 1/2 to 6 cups florets",
+            "4": "6 to 8 cups florets",
+            "5": "7 1/2 to 10 cups florets",
+            "6": "9 to 12 cups florets"
+          }
         },
         {
           "name": "Coconut Oil",
           "canonical": "coconut oil",
-          "amount": "1 tsp"
+          "amount": "1 tsp",
+          "amountPlan": {
+            "1": "1 tsp",
+            "2": "2 tsp",
+            "3": "1 tbsp",
+            "4": "4 tsp",
+            "5": "5 tsp",
+            "6": "2 tbsp"
+          }
         },
         {
           "name": "Olive Oil",
           "canonical": "olive oil",
-          "amount": "1 tsp"
+          "amount": "1 tsp",
+          "amountPlan": {
+            "1": "1 tsp",
+            "2": "2 tsp",
+            "3": "1 tbsp",
+            "4": "4 tsp",
+            "5": "5 tsp",
+            "6": "2 tbsp"
+          }
         },
         {
           "name": "Sesame Seeds",
           "canonical": "sesame seeds",
-          "amount": "1 tsp"
+          "amount": "1 tsp",
+          "amountPlan": {
+            "1": "1 tsp",
+            "2": "2 tsp",
+            "3": "1 tbsp",
+            "4": "4 tsp",
+            "5": "5 tsp",
+            "6": "2 tbsp"
+          }
         }
       ],
       "steps": [
@@ -606,42 +742,106 @@
         {
           "name": "Sweet Potatoes",
           "canonical": "sweet potatoes",
-          "amount": "1 large or 2 small"
+          "amount": "1 large or 2 small",
+          "amountPlan": {
+            "1": "1 large or 2 small",
+            "2": "2 large or 4 small",
+            "3": "3 large or 6 small",
+            "4": "4 large or 8 small",
+            "5": "5 large or 10 small",
+            "6": "6 large or 12 small"
+          }
         },
         {
           "name": "Chickpeas",
           "canonical": "chickpeas",
-          "amount": "3/4 cup"
+          "amount": "3/4 cup",
+          "amountPlan": {
+            "1": "3/4 cup",
+            "2": "1 1/2 cups",
+            "3": "2 1/4 cups",
+            "4": "3 cups",
+            "5": "3 3/4 cups",
+            "6": "4 1/2 cups"
+          }
         },
         {
           "name": "Walnuts",
           "canonical": "walnuts",
-          "amount": "2 tbsp"
+          "amount": "2 tbsp",
+          "amountPlan": {
+            "1": "2 tbsp",
+            "2": "1/4 cup",
+            "3": "6 tbsp",
+            "4": "1/2 cup",
+            "5": "10 tbsp",
+            "6": "3/4 cup"
+          }
         },
         {
           "name": "Coriander",
           "canonical": "coriander",
-          "amount": "1 tbsp chopped"
+          "amount": "1 tbsp chopped",
+          "amountPlan": {
+            "1": "1 tbsp chopped",
+            "2": "2 tbsp chopped",
+            "3": "3 tbsp chopped",
+            "4": "1/4 cup chopped",
+            "5": "5 tbsp chopped",
+            "6": "3/8 cup chopped"
+          }
         },
         {
           "name": "Mint",
           "canonical": "mint",
-          "amount": "1 tbsp chopped"
+          "amount": "1 tbsp chopped",
+          "amountPlan": {
+            "1": "1 tbsp chopped",
+            "2": "2 tbsp chopped",
+            "3": "3 tbsp chopped",
+            "4": "1/4 cup chopped",
+            "5": "5 tbsp chopped",
+            "6": "3/8 cup chopped"
+          }
         },
         {
           "name": "Basil",
           "canonical": "basil",
-          "amount": "1 tbsp chopped"
+          "amount": "1 tbsp chopped",
+          "amountPlan": {
+            "1": "1 tbsp chopped",
+            "2": "2 tbsp chopped",
+            "3": "3 tbsp chopped",
+            "4": "1/4 cup chopped",
+            "5": "5 tbsp chopped",
+            "6": "3/8 cup chopped"
+          }
         },
         {
           "name": "Thyme",
           "canonical": "thyme",
-          "amount": "1 tsp leaves"
+          "amount": "1 tsp leaves",
+          "amountPlan": {
+            "1": "1 tsp leaves",
+            "2": "2 tsp leaves",
+            "3": "1 tbsp leaves",
+            "4": "4 tsp leaves",
+            "5": "5 tsp leaves",
+            "6": "2 tbsp leaves"
+          }
         },
         {
           "name": "Olive Oil",
           "canonical": "olive oil",
-          "amount": "2 tsp"
+          "amount": "2 tsp",
+          "amountPlan": {
+            "1": "2 tsp",
+            "2": "4 tsp",
+            "3": "2 tbsp",
+            "4": "8 tsp",
+            "5": "10 tsp",
+            "6": "4 tbsp"
+          }
         }
       ],
       "steps": [
@@ -674,12 +874,28 @@
         {
           "name": "Green Beans",
           "canonical": "green beans",
-          "amount": "1 1/2 cups"
+          "amount": "1 1/2 cups",
+          "amountPlan": {
+            "1": "1 1/2 cups",
+            "2": "3 cups",
+            "3": "4 1/2 cups",
+            "4": "6 cups",
+            "5": "7 1/2 cups",
+            "6": "9 cups"
+          }
         },
         {
           "name": "Olive Oil",
           "canonical": "olive oil",
-          "amount": "1 tsp"
+          "amount": "1 tsp",
+          "amountPlan": {
+            "1": "1 tsp",
+            "2": "2 tsp",
+            "3": "1 tbsp",
+            "4": "4 tsp",
+            "5": "5 tsp",
+            "6": "2 tbsp"
+          }
         }
       ],
       "steps": [
@@ -704,12 +920,28 @@
         {
           "name": "Cauliflower",
           "canonical": "cauliflower",
-          "amount": "2 cups florets"
+          "amount": "2 cups florets",
+          "amountPlan": {
+            "1": "2 cups florets",
+            "2": "4 cups florets",
+            "3": "6 cups florets",
+            "4": "8 cups florets",
+            "5": "10 cups florets",
+            "6": "12 cups florets"
+          }
         },
         {
           "name": "Olive Oil",
           "canonical": "olive oil",
-          "amount": "1 tsp"
+          "amount": "1 tsp",
+          "amountPlan": {
+            "1": "1 tsp",
+            "2": "2 tsp",
+            "3": "1 tbsp",
+            "4": "4 tsp",
+            "5": "5 tsp",
+            "6": "2 tbsp"
+          }
         }
       ],
       "steps": [
@@ -734,12 +966,28 @@
         {
           "name": "Lady's Finger (Okra)",
           "canonical": "okra",
-          "amount": "1 1/2 cups"
+          "amount": "1 1/2 cups",
+          "amountPlan": {
+            "1": "1 1/2 cups",
+            "2": "3 cups",
+            "3": "4 1/2 cups",
+            "4": "6 cups",
+            "5": "7 1/2 cups",
+            "6": "9 cups"
+          }
         },
         {
           "name": "Olive Oil",
           "canonical": "olive oil",
-          "amount": "1 tsp"
+          "amount": "1 tsp",
+          "amountPlan": {
+            "1": "1 tsp",
+            "2": "2 tsp",
+            "3": "1 tbsp",
+            "4": "4 tsp",
+            "5": "5 tsp",
+            "6": "2 tbsp"
+          }
         }
       ],
       "steps": [
@@ -958,7 +1206,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 to 1 cup",
+            "usedPlan": {
+              "1": "3/4 to 1 cup",
+              "2": "1 1/2 to 2 cups",
+              "3": "2 1/4 to 3 cups",
+              "4": "3 to 4 cups",
+              "5": "3 3/4 to 5 cups",
+              "6": "4 1/2 to 6 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -969,19 +1233,67 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Mango",
             "used": "1 heaping cup",
+            "usedPlan": {
+              "1": "1 heaping cup",
+              "2": "2 heaping cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "4 mangoes",
+            "buyPlan": {
+              "1": "4 mangoes",
+              "2": "7 mangoes",
+              "3": "10 mangoes",
+              "4": "13 mangoes",
+              "5": "16 mangoes",
+              "6": "19 mangoes"
+            },
             "store": "Costco"
           },
           {
             "name": "Navel Orange",
             "used": "1 whole",
+            "usedPlan": {
+              "1": "1 whole",
+              "2": "2 whole",
+              "3": "3 whole",
+              "4": "4 whole",
+              "5": "5 whole",
+              "6": "6 whole"
+            },
             "buy": "4 oranges",
+            "buyPlan": {
+              "1": "4 oranges",
+              "2": "7 oranges",
+              "3": "10 oranges",
+              "4": "13 oranges",
+              "5": "16 oranges",
+              "6": "19 oranges"
+            },
             "store": "Costco"
           }
         ]
@@ -992,25 +1304,89 @@
           {
             "name": "Coconut Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small jar",
+            "buyPlan": {
+              "1": "1 small jar",
+              "2": "1 small jar",
+              "3": "1 small jar",
+              "4": "2 small jars",
+              "5": "2 small jars",
+              "6": "2 small jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sesame Seeds",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small packet or jar",
+            "buyPlan": {
+              "1": "1 small packet or jar",
+              "2": "1 small packet or jar",
+              "3": "1 small packet or jar",
+              "4": "1 small packet or jar",
+              "5": "2 small packets or jars",
+              "6": "2 small packets or jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1021,19 +1397,67 @@
           {
             "name": "Broccoli",
             "used": "1 1/2 to 2 cups florets",
+            "usedPlan": {
+              "1": "1 1/2 to 2 cups florets",
+              "2": "3 to 4 cups florets",
+              "3": "4 1/2 to 6 cups florets",
+              "4": "6 to 8 cups florets",
+              "5": "7 1/2 to 10 cups florets",
+              "6": "9 to 12 cups florets"
+            },
             "buy": "4 medium heads",
+            "buyPlan": {
+              "1": "4 medium heads",
+              "2": "7 medium heads",
+              "3": "10 medium heads",
+              "4": "13 medium heads",
+              "5": "16 medium heads",
+              "6": "19 medium heads"
+            },
             "store": "Costco"
           },
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Green Beans",
             "used": "1 1/2 cups",
+            "usedPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "buy": "1 1/2 lb",
+            "buyPlan": {
+              "1": "1 1/2 lb",
+              "2": "3 lb",
+              "3": "4 1/2 lb",
+              "4": "6 lb",
+              "5": "7 1/2 lb",
+              "6": "9 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1044,7 +1468,23 @@
           {
             "name": "Chicken Breast",
             "used": "6 to 8 oz",
+            "usedPlan": {
+              "1": "6 to 8 oz",
+              "2": "12 to 16 oz",
+              "3": "18 to 24 oz",
+              "4": "24 to 32 oz",
+              "5": "30 to 40 oz",
+              "6": "36 to 48 oz"
+            },
             "buy": "2 lb",
+            "buyPlan": {
+              "1": "2 lb",
+              "2": "3 1/2 lb",
+              "3": "5 lb",
+              "4": "6 1/2 lb",
+              "5": "8 lb",
+              "6": "9 1/2 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1057,7 +1497,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -1068,25 +1524,89 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Blueberries",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "3 cups",
+            "buyPlan": {
+              "1": "3 cups",
+              "2": "5 cups",
+              "3": "7 cups",
+              "4": "9 cups",
+              "5": "11 cups",
+              "6": "13 cups"
+            },
             "store": "Costco"
           },
           {
             "name": "Dragon Fruit",
             "used": "1 cup",
+            "usedPlan": {
+              "1": "1 cup",
+              "2": "2 cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "3 dragon fruits",
+            "buyPlan": {
+              "1": "3 dragon fruits",
+              "2": "5 dragon fruits",
+              "3": "7 dragon fruits",
+              "4": "9 dragon fruits",
+              "5": "11 dragon fruits",
+              "6": "13 dragon fruits"
+            },
             "store": "Costco"
           },
           {
             "name": "Navel Orange",
             "used": "1 whole",
+            "usedPlan": {
+              "1": "1 whole",
+              "2": "2 whole",
+              "3": "3 whole",
+              "4": "4 whole",
+              "5": "5 whole",
+              "6": "6 whole"
+            },
             "buy": "4 oranges",
+            "buyPlan": {
+              "1": "4 oranges",
+              "2": "7 oranges",
+              "3": "10 oranges",
+              "4": "13 oranges",
+              "5": "16 oranges",
+              "6": "19 oranges"
+            },
             "store": "Costco"
           }
         ]
@@ -1097,25 +1617,89 @@
           {
             "name": "Coconut Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small jar",
+            "buyPlan": {
+              "1": "1 small jar",
+              "2": "1 small jar",
+              "3": "1 small jar",
+              "4": "2 small jars",
+              "5": "2 small jars",
+              "6": "2 small jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sesame Seeds",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small packet or jar",
+            "buyPlan": {
+              "1": "1 small packet or jar",
+              "2": "1 small packet or jar",
+              "3": "1 small packet or jar",
+              "4": "1 small packet or jar",
+              "5": "2 small packets or jars",
+              "6": "2 small packets or jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1126,19 +1710,67 @@
           {
             "name": "Broccoli",
             "used": "1 1/2 to 2 cups florets",
+            "usedPlan": {
+              "1": "1 1/2 to 2 cups florets",
+              "2": "3 to 4 cups florets",
+              "3": "4 1/2 to 6 cups florets",
+              "4": "6 to 8 cups florets",
+              "5": "7 1/2 to 10 cups florets",
+              "6": "9 to 12 cups florets"
+            },
             "buy": "4 medium heads",
+            "buyPlan": {
+              "1": "4 medium heads",
+              "2": "7 medium heads",
+              "3": "10 medium heads",
+              "4": "13 medium heads",
+              "5": "16 medium heads",
+              "6": "19 medium heads"
+            },
             "store": "Costco"
           },
           {
             "name": "Cauliflower",
             "used": "2 cups florets",
+            "usedPlan": {
+              "1": "2 cups florets",
+              "2": "4 cups florets",
+              "3": "6 cups florets",
+              "4": "8 cups florets",
+              "5": "10 cups florets",
+              "6": "12 cups florets"
+            },
             "buy": "2 medium heads",
+            "buyPlan": {
+              "1": "2 medium heads",
+              "2": "3 medium heads",
+              "3": "4 medium heads",
+              "4": "5 medium heads",
+              "5": "6 medium heads",
+              "6": "7 medium heads"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1149,7 +1781,23 @@
           {
             "name": "Chicken Breast",
             "used": "6 to 8 oz",
+            "usedPlan": {
+              "1": "6 to 8 oz",
+              "2": "12 to 16 oz",
+              "3": "18 to 24 oz",
+              "4": "24 to 32 oz",
+              "5": "30 to 40 oz",
+              "6": "36 to 48 oz"
+            },
             "buy": "2 lb",
+            "buyPlan": {
+              "1": "2 lb",
+              "2": "3 1/2 lb",
+              "3": "5 lb",
+              "4": "6 1/2 lb",
+              "5": "8 lb",
+              "6": "9 1/2 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1162,7 +1810,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 to 1 cup",
+            "usedPlan": {
+              "1": "3/4 to 1 cup",
+              "2": "1 1/2 to 2 cups",
+              "3": "2 1/4 to 3 cups",
+              "4": "3 to 4 cups",
+              "5": "3 3/4 to 5 cups",
+              "6": "4 1/2 to 6 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -1173,19 +1837,67 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Mango",
             "used": "1 heaping cup",
+            "usedPlan": {
+              "1": "1 heaping cup",
+              "2": "2 heaping cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "4 mangoes",
+            "buyPlan": {
+              "1": "4 mangoes",
+              "2": "7 mangoes",
+              "3": "10 mangoes",
+              "4": "13 mangoes",
+              "5": "16 mangoes",
+              "6": "19 mangoes"
+            },
             "store": "Costco"
           },
           {
             "name": "Navel Orange",
             "used": "1 whole",
+            "usedPlan": {
+              "1": "1 whole",
+              "2": "2 whole",
+              "3": "3 whole",
+              "4": "4 whole",
+              "5": "5 whole",
+              "6": "6 whole"
+            },
             "buy": "4 oranges",
+            "buyPlan": {
+              "1": "4 oranges",
+              "2": "7 oranges",
+              "3": "10 oranges",
+              "4": "13 oranges",
+              "5": "16 oranges",
+              "6": "19 oranges"
+            },
             "store": "Costco"
           }
         ]
@@ -1196,25 +1908,89 @@
           {
             "name": "Coconut Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small jar",
+            "buyPlan": {
+              "1": "1 small jar",
+              "2": "1 small jar",
+              "3": "1 small jar",
+              "4": "2 small jars",
+              "5": "2 small jars",
+              "6": "2 small jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sesame Seeds",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small packet or jar",
+            "buyPlan": {
+              "1": "1 small packet or jar",
+              "2": "1 small packet or jar",
+              "3": "1 small packet or jar",
+              "4": "1 small packet or jar",
+              "5": "2 small packets or jars",
+              "6": "2 small packets or jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1225,19 +2001,67 @@
           {
             "name": "Broccoli",
             "used": "1 1/2 to 2 cups florets",
+            "usedPlan": {
+              "1": "1 1/2 to 2 cups florets",
+              "2": "3 to 4 cups florets",
+              "3": "4 1/2 to 6 cups florets",
+              "4": "6 to 8 cups florets",
+              "5": "7 1/2 to 10 cups florets",
+              "6": "9 to 12 cups florets"
+            },
             "buy": "4 medium heads",
+            "buyPlan": {
+              "1": "4 medium heads",
+              "2": "7 medium heads",
+              "3": "10 medium heads",
+              "4": "13 medium heads",
+              "5": "16 medium heads",
+              "6": "19 medium heads"
+            },
             "store": "Costco"
           },
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Lady's Finger (Okra)",
             "used": "1 1/2 cups",
+            "usedPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "buy": "1 1/2 lb",
+            "buyPlan": {
+              "1": "1 1/2 lb",
+              "2": "3 lb",
+              "3": "4 1/2 lb",
+              "4": "6 lb",
+              "5": "7 1/2 lb",
+              "6": "9 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1248,7 +2072,23 @@
           {
             "name": "Chicken Breast",
             "used": "6 to 8 oz",
+            "usedPlan": {
+              "1": "6 to 8 oz",
+              "2": "12 to 16 oz",
+              "3": "18 to 24 oz",
+              "4": "24 to 32 oz",
+              "5": "30 to 40 oz",
+              "6": "36 to 48 oz"
+            },
             "buy": "2 lb",
+            "buyPlan": {
+              "1": "2 lb",
+              "2": "3 1/2 lb",
+              "3": "5 lb",
+              "4": "6 1/2 lb",
+              "5": "8 lb",
+              "6": "9 1/2 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1261,7 +2101,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -1272,19 +2128,67 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Blueberries",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "3 cups",
+            "buyPlan": {
+              "1": "3 cups",
+              "2": "5 cups",
+              "3": "7 cups",
+              "4": "9 cups",
+              "5": "11 cups",
+              "6": "13 cups"
+            },
             "store": "Costco"
           },
           {
             "name": "Dragon Fruit",
             "used": "1 cup",
+            "usedPlan": {
+              "1": "1 cup",
+              "2": "2 cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "3 dragon fruits",
+            "buyPlan": {
+              "1": "3 dragon fruits",
+              "2": "5 dragon fruits",
+              "3": "7 dragon fruits",
+              "4": "9 dragon fruits",
+              "5": "11 dragon fruits",
+              "6": "13 dragon fruits"
+            },
             "store": "Costco"
           }
         ]
@@ -1295,25 +2199,89 @@
           {
             "name": "Basil",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Coriander",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Mint",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Thyme",
             "used": "1 tsp leaves",
+            "usedPlan": {
+              "1": "1 tsp leaves",
+              "2": "2 tsp leaves",
+              "3": "1 tbsp leaves",
+              "4": "4 tsp leaves",
+              "5": "5 tsp leaves",
+              "6": "2 tbsp leaves"
+            },
             "buy": "1 small bunch",
+            "buyPlan": {
+              "1": "1 small bunch",
+              "2": "1 small bunch",
+              "3": "1 small bunch",
+              "4": "2 small bunches",
+              "5": "2 small bunches",
+              "6": "2 small bunches"
+            },
             "store": "Costco"
           }
         ]
@@ -1324,31 +2292,111 @@
           {
             "name": "Chickpeas",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "2 cans or 3 cups cooked",
+            "buyPlan": {
+              "1": "2 cans or 3 cups cooked",
+              "2": "3 cans or 4 1/2 cups cooked",
+              "3": "4 cans or 6 cups cooked",
+              "4": "5 cans or 7 1/2 cups cooked",
+              "5": "6 cans or 9 cups cooked",
+              "6": "7 cans or 10 1/2 cups cooked"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "2 tsp",
+            "usedPlan": {
+              "1": "2 tsp",
+              "2": "4 tsp",
+              "3": "2 tbsp",
+              "4": "8 tsp",
+              "5": "10 tsp",
+              "6": "4 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Walnuts",
             "used": "2 tbsp",
+            "usedPlan": {
+              "1": "2 tbsp",
+              "2": "1/4 cup",
+              "3": "6 tbsp",
+              "4": "1/2 cup",
+              "5": "10 tbsp",
+              "6": "3/4 cup"
+            },
             "buy": "1 1/2 cups",
+            "buyPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "store": "Costco"
           }
         ]
@@ -1359,19 +2407,67 @@
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Green Beans",
             "used": "1 1/2 cups",
+            "usedPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "buy": "1 1/2 lb",
+            "buyPlan": {
+              "1": "1 1/2 lb",
+              "2": "3 lb",
+              "3": "4 1/2 lb",
+              "4": "6 lb",
+              "5": "7 1/2 lb",
+              "6": "9 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sweet Potatoes",
             "used": "1 large or 2 small",
+            "usedPlan": {
+              "1": "1 large or 2 small",
+              "2": "2 large or 4 small",
+              "3": "3 large or 6 small",
+              "4": "4 large or 8 small",
+              "5": "5 large or 10 small",
+              "6": "6 large or 12 small"
+            },
             "buy": "6 medium sweet potatoes",
+            "buyPlan": {
+              "1": "6 medium sweet potatoes",
+              "2": "10 medium sweet potatoes",
+              "3": "14 medium sweet potatoes",
+              "4": "18 medium sweet potatoes",
+              "5": "22 medium sweet potatoes",
+              "6": "26 medium sweet potatoes"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1384,7 +2480,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 to 1 cup",
+            "usedPlan": {
+              "1": "3/4 to 1 cup",
+              "2": "1 1/2 to 2 cups",
+              "3": "2 1/4 to 3 cups",
+              "4": "3 to 4 cups",
+              "5": "3 3/4 to 5 cups",
+              "6": "4 1/2 to 6 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -1395,13 +2507,45 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Mango",
             "used": "1 heaping cup",
+            "usedPlan": {
+              "1": "1 heaping cup",
+              "2": "2 heaping cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "4 mangoes",
+            "buyPlan": {
+              "1": "4 mangoes",
+              "2": "7 mangoes",
+              "3": "10 mangoes",
+              "4": "13 mangoes",
+              "5": "16 mangoes",
+              "6": "19 mangoes"
+            },
             "store": "Costco"
           }
         ]
@@ -1412,25 +2556,89 @@
           {
             "name": "Basil",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Coriander",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Mint",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Thyme",
             "used": "1 tsp leaves",
+            "usedPlan": {
+              "1": "1 tsp leaves",
+              "2": "2 tsp leaves",
+              "3": "1 tbsp leaves",
+              "4": "4 tsp leaves",
+              "5": "5 tsp leaves",
+              "6": "2 tbsp leaves"
+            },
             "buy": "1 small bunch",
+            "buyPlan": {
+              "1": "1 small bunch",
+              "2": "1 small bunch",
+              "3": "1 small bunch",
+              "4": "2 small bunches",
+              "5": "2 small bunches",
+              "6": "2 small bunches"
+            },
             "store": "Costco"
           }
         ]
@@ -1441,31 +2649,111 @@
           {
             "name": "Chickpeas",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "2 cans or 3 cups cooked",
+            "buyPlan": {
+              "1": "2 cans or 3 cups cooked",
+              "2": "3 cans or 4 1/2 cups cooked",
+              "3": "4 cans or 6 cups cooked",
+              "4": "5 cans or 7 1/2 cups cooked",
+              "5": "6 cans or 9 cups cooked",
+              "6": "7 cans or 10 1/2 cups cooked"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "2 tsp",
+            "usedPlan": {
+              "1": "2 tsp",
+              "2": "4 tsp",
+              "3": "2 tbsp",
+              "4": "8 tsp",
+              "5": "10 tsp",
+              "6": "4 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Walnuts",
             "used": "2 tbsp",
+            "usedPlan": {
+              "1": "2 tbsp",
+              "2": "1/4 cup",
+              "3": "6 tbsp",
+              "4": "1/2 cup",
+              "5": "10 tbsp",
+              "6": "3/4 cup"
+            },
             "buy": "1 1/2 cups",
+            "buyPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "store": "Costco"
           }
         ]
@@ -1476,19 +2764,67 @@
           {
             "name": "Cauliflower",
             "used": "2 cups florets",
+            "usedPlan": {
+              "1": "2 cups florets",
+              "2": "4 cups florets",
+              "3": "6 cups florets",
+              "4": "8 cups florets",
+              "5": "10 cups florets",
+              "6": "12 cups florets"
+            },
             "buy": "2 medium heads",
+            "buyPlan": {
+              "1": "2 medium heads",
+              "2": "3 medium heads",
+              "3": "4 medium heads",
+              "4": "5 medium heads",
+              "5": "6 medium heads",
+              "6": "7 medium heads"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sweet Potatoes",
             "used": "1 large or 2 small",
+            "usedPlan": {
+              "1": "1 large or 2 small",
+              "2": "2 large or 4 small",
+              "3": "3 large or 6 small",
+              "4": "4 large or 8 small",
+              "5": "5 large or 10 small",
+              "6": "6 large or 12 small"
+            },
             "buy": "6 medium sweet potatoes",
+            "buyPlan": {
+              "1": "6 medium sweet potatoes",
+              "2": "10 medium sweet potatoes",
+              "3": "14 medium sweet potatoes",
+              "4": "18 medium sweet potatoes",
+              "5": "22 medium sweet potatoes",
+              "6": "26 medium sweet potatoes"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1501,7 +2837,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -1512,19 +2864,67 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Blueberries",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "3 cups",
+            "buyPlan": {
+              "1": "3 cups",
+              "2": "5 cups",
+              "3": "7 cups",
+              "4": "9 cups",
+              "5": "11 cups",
+              "6": "13 cups"
+            },
             "store": "Costco"
           },
           {
             "name": "Dragon Fruit",
             "used": "1 cup",
+            "usedPlan": {
+              "1": "1 cup",
+              "2": "2 cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "3 dragon fruits",
+            "buyPlan": {
+              "1": "3 dragon fruits",
+              "2": "5 dragon fruits",
+              "3": "7 dragon fruits",
+              "4": "9 dragon fruits",
+              "5": "11 dragon fruits",
+              "6": "13 dragon fruits"
+            },
             "store": "Costco"
           }
         ]
@@ -1535,25 +2935,89 @@
           {
             "name": "Basil",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Coriander",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Mint",
             "used": "1 tbsp chopped",
+            "usedPlan": {
+              "1": "1 tbsp chopped",
+              "2": "2 tbsp chopped",
+              "3": "3 tbsp chopped",
+              "4": "1/4 cup chopped",
+              "5": "5 tbsp chopped",
+              "6": "3/8 cup chopped"
+            },
             "buy": "1 bunch",
+            "buyPlan": {
+              "1": "1 bunch",
+              "2": "1 bunch",
+              "3": "2 bunches",
+              "4": "2 bunches",
+              "5": "3 bunches",
+              "6": "3 bunches"
+            },
             "store": "Costco"
           },
           {
             "name": "Thyme",
             "used": "1 tsp leaves",
+            "usedPlan": {
+              "1": "1 tsp leaves",
+              "2": "2 tsp leaves",
+              "3": "1 tbsp leaves",
+              "4": "4 tsp leaves",
+              "5": "5 tsp leaves",
+              "6": "2 tbsp leaves"
+            },
             "buy": "1 small bunch",
+            "buyPlan": {
+              "1": "1 small bunch",
+              "2": "1 small bunch",
+              "3": "1 small bunch",
+              "4": "2 small bunches",
+              "5": "2 small bunches",
+              "6": "2 small bunches"
+            },
             "store": "Costco"
           }
         ]
@@ -1564,31 +3028,111 @@
           {
             "name": "Chickpeas",
             "used": "3/4 cup",
+            "usedPlan": {
+              "1": "3/4 cup",
+              "2": "1 1/2 cups",
+              "3": "2 1/4 cups",
+              "4": "3 cups",
+              "5": "3 3/4 cups",
+              "6": "4 1/2 cups"
+            },
             "buy": "2 cans or 3 cups cooked",
+            "buyPlan": {
+              "1": "2 cans or 3 cups cooked",
+              "2": "3 cans or 4 1/2 cups cooked",
+              "3": "4 cans or 6 cups cooked",
+              "4": "5 cans or 7 1/2 cups cooked",
+              "5": "6 cans or 9 cups cooked",
+              "6": "7 cans or 10 1/2 cups cooked"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "2 tsp",
+            "usedPlan": {
+              "1": "2 tsp",
+              "2": "4 tsp",
+              "3": "2 tbsp",
+              "4": "8 tsp",
+              "5": "10 tsp",
+              "6": "4 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Walnuts",
             "used": "2 tbsp",
+            "usedPlan": {
+              "1": "2 tbsp",
+              "2": "1/4 cup",
+              "3": "6 tbsp",
+              "4": "1/2 cup",
+              "5": "10 tbsp",
+              "6": "3/4 cup"
+            },
             "buy": "1 1/2 cups",
+            "buyPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "store": "Costco"
           }
         ]
@@ -1599,19 +3143,67 @@
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Lady's Finger (Okra)",
             "used": "1 1/2 cups",
+            "usedPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "buy": "1 1/2 lb",
+            "buyPlan": {
+              "1": "1 1/2 lb",
+              "2": "3 lb",
+              "3": "4 1/2 lb",
+              "4": "6 lb",
+              "5": "7 1/2 lb",
+              "6": "9 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sweet Potatoes",
             "used": "1 large or 2 small",
+            "usedPlan": {
+              "1": "1 large or 2 small",
+              "2": "2 large or 4 small",
+              "3": "3 large or 6 small",
+              "4": "4 large or 8 small",
+              "5": "5 large or 10 small",
+              "6": "6 large or 12 small"
+            },
             "buy": "6 medium sweet potatoes",
+            "buyPlan": {
+              "1": "6 medium sweet potatoes",
+              "2": "10 medium sweet potatoes",
+              "3": "14 medium sweet potatoes",
+              "4": "18 medium sweet potatoes",
+              "5": "22 medium sweet potatoes",
+              "6": "26 medium sweet potatoes"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1624,7 +3216,23 @@
           {
             "name": "Coconut Water",
             "used": "3/4 to 1 cup",
+            "usedPlan": {
+              "1": "3/4 to 1 cup",
+              "2": "1 1/2 to 2 cups",
+              "3": "2 1/4 to 3 cups",
+              "4": "3 to 4 cups",
+              "5": "3 3/4 to 5 cups",
+              "6": "4 1/2 to 6 cups"
+            },
             "buy": "2 to 3 liters",
+            "buyPlan": {
+              "1": "2 to 3 liters",
+              "2": "4 to 5 liters",
+              "3": "6 to 7 liters",
+              "4": "8 to 9 liters",
+              "5": "10 to 11 liters",
+              "6": "12 to 13 liters"
+            },
             "store": "Costco"
           }
         ]
@@ -1635,19 +3243,67 @@
           {
             "name": "Banana",
             "used": "1 medium",
+            "usedPlan": {
+              "1": "1 medium",
+              "2": "2 medium",
+              "3": "3 medium",
+              "4": "4 medium",
+              "5": "5 medium",
+              "6": "6 medium"
+            },
             "buy": "7 bananas",
+            "buyPlan": {
+              "1": "7 bananas",
+              "2": "14 bananas",
+              "3": "21 bananas",
+              "4": "28 bananas",
+              "5": "35 bananas",
+              "6": "42 bananas"
+            },
             "store": "Costco"
           },
           {
             "name": "Mango",
             "used": "1 heaping cup",
+            "usedPlan": {
+              "1": "1 heaping cup",
+              "2": "2 heaping cups",
+              "3": "3 cups",
+              "4": "4 cups",
+              "5": "5 cups",
+              "6": "6 cups"
+            },
             "buy": "4 mangoes",
+            "buyPlan": {
+              "1": "4 mangoes",
+              "2": "7 mangoes",
+              "3": "10 mangoes",
+              "4": "13 mangoes",
+              "5": "16 mangoes",
+              "6": "19 mangoes"
+            },
             "store": "Costco"
           },
           {
             "name": "Navel Orange",
             "used": "1 whole",
+            "usedPlan": {
+              "1": "1 whole",
+              "2": "2 whole",
+              "3": "3 whole",
+              "4": "4 whole",
+              "5": "5 whole",
+              "6": "6 whole"
+            },
             "buy": "4 oranges",
+            "buyPlan": {
+              "1": "4 oranges",
+              "2": "7 oranges",
+              "3": "10 oranges",
+              "4": "13 oranges",
+              "5": "16 oranges",
+              "6": "19 oranges"
+            },
             "store": "Costco"
           }
         ]
@@ -1658,25 +3314,89 @@
           {
             "name": "Coconut Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small jar",
+            "buyPlan": {
+              "1": "1 small jar",
+              "2": "1 small jar",
+              "3": "1 small jar",
+              "4": "2 small jars",
+              "5": "2 small jars",
+              "6": "2 small jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Flax Seeds",
             "used": "1 tbsp",
+            "usedPlan": {
+              "1": "1 tbsp",
+              "2": "2 tbsp",
+              "3": "3 tbsp",
+              "4": "4 tbsp",
+              "5": "5 tbsp",
+              "6": "6 tbsp"
+            },
             "buy": "1 cup (about 250 g)",
+            "buyPlan": {
+              "1": "1 cup (about 250 g)",
+              "2": "2 cups (about 500 g)",
+              "3": "3 cups (about 750 g)",
+              "4": "4 cups (about 1 kg)",
+              "5": "5 cups (about 1.25 kg)",
+              "6": "6 cups (about 1.5 kg)"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Olive Oil",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 bottle",
+            "buyPlan": {
+              "1": "1 bottle",
+              "2": "1 bottle",
+              "3": "1 bottle",
+              "4": "2 bottles",
+              "5": "2 bottles",
+              "6": "2 bottles"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Sesame Seeds",
             "used": "1 tsp",
+            "usedPlan": {
+              "1": "1 tsp",
+              "2": "2 tsp",
+              "3": "1 tbsp",
+              "4": "4 tsp",
+              "5": "5 tsp",
+              "6": "2 tbsp"
+            },
             "buy": "1 small packet or jar",
+            "buyPlan": {
+              "1": "1 small packet or jar",
+              "2": "1 small packet or jar",
+              "3": "1 small packet or jar",
+              "4": "1 small packet or jar",
+              "5": "2 small packets or jars",
+              "6": "2 small packets or jars"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1687,19 +3407,67 @@
           {
             "name": "Broccoli",
             "used": "1 1/2 to 2 cups florets",
+            "usedPlan": {
+              "1": "1 1/2 to 2 cups florets",
+              "2": "3 to 4 cups florets",
+              "3": "4 1/2 to 6 cups florets",
+              "4": "6 to 8 cups florets",
+              "5": "7 1/2 to 10 cups florets",
+              "6": "9 to 12 cups florets"
+            },
             "buy": "4 medium heads",
+            "buyPlan": {
+              "1": "4 medium heads",
+              "2": "7 medium heads",
+              "3": "10 medium heads",
+              "4": "13 medium heads",
+              "5": "16 medium heads",
+              "6": "19 medium heads"
+            },
             "store": "Costco"
           },
           {
             "name": "Celery",
             "used": "4 to 5 stalks",
+            "usedPlan": {
+              "1": "4 to 5 stalks",
+              "2": "8 to 10 stalks",
+              "3": "12 to 15 stalks",
+              "4": "16 to 20 stalks",
+              "5": "20 to 25 stalks",
+              "6": "24 to 30 stalks"
+            },
             "buy": "3 bunches",
+            "buyPlan": {
+              "1": "3 bunches",
+              "2": "5 bunches",
+              "3": "7 bunches",
+              "4": "9 bunches",
+              "5": "11 bunches",
+              "6": "13 bunches"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           },
           {
             "name": "Green Beans",
             "used": "1 1/2 cups",
+            "usedPlan": {
+              "1": "1 1/2 cups",
+              "2": "3 cups",
+              "3": "4 1/2 cups",
+              "4": "6 cups",
+              "5": "7 1/2 cups",
+              "6": "9 cups"
+            },
             "buy": "1 1/2 lb",
+            "buyPlan": {
+              "1": "1 1/2 lb",
+              "2": "3 lb",
+              "3": "4 1/2 lb",
+              "4": "6 lb",
+              "5": "7 1/2 lb",
+              "6": "9 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1710,7 +3478,23 @@
           {
             "name": "Chicken Breast",
             "used": "6 to 8 oz",
+            "usedPlan": {
+              "1": "6 to 8 oz",
+              "2": "12 to 16 oz",
+              "3": "18 to 24 oz",
+              "4": "24 to 32 oz",
+              "5": "30 to 40 oz",
+              "6": "36 to 48 oz"
+            },
             "buy": "2 lb",
+            "buyPlan": {
+              "1": "2 lb",
+              "2": "3 1/2 lb",
+              "3": "5 lb",
+              "4": "6 1/2 lb",
+              "5": "8 lb",
+              "6": "9 1/2 lb"
+            },
             "store": "Whole Foods / Fred Meyer / QFC"
           }
         ]
@@ -1724,6 +3508,14 @@
         {
           "name": "Coconut Water",
           "quantity": "2 to 3 liters",
+          "buyPlan": {
+            "1": "2 to 3 liters",
+            "2": "4 to 5 liters",
+            "3": "6 to 7 liters",
+            "4": "8 to 9 liters",
+            "5": "10 to 11 liters",
+            "6": "12 to 13 liters"
+          },
           "store": "Costco"
         }
       ]
@@ -1734,26 +3526,66 @@
         {
           "name": "Banana",
           "quantity": "7 bananas",
+          "buyPlan": {
+            "1": "7 bananas",
+            "2": "14 bananas",
+            "3": "21 bananas",
+            "4": "28 bananas",
+            "5": "35 bananas",
+            "6": "42 bananas"
+          },
           "store": "Costco"
         },
         {
           "name": "Blueberries",
           "quantity": "3 cups",
+          "buyPlan": {
+            "1": "3 cups",
+            "2": "5 cups",
+            "3": "7 cups",
+            "4": "9 cups",
+            "5": "11 cups",
+            "6": "13 cups"
+          },
           "store": "Costco"
         },
         {
           "name": "Dragon Fruit",
           "quantity": "3 dragon fruits",
+          "buyPlan": {
+            "1": "3 dragon fruits",
+            "2": "5 dragon fruits",
+            "3": "7 dragon fruits",
+            "4": "9 dragon fruits",
+            "5": "11 dragon fruits",
+            "6": "13 dragon fruits"
+          },
           "store": "Costco"
         },
         {
           "name": "Mango",
           "quantity": "4 mangoes",
+          "buyPlan": {
+            "1": "4 mangoes",
+            "2": "7 mangoes",
+            "3": "10 mangoes",
+            "4": "13 mangoes",
+            "5": "16 mangoes",
+            "6": "19 mangoes"
+          },
           "store": "Costco"
         },
         {
           "name": "Navel Orange",
           "quantity": "4 oranges",
+          "buyPlan": {
+            "1": "4 oranges",
+            "2": "7 oranges",
+            "3": "10 oranges",
+            "4": "13 oranges",
+            "5": "16 oranges",
+            "6": "19 oranges"
+          },
           "store": "Costco"
         }
       ]
@@ -1764,21 +3596,53 @@
         {
           "name": "Basil",
           "quantity": "1 bunch",
+          "buyPlan": {
+            "1": "1 bunch",
+            "2": "1 bunch",
+            "3": "2 bunches",
+            "4": "2 bunches",
+            "5": "3 bunches",
+            "6": "3 bunches"
+          },
           "store": "Costco"
         },
         {
           "name": "Coriander",
           "quantity": "1 bunch",
+          "buyPlan": {
+            "1": "1 bunch",
+            "2": "1 bunch",
+            "3": "2 bunches",
+            "4": "2 bunches",
+            "5": "3 bunches",
+            "6": "3 bunches"
+          },
           "store": "Costco"
         },
         {
           "name": "Mint",
           "quantity": "1 bunch",
+          "buyPlan": {
+            "1": "1 bunch",
+            "2": "1 bunch",
+            "3": "2 bunches",
+            "4": "2 bunches",
+            "5": "3 bunches",
+            "6": "3 bunches"
+          },
           "store": "Costco"
         },
         {
           "name": "Thyme",
           "quantity": "1 small bunch",
+          "buyPlan": {
+            "1": "1 small bunch",
+            "2": "1 small bunch",
+            "3": "1 small bunch",
+            "4": "2 small bunches",
+            "5": "2 small bunches",
+            "6": "2 small bunches"
+          },
           "store": "Costco"
         }
       ]
@@ -1789,31 +3653,79 @@
         {
           "name": "Chickpeas",
           "quantity": "2 cans or 3 cups cooked",
+          "buyPlan": {
+            "1": "2 cans or 3 cups cooked",
+            "2": "3 cans or 4 1/2 cups cooked",
+            "3": "4 cans or 6 cups cooked",
+            "4": "5 cans or 7 1/2 cups cooked",
+            "5": "6 cans or 9 cups cooked",
+            "6": "7 cans or 10 1/2 cups cooked"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Coconut Oil",
           "quantity": "1 small jar",
+          "buyPlan": {
+            "1": "1 small jar",
+            "2": "1 small jar",
+            "3": "1 small jar",
+            "4": "2 small jars",
+            "5": "2 small jars",
+            "6": "2 small jars"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Flax Seeds",
           "quantity": "1 cup (about 250 g)",
+          "buyPlan": {
+            "1": "1 cup (about 250 g)",
+            "2": "2 cups (about 500 g)",
+            "3": "3 cups (about 750 g)",
+            "4": "4 cups (about 1 kg)",
+            "5": "5 cups (about 1.25 kg)",
+            "6": "6 cups (about 1.5 kg)"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Olive Oil",
           "quantity": "1 bottle",
+          "buyPlan": {
+            "1": "1 bottle",
+            "2": "1 bottle",
+            "3": "1 bottle",
+            "4": "2 bottles",
+            "5": "2 bottles",
+            "6": "2 bottles"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Sesame Seeds",
           "quantity": "1 small packet or jar",
+          "buyPlan": {
+            "1": "1 small packet or jar",
+            "2": "1 small packet or jar",
+            "3": "1 small packet or jar",
+            "4": "1 small packet or jar",
+            "5": "2 small packets or jars",
+            "6": "2 small packets or jars"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Walnuts",
           "quantity": "1 1/2 cups",
+          "buyPlan": {
+            "1": "1 1/2 cups",
+            "2": "3 cups",
+            "3": "4 1/2 cups",
+            "4": "6 cups",
+            "5": "7 1/2 cups",
+            "6": "9 cups"
+          },
           "store": "Costco"
         }
       ]
@@ -1824,31 +3736,79 @@
         {
           "name": "Broccoli",
           "quantity": "4 medium heads",
+          "buyPlan": {
+            "1": "4 medium heads",
+            "2": "7 medium heads",
+            "3": "10 medium heads",
+            "4": "13 medium heads",
+            "5": "16 medium heads",
+            "6": "19 medium heads"
+          },
           "store": "Costco"
         },
         {
           "name": "Cauliflower",
           "quantity": "2 medium heads",
+          "buyPlan": {
+            "1": "2 medium heads",
+            "2": "3 medium heads",
+            "3": "4 medium heads",
+            "4": "5 medium heads",
+            "5": "6 medium heads",
+            "6": "7 medium heads"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Celery",
           "quantity": "3 bunches",
+          "buyPlan": {
+            "1": "3 bunches",
+            "2": "5 bunches",
+            "3": "7 bunches",
+            "4": "9 bunches",
+            "5": "11 bunches",
+            "6": "13 bunches"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Green Beans",
           "quantity": "1 1/2 lb",
+          "buyPlan": {
+            "1": "1 1/2 lb",
+            "2": "3 lb",
+            "3": "4 1/2 lb",
+            "4": "6 lb",
+            "5": "7 1/2 lb",
+            "6": "9 lb"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Lady's Finger (Okra)",
           "quantity": "1 1/2 lb",
+          "buyPlan": {
+            "1": "1 1/2 lb",
+            "2": "3 lb",
+            "3": "4 1/2 lb",
+            "4": "6 lb",
+            "5": "7 1/2 lb",
+            "6": "9 lb"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         },
         {
           "name": "Sweet Potatoes",
           "quantity": "6 medium sweet potatoes",
+          "buyPlan": {
+            "1": "6 medium sweet potatoes",
+            "2": "10 medium sweet potatoes",
+            "3": "14 medium sweet potatoes",
+            "4": "18 medium sweet potatoes",
+            "5": "22 medium sweet potatoes",
+            "6": "26 medium sweet potatoes"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         }
       ]
@@ -1859,6 +3819,14 @@
         {
           "name": "Chicken Breast",
           "quantity": "2 lb",
+          "buyPlan": {
+            "1": "2 lb",
+            "2": "3 1/2 lb",
+            "3": "5 lb",
+            "4": "6 1/2 lb",
+            "5": "8 lb",
+            "6": "9 1/2 lb"
+          },
           "store": "Whole Foods / Fred Meyer / QFC"
         }
       ]
