@@ -107,7 +107,10 @@ RECIPE_DETAILS = {
         "method": "Soak and Stir",
         "prepMinutes": 2,
         "cookMinutes": 0,
-        "ingredients": ["Flax Seeds", "Water"],
+        "ingredients": [
+            {"name": "Flax Seeds", "amount": "1 tbsp"},
+            {"name": "Water", "amount": "12 to 14 oz"},
+        ],
         "steps": [
             "Stir 1 tablespoon flax seeds into a large glass of water.",
             "Let it soak overnight or at least 6 hours so the water softens and thickens slightly.",
@@ -121,7 +124,10 @@ RECIPE_DETAILS = {
         "method": "Blend or Juice",
         "prepMinutes": 5,
         "cookMinutes": 0,
-        "ingredients": ["Celery", "Water"],
+        "ingredients": [
+            {"name": "Celery", "amount": "4 to 5 stalks"},
+            {"name": "Water", "amount": "2 to 3 tbsp if blending"},
+        ],
         "steps": [
             "Roughly chop celery and add it to a blender with a small splash of water.",
             "Blend until smooth, adding just enough water to help it move.",
@@ -135,7 +141,11 @@ RECIPE_DETAILS = {
         "method": "Blender",
         "prepMinutes": 5,
         "cookMinutes": 0,
-        "ingredients": ["Mango", "Banana", "Coconut Water"],
+        "ingredients": [
+            {"name": "Mango", "amount": "1 heaping cup"},
+            {"name": "Banana", "amount": "1 medium"},
+            {"name": "Coconut Water", "amount": "3/4 to 1 cup"},
+        ],
         "steps": [
             "Add chopped mango, banana, and cold coconut water to a blender.",
             "Blend until silky and thick, scraping down the sides if needed.",
@@ -149,7 +159,12 @@ RECIPE_DETAILS = {
         "method": "Blender",
         "prepMinutes": 5,
         "cookMinutes": 0,
-        "ingredients": ["Dragon Fruit", "Blueberries", "Banana", "Coconut Water"],
+        "ingredients": [
+            {"name": "Dragon Fruit", "amount": "1 cup"},
+            {"name": "Blueberries", "amount": "3/4 cup"},
+            {"name": "Banana", "amount": "1 medium"},
+            {"name": "Coconut Water", "amount": "3/4 cup"},
+        ],
         "steps": [
             "Add dragon fruit, blueberries, banana, and coconut water to a blender.",
             "Blend until the berries disappear and the color turns evenly vibrant.",
@@ -164,12 +179,12 @@ RECIPE_DETAILS = {
         "prepMinutes": 12,
         "cookMinutes": 20,
         "ingredients": [
-            "Chicken Breast",
-            "Navel Orange",
-            "Broccoli",
-            "Coconut Oil",
-            "Olive Oil",
-            "Sesame Seeds",
+            {"name": "Chicken Breast", "amount": "6 to 8 oz"},
+            {"name": "Navel Orange", "amount": "1 whole"},
+            {"name": "Broccoli", "amount": "1 1/2 to 2 cups florets"},
+            {"name": "Coconut Oil", "amount": "1 tsp"},
+            {"name": "Olive Oil", "amount": "1 tsp"},
+            {"name": "Sesame Seeds", "amount": "1 tsp"},
         ],
         "steps": [
             "Season chicken breast with salt and pepper, then sear it in a hot pan with coconut oil until lightly golden.",
@@ -187,14 +202,14 @@ RECIPE_DETAILS = {
         "prepMinutes": 15,
         "cookMinutes": 30,
         "ingredients": [
-            "Sweet Potatoes",
-            "Chickpeas",
-            "Walnuts",
-            "Coriander",
-            "Mint",
-            "Basil",
-            "Thyme",
-            "Olive Oil",
+            {"name": "Sweet Potatoes", "amount": "1 large or 2 small"},
+            {"name": "Chickpeas", "amount": "3/4 cup"},
+            {"name": "Walnuts", "amount": "2 tbsp"},
+            {"name": "Coriander", "amount": "1 tbsp chopped"},
+            {"name": "Mint", "amount": "1 tbsp chopped"},
+            {"name": "Basil", "amount": "1 tbsp chopped"},
+            {"name": "Thyme", "amount": "1 tsp leaves"},
+            {"name": "Olive Oil", "amount": "2 tsp"},
         ],
         "steps": [
             "Roast halved or cubed sweet potatoes with olive oil, salt, pepper, and thyme until deeply tender and browned at the edges.",
@@ -211,7 +226,10 @@ RECIPE_DETAILS = {
         "method": "Stovetop Pan",
         "prepMinutes": 5,
         "cookMinutes": 10,
-        "ingredients": ["Green Beans", "Olive Oil"],
+        "ingredients": [
+            {"name": "Green Beans", "amount": "1 1/2 cups"},
+            {"name": "Olive Oil", "amount": "1 tsp"},
+        ],
         "steps": [
             "Heat a wide pan with olive oil until hot.",
             "Add green beans in one layer and season with salt and pepper.",
@@ -226,7 +244,10 @@ RECIPE_DETAILS = {
         "method": "Oven or Air Fryer",
         "prepMinutes": 8,
         "cookMinutes": 18,
-        "ingredients": ["Cauliflower", "Olive Oil"],
+        "ingredients": [
+            {"name": "Cauliflower", "amount": "2 cups florets"},
+            {"name": "Olive Oil", "amount": "1 tsp"},
+        ],
         "steps": [
             "Cut cauliflower into medium florets and coat with olive oil, salt, and pepper.",
             "Roast or air fry until the edges are deeply golden and the centers are tender.",
@@ -241,7 +262,10 @@ RECIPE_DETAILS = {
         "method": "Stovetop Pan",
         "prepMinutes": 8,
         "cookMinutes": 12,
-        "ingredients": ["Lady's Finger (Okra)", "Olive Oil"],
+        "ingredients": [
+            {"name": "Lady's Finger (Okra)", "amount": "1 1/2 cups"},
+            {"name": "Olive Oil", "amount": "1 tsp"},
+        ],
         "steps": [
             "Dry the okra thoroughly, then slice it into larger pieces so it browns instead of steams.",
             "Heat olive oil in a wide pan and add the okra in a single layer.",
@@ -406,8 +430,14 @@ def build_recipes(workbook_recipes: dict[str, list[str]]) -> tuple[list[dict], d
         workbook_ingredients = workbook_recipes.get(details["title"], [])
         listed_ingredients = []
         for ingredient in details["ingredients"]:
-            canonical = canonicalize(ingredient)
-            listed_ingredients.append({"name": display_name(canonical), "canonical": canonical})
+            canonical = canonicalize(ingredient["name"])
+            listed_ingredients.append(
+                {
+                    "name": display_name(canonical),
+                    "canonical": canonical,
+                    "amount": ingredient["amount"],
+                }
+            )
         recipe = {
             "id": recipe_id,
             "title": details["title"],
@@ -493,6 +523,38 @@ def build_weekly_supply_list(recipe_by_id: dict[str, dict], store_lookup: dict[s
     ]
 
 
+def build_daily_supply_list(days: list[dict], dishes: list[dict], recipe_by_id: dict[str, dict], store_lookup: dict[str, list[str]]) -> dict[str, list[dict]]:
+    dish_lookup = {dish["id"]: dish for dish in dishes}
+    output = {}
+    for day in days:
+        grouped = {}
+        seen = set()
+        for meal in day["meals"]:
+            for dish_id in meal["dishIds"]:
+                recipe = recipe_by_id[dish_lookup[dish_id]["recipeId"]]
+                for ingredient in recipe["ingredients"]:
+                    key = (ingredient["canonical"], ingredient["amount"])
+                    if key in seen or ingredient["canonical"] == "water":
+                        continue
+                    seen.add(key)
+                    guide = WEEKLY_QUANTITY_GUIDE.get(ingredient["canonical"])
+                    category = guide["category"] if guide else "Needs Review"
+                    store = store_lookup.get(ingredient["canonical"], [DEFAULT_STORE])[0]
+                    grouped.setdefault(category, []).append(
+                        {
+                            "name": ingredient["name"],
+                            "used": ingredient["amount"],
+                            "buy": guide["quantity"] if guide else "See weekly supply list",
+                            "store": store,
+                        }
+                    )
+        output[day["id"]] = [
+            {"category": category, "items": sorted(items, key=lambda item: item["name"].lower())}
+            for category, items in sorted(grouped.items(), key=lambda pair: pair[0].lower())
+        ]
+    return output
+
+
 def build_day_shopping(days: list[dict], recipe_by_id: dict[str, dict], store_lookup: dict[str, list[str]]) -> dict[str, dict]:
     result = {}
     all_unassigned = set()
@@ -549,6 +611,7 @@ def build_data() -> dict:
     day_shopping = build_day_shopping(days, recipe_by_id, store_lookup)
     weekly_shopping = build_weekly_shopping(store_lists, day_shopping["weekly"]["unassigned"])
     weekly_supply = build_weekly_supply_list(recipe_by_id, store_lookup)
+    daily_supply = build_daily_supply_list(days, dishes, recipe_by_id, store_lookup)
 
     return {
         "title": "Weekly Diet Dashboard",
@@ -560,6 +623,7 @@ def build_data() -> dict:
         "dishes": dishes,
         "recipes": recipes,
         "dayShopping": day_shopping,
+        "dailySupply": daily_supply,
         "weeklySupply": weekly_supply,
         "weeklyShopping": weekly_shopping,
         "pdfPath": "output/weekly-diet-dashboard.pdf",
@@ -693,6 +757,7 @@ def build_html(data: dict) -> str:
       gap: 10px;
     }}
     .action-link {{
+      border: 0;
       text-decoration: none;
       background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
@@ -700,6 +765,8 @@ def build_html(data: dict) -> str:
       padding: 12px 16px;
       font-weight: 700;
       box-shadow: 0 12px 26px rgba(255, 92, 138, 0.24);
+      cursor: pointer;
+      font: inherit;
     }}
     .action-link.secondary {{
       background: rgba(255, 255, 255, 0.86);
@@ -839,6 +906,8 @@ def build_html(data: dict) -> str:
       display: block;
       text-decoration: none;
       color: inherit;
+      width: 100%;
+      text-align: left;
       padding: 12px;
       border-radius: 14px;
       background: var(--panel-strong);
@@ -916,16 +985,21 @@ def build_html(data: dict) -> str:
       list-style: none;
     }}
     .ingredient-list {{
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 8px;
       margin-bottom: 14px;
     }}
     .ingredient-list li {{
-      background: linear-gradient(135deg, var(--accent-soft), rgba(201, 244, 255, 0.8));
-      border-radius: 999px;
-      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(255, 227, 238, 0.9), rgba(201, 244, 255, 0.85));
+      border-radius: 16px;
+      padding: 10px 12px;
       font-size: 13px;
+      border: 1px solid rgba(24, 35, 41, 0.06);
+    }}
+    .ingredient-list li strong {{
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
     }}
     .steps-list {{
       display: grid;
@@ -979,6 +1053,32 @@ def build_html(data: dict) -> str:
     .shopping-card h3 {{
       margin-bottom: 8px;
     }}
+    .shopping-toggle-row {{
+      margin: 0 0 14px;
+    }}
+    .toggle-button {{
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: white;
+      box-shadow: 0 10px 20px rgba(255, 92, 138, 0.2);
+    }}
+    .toggle-button.subtle {{
+      background: rgba(255,255,255,0.82);
+      color: var(--ink);
+      box-shadow: none;
+      border: 1px solid var(--line);
+    }}
+    .collapsible-section[hidden] {{
+      display: none !important;
+    }}
+    .collapsible-section {{
+      margin-bottom: 10px;
+    }}
     .shopping-list {{
       display: flex;
       flex-wrap: wrap;
@@ -1023,11 +1123,19 @@ def build_html(data: dict) -> str:
       display: block;
       color: var(--muted);
       line-height: 1.4;
-      font-size: 14px;
+      font-size: 13px;
     }}
     .buy-quantity {{
       color: var(--accent-strong);
+      font-weight: 800;
+      font-size: 15px;
+      margin: 3px 0;
+    }}
+    .used-quantity {{
+      color: var(--ink);
       font-weight: 700;
+      font-size: 14px;
+      margin: 3px 0;
     }}
     details.weekly {{
       margin-top: 18px;
@@ -1105,13 +1213,10 @@ def build_html(data: dict) -> str:
       <span class="eyebrow">Public Share Link Ready</span>
       <h1>{title}</h1>
       <p class="subtitle">{subtitle}</p>
-      <div class="hero-meta">
-        <span class="meta-pill">Tap a day, no login required</span>
-        <span class="meta-pill">Recipes stay inside your ingredient rules</span>
-        <span class="meta-pill">Weekly and day-specific shopping views</span>
-      </div>
       <div class="top-actions">
         <a class="action-link" href="#day-view">Jump to Day View</a>
+        <button class="action-link secondary" type="button" id="open-day-shopping">Day Shopping</button>
+        <button class="action-link secondary" type="button" id="open-weekly-shopping">Weekly Shopping</button>
         <a class="action-link secondary" href="{escape(data['pdfPath'])}">Open PDF Backup</a>
       </div>
     </section>
@@ -1134,10 +1239,14 @@ def build_html(data: dict) -> str:
     <section>
       <div class="section-heading">
         <div>
-          <div class="section-sticker">✨ Tap any meal card to jump to its recipe</div>
-          <h2>Recipes For This Day</h2>
-          <p>Each recipe stays inside your workbook ingredients plus pantry basics only.</p>
+          <div class="section-sticker">✨ Tap a meal to open its recipe</div>
+          <h2>Recipe Focus</h2>
+          <p>Only one recipe opens at a time so the page stays calm and easy to scan.</p>
         </div>
+      </div>
+      <div id="recipe-empty" class="panel">
+        <h3>Choose a meal card above</h3>
+        <p>Tap any breakfast, lunch, dinner, or cleanse item to open the matching recipe with the exact amount used.</p>
       </div>
       <div class="recipes-grid" id="recipes-grid"></div>
     </section>
@@ -1150,7 +1259,12 @@ def build_html(data: dict) -> str:
           <p>These quantities are estimated for one person following this exact weekly plan.</p>
         </div>
       </div>
-      <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+      <div class="shopping-toggle-row">
+        <button class="toggle-button" type="button" id="toggle-weekly-supply">Open Weekly Supply List</button>
+      </div>
+      <div class="collapsible-section" id="weekly-supply-section" hidden>
+        <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+      </div>
     </section>
 
     <section>
@@ -1158,16 +1272,22 @@ def build_html(data: dict) -> str:
         <div>
           <div class="section-sticker">🧺 Filtered by selected day</div>
           <h2>Shopping For This Day</h2>
-          <p>Store lists are filtered to the ingredients tied to the day you selected.</p>
+          <p>Open this only when you need to buy for the currently selected day.</p>
         </div>
       </div>
-      <div class="shopping-grid" id="shopping-grid"></div>
-      <details class="weekly">
-        <summary>See the full weekly shopping list</summary>
-        <div class="weekly-body">
-          <div class="shopping-grid" id="weekly-shopping-grid"></div>
-        </div>
-      </details>
+      <div class="shopping-toggle-row">
+        <button class="toggle-button" type="button" id="toggle-day-shopping">Open Day Shopping</button>
+      </div>
+      <div class="collapsible-section" id="day-shopping-section" hidden>
+        <div class="weekly-supply-grid" id="daily-supply-grid"></div>
+        <div class="shopping-grid" id="shopping-grid"></div>
+      </div>
+      <div class="shopping-toggle-row">
+        <button class="toggle-button subtle" type="button" id="toggle-weekly-shopping">Open Weekly Store List</button>
+      </div>
+      <div class="collapsible-section" id="weekly-shopping-section" hidden>
+        <div class="shopping-grid" id="weekly-shopping-grid"></div>
+      </div>
     </section>
 
     <section>
@@ -1196,13 +1316,24 @@ def build_html(data: dict) -> str:
     const mealsGrid = document.getElementById("meals-grid");
     const recipesGrid = document.getElementById("recipes-grid");
     const shoppingGrid = document.getElementById("shopping-grid");
+    const dailySupplyGrid = document.getElementById("daily-supply-grid");
     const weeklySupplyGrid = document.getElementById("weekly-supply-grid");
     const weeklyShoppingGrid = document.getElementById("weekly-shopping-grid");
     const pantryList = document.getElementById("pantry-list");
     const selectedDayTitle = document.getElementById("selected-day-title");
     const selectedDayCopy = document.getElementById("selected-day-copy");
+    const recipeEmpty = document.getElementById("recipe-empty");
+    const dayShoppingSection = document.getElementById("day-shopping-section");
+    const weeklyShoppingSection = document.getElementById("weekly-shopping-section");
+    const weeklySupplySection = document.getElementById("weekly-supply-section");
+    const toggleDayShopping = document.getElementById("toggle-day-shopping");
+    const toggleWeeklyShopping = document.getElementById("toggle-weekly-shopping");
+    const toggleWeeklySupply = document.getElementById("toggle-weekly-supply");
+    const openDayShopping = document.getElementById("open-day-shopping");
+    const openWeeklyShopping = document.getElementById("open-weekly-shopping");
 
     let activeDayId = storedDay && data.days.some((day) => day.id === storedDay) ? storedDay : data.defaultDay;
+    let activeRecipeId = null;
 
     function renderDayChips() {{
       dayTrack.innerHTML = "";
@@ -1231,13 +1362,13 @@ def build_html(data: dict) -> str:
         meal.dishIds.forEach((dishId) => {{
           const dish = dishesById[dishId];
           const recipe = recipesById[dish.recipeId];
-          const item = document.createElement("a");
-          item.className = "meal-item";
-          item.href = `#recipe-${{recipe.id}}`;
-          item.addEventListener("click", (event) => {{
-            event.preventDefault();
-            jumpToRecipe(recipe.id);
-          }});
+        const item = document.createElement("button");
+        item.className = "meal-item";
+        item.type = "button";
+        item.addEventListener("click", (event) => {{
+          event.preventDefault();
+            openRecipe(recipe.id);
+        }});
           item.innerHTML = `
             <div class="meal-topline">
               <div class="dish-avatar">${{dish.avatar}}</div>
@@ -1257,33 +1388,64 @@ def build_html(data: dict) -> str:
     function renderRecipes(day) {{
       recipesGrid.innerHTML = "";
       const recipeIds = [...new Set(day.meals.flatMap((meal) => meal.dishIds.map((dishId) => dishesById[dishId].recipeId)))];
-      recipeIds.forEach((recipeId) => {{
-        const recipe = recipesById[recipeId];
-        const card = document.createElement("article");
-        card.className = "panel recipe-card";
-        card.id = `recipe-${{recipe.id}}`;
-        const ingredients = recipe.ingredients.map((ingredient) => `<li>${{ingredient.name}}</li>`).join("");
-        const steps = recipe.steps.map((step) => `<li>${{step}}</li>`).join("");
-        card.innerHTML = `
-          <div class="panel-top">
-            <div class="recipe-title-group">
-              <div class="recipe-avatar"><span class="dish-icon">${{recipe.icon}}</span></div>
-              <div>
-                <h3>${{recipe.title}}</h3>
-                <p>${{recipe.summary}}</p>
-              </div>
+      if (!activeRecipeId || !recipeIds.includes(activeRecipeId)) {{
+        recipeEmpty.hidden = false;
+        return;
+      }}
+      const recipe = recipesById[activeRecipeId];
+      recipeEmpty.hidden = true;
+      const card = document.createElement("article");
+      card.className = "panel recipe-card";
+      card.id = `recipe-${{recipe.id}}`;
+      const ingredients = recipe.ingredients.map((ingredient) => `
+        <li>
+          <strong>${{ingredient.name}}</strong>
+          <span class="buy-quantity">Use: ${{ingredient.amount}}</span>
+        </li>
+      `).join("");
+      const steps = recipe.steps.map((step) => `<li>${{step}}</li>`).join("");
+      card.innerHTML = `
+        <div class="panel-top">
+          <div class="recipe-title-group">
+            <div class="recipe-avatar"><span class="dish-icon">${{recipe.icon}}</span></div>
+            <div>
+              <h3>${{recipe.title}}</h3>
+              <p>${{recipe.summary}}</p>
             </div>
-            <span class="method-pill">${{recipe.method}}</span>
           </div>
-          <div class="recipe-meta">
-            <span class="meta-pill">Prep ${{recipe.prepMinutes}} min</span>
-            <span class="meta-pill">Cook ${{recipe.cookMinutes}} min</span>
-          </div>
-          <ul class="ingredient-list">${{ingredients}}</ul>
-          <ol class="steps-list">${{steps}}</ol>
-          <div class="tip">${{recipe.tip}}</div>
+          <span class="method-pill">${{recipe.method}}</span>
+        </div>
+        <div class="recipe-meta">
+          <span class="meta-pill">Prep ${{recipe.prepMinutes}} min</span>
+          <span class="meta-pill">Cook ${{recipe.cookMinutes}} min</span>
+        </div>
+        <ul class="ingredient-list">${{ingredients}}</ul>
+        <ol class="steps-list">${{steps}}</ol>
+        <div class="tip">${{recipe.tip}}</div>
+      `;
+      recipesGrid.appendChild(card);
+    }}
+
+    function renderDailySupply(day) {{
+      dailySupplyGrid.innerHTML = "";
+      const groups = data.dailySupply[day.id] || [];
+      groups.forEach((group) => {{
+        const card = document.createElement("article");
+        card.className = "panel shopping-card";
+        card.innerHTML = `
+          <span class="store-pill">${{group.category}}</span>
+          <ul class="supply-list">
+            ${{group.items.map((item) => `
+              <li>
+                <strong>${{item.name}}</strong>
+                <span class="used-quantity">Use today: ${{item.used}}</span>
+                <span class="buy-quantity">Buy for the week: ${{item.buy}}</span>
+                <span>Best place to buy: ${{item.store}}</span>
+              </li>
+            `).join("")}}
+          </ul>
         `;
-        recipesGrid.appendChild(card);
+        dailySupplyGrid.appendChild(card);
       }});
     }}
 
@@ -1298,7 +1460,7 @@ def build_html(data: dict) -> str:
             ${{group.items.map((item) => `
               <li>
                 <strong>${{item.name}}</strong>
-                <span class="buy-quantity">${{item.quantity}}</span>
+                <span class="buy-quantity">Buy for the week: ${{item.quantity}}</span>
                 <span>Best place to buy: ${{item.store}}</span>
               </li>
             `).join("")}}
@@ -1355,14 +1517,25 @@ def build_html(data: dict) -> str:
       pantryList.innerHTML = data.pantryBasics.map((item) => `<li class="pantry-pill">${{item}}</li>`).join("");
     }}
 
-    function jumpToRecipe(recipeId) {{
+    function openRecipe(recipeId) {{
+      activeRecipeId = recipeId;
+      render();
       const recipeNode = document.getElementById(`recipe-${{recipeId}}`);
-      if (!recipeNode) {{
-        return;
+      if (recipeNode) {{
+        recipeNode.scrollIntoView({{ behavior: "smooth", block: "start" }});
+        recipeNode.classList.add("flash");
+        window.setTimeout(() => recipeNode.classList.remove("flash"), 1200);
       }}
-      recipeNode.scrollIntoView({{ behavior: "smooth", block: "start" }});
-      recipeNode.classList.add("flash");
-      window.setTimeout(() => recipeNode.classList.remove("flash"), 1200);
+    }}
+
+    function setExpanded(section, button, expanded, openLabel, closeLabel) {{
+      section.hidden = !expanded;
+      button.textContent = expanded ? closeLabel : openLabel;
+    }}
+
+    function openSection(section, button, openLabel, closeLabel) {{
+      setExpanded(section, button, true, openLabel, closeLabel);
+      section.scrollIntoView({{ behavior: "smooth", block: "start" }});
     }}
 
     function render() {{
@@ -1372,8 +1545,26 @@ def build_html(data: dict) -> str:
       renderDayChips();
       renderMeals(day);
       renderRecipes(day);
+      renderDailySupply(day);
       renderShopping(day);
     }}
+
+    toggleDayShopping.addEventListener("click", () => {{
+      setExpanded(dayShoppingSection, toggleDayShopping, dayShoppingSection.hidden, "Open Day Shopping", "Close Day Shopping");
+    }});
+    toggleWeeklyShopping.addEventListener("click", () => {{
+      setExpanded(weeklyShoppingSection, toggleWeeklyShopping, weeklyShoppingSection.hidden, "Open Weekly Store List", "Close Weekly Store List");
+    }});
+    toggleWeeklySupply.addEventListener("click", () => {{
+      setExpanded(weeklySupplySection, toggleWeeklySupply, weeklySupplySection.hidden, "Open Weekly Supply List", "Close Weekly Supply List");
+    }});
+    openDayShopping.addEventListener("click", () => {{
+      openSection(dayShoppingSection, toggleDayShopping, "Open Day Shopping", "Close Day Shopping");
+    }});
+    openWeeklyShopping.addEventListener("click", () => {{
+      openSection(weeklySupplySection, toggleWeeklySupply, "Open Weekly Supply List", "Close Weekly Supply List");
+      openSection(weeklyShoppingSection, toggleWeeklyShopping, "Open Weekly Store List", "Close Weekly Store List");
+    }});
 
     renderWeeklySupply();
     renderWeeklyShopping();

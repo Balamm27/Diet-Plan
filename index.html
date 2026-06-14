@@ -121,6 +121,7 @@
       gap: 10px;
     }
     .action-link {
+      border: 0;
       text-decoration: none;
       background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
@@ -128,6 +129,8 @@
       padding: 12px 16px;
       font-weight: 700;
       box-shadow: 0 12px 26px rgba(255, 92, 138, 0.24);
+      cursor: pointer;
+      font: inherit;
     }
     .action-link.secondary {
       background: rgba(255, 255, 255, 0.86);
@@ -267,6 +270,8 @@
       display: block;
       text-decoration: none;
       color: inherit;
+      width: 100%;
+      text-align: left;
       padding: 12px;
       border-radius: 14px;
       background: var(--panel-strong);
@@ -344,16 +349,21 @@
       list-style: none;
     }
     .ingredient-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 8px;
       margin-bottom: 14px;
     }
     .ingredient-list li {
-      background: linear-gradient(135deg, var(--accent-soft), rgba(201, 244, 255, 0.8));
-      border-radius: 999px;
-      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(255, 227, 238, 0.9), rgba(201, 244, 255, 0.85));
+      border-radius: 16px;
+      padding: 10px 12px;
       font-size: 13px;
+      border: 1px solid rgba(24, 35, 41, 0.06);
+    }
+    .ingredient-list li strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
     }
     .steps-list {
       display: grid;
@@ -407,6 +417,32 @@
     .shopping-card h3 {
       margin-bottom: 8px;
     }
+    .shopping-toggle-row {
+      margin: 0 0 14px;
+    }
+    .toggle-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: white;
+      box-shadow: 0 10px 20px rgba(255, 92, 138, 0.2);
+    }
+    .toggle-button.subtle {
+      background: rgba(255,255,255,0.82);
+      color: var(--ink);
+      box-shadow: none;
+      border: 1px solid var(--line);
+    }
+    .collapsible-section[hidden] {
+      display: none !important;
+    }
+    .collapsible-section {
+      margin-bottom: 10px;
+    }
     .shopping-list {
       display: flex;
       flex-wrap: wrap;
@@ -451,11 +487,19 @@
       display: block;
       color: var(--muted);
       line-height: 1.4;
-      font-size: 14px;
+      font-size: 13px;
     }
     .buy-quantity {
       color: var(--accent-strong);
+      font-weight: 800;
+      font-size: 15px;
+      margin: 3px 0;
+    }
+    .used-quantity {
+      color: var(--ink);
       font-weight: 700;
+      font-size: 14px;
+      margin: 3px 0;
     }
     details.weekly {
       margin-top: 18px;
@@ -533,13 +577,10 @@
       <span class="eyebrow">Public Share Link Ready</span>
       <h1>Weekly Diet Dashboard</h1>
       <p class="subtitle">Tap a day to see the meals, recipes, and shopping details that matter right then.</p>
-      <div class="hero-meta">
-        <span class="meta-pill">Tap a day, no login required</span>
-        <span class="meta-pill">Recipes stay inside your ingredient rules</span>
-        <span class="meta-pill">Weekly and day-specific shopping views</span>
-      </div>
       <div class="top-actions">
         <a class="action-link" href="#day-view">Jump to Day View</a>
+        <button class="action-link secondary" type="button" id="open-day-shopping">Day Shopping</button>
+        <button class="action-link secondary" type="button" id="open-weekly-shopping">Weekly Shopping</button>
         <a class="action-link secondary" href="output/weekly-diet-dashboard.pdf">Open PDF Backup</a>
       </div>
     </section>
@@ -562,10 +603,14 @@
     <section>
       <div class="section-heading">
         <div>
-          <div class="section-sticker">✨ Tap any meal card to jump to its recipe</div>
-          <h2>Recipes For This Day</h2>
-          <p>Each recipe stays inside your workbook ingredients plus pantry basics only.</p>
+          <div class="section-sticker">✨ Tap a meal to open its recipe</div>
+          <h2>Recipe Focus</h2>
+          <p>Only one recipe opens at a time so the page stays calm and easy to scan.</p>
         </div>
+      </div>
+      <div id="recipe-empty" class="panel">
+        <h3>Choose a meal card above</h3>
+        <p>Tap any breakfast, lunch, dinner, or cleanse item to open the matching recipe with the exact amount used.</p>
       </div>
       <div class="recipes-grid" id="recipes-grid"></div>
     </section>
@@ -578,7 +623,12 @@
           <p>These quantities are estimated for one person following this exact weekly plan.</p>
         </div>
       </div>
-      <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+      <div class="shopping-toggle-row">
+        <button class="toggle-button" type="button" id="toggle-weekly-supply">Open Weekly Supply List</button>
+      </div>
+      <div class="collapsible-section" id="weekly-supply-section" hidden>
+        <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+      </div>
     </section>
 
     <section>
@@ -586,16 +636,22 @@
         <div>
           <div class="section-sticker">🧺 Filtered by selected day</div>
           <h2>Shopping For This Day</h2>
-          <p>Store lists are filtered to the ingredients tied to the day you selected.</p>
+          <p>Open this only when you need to buy for the currently selected day.</p>
         </div>
       </div>
-      <div class="shopping-grid" id="shopping-grid"></div>
-      <details class="weekly">
-        <summary>See the full weekly shopping list</summary>
-        <div class="weekly-body">
-          <div class="shopping-grid" id="weekly-shopping-grid"></div>
-        </div>
-      </details>
+      <div class="shopping-toggle-row">
+        <button class="toggle-button" type="button" id="toggle-day-shopping">Open Day Shopping</button>
+      </div>
+      <div class="collapsible-section" id="day-shopping-section" hidden>
+        <div class="weekly-supply-grid" id="daily-supply-grid"></div>
+        <div class="shopping-grid" id="shopping-grid"></div>
+      </div>
+      <div class="shopping-toggle-row">
+        <button class="toggle-button subtle" type="button" id="toggle-weekly-shopping">Open Weekly Store List</button>
+      </div>
+      <div class="collapsible-section" id="weekly-shopping-section" hidden>
+        <div class="shopping-grid" id="weekly-shopping-grid"></div>
+      </div>
     </section>
 
     <section>
@@ -1023,11 +1079,13 @@
       "ingredients": [
         {
           "name": "Flax Seeds",
-          "canonical": "flax seeds"
+          "canonical": "flax seeds",
+          "amount": "1 tbsp"
         },
         {
           "name": "Water",
-          "canonical": "water"
+          "canonical": "water",
+          "amount": "12 to 14 oz"
         }
       ],
       "steps": [
@@ -1050,11 +1108,13 @@
       "ingredients": [
         {
           "name": "Celery",
-          "canonical": "celery"
+          "canonical": "celery",
+          "amount": "4 to 5 stalks"
         },
         {
           "name": "Water",
-          "canonical": "water"
+          "canonical": "water",
+          "amount": "2 to 3 tbsp if blending"
         }
       ],
       "steps": [
@@ -1077,15 +1137,18 @@
       "ingredients": [
         {
           "name": "Mango",
-          "canonical": "mango"
+          "canonical": "mango",
+          "amount": "1 heaping cup"
         },
         {
           "name": "Banana",
-          "canonical": "banana"
+          "canonical": "banana",
+          "amount": "1 medium"
         },
         {
           "name": "Coconut Water",
-          "canonical": "coconut water"
+          "canonical": "coconut water",
+          "amount": "3/4 to 1 cup"
         }
       ],
       "steps": [
@@ -1112,19 +1175,23 @@
       "ingredients": [
         {
           "name": "Dragon Fruit",
-          "canonical": "dragon fruit"
+          "canonical": "dragon fruit",
+          "amount": "1 cup"
         },
         {
           "name": "Blueberries",
-          "canonical": "blueberries"
+          "canonical": "blueberries",
+          "amount": "3/4 cup"
         },
         {
           "name": "Banana",
-          "canonical": "banana"
+          "canonical": "banana",
+          "amount": "1 medium"
         },
         {
           "name": "Coconut Water",
-          "canonical": "coconut water"
+          "canonical": "coconut water",
+          "amount": "3/4 cup"
         }
       ],
       "steps": [
@@ -1152,27 +1219,33 @@
       "ingredients": [
         {
           "name": "Chicken Breast",
-          "canonical": "chicken breast"
+          "canonical": "chicken breast",
+          "amount": "6 to 8 oz"
         },
         {
           "name": "Navel Orange",
-          "canonical": "navel orange"
+          "canonical": "navel orange",
+          "amount": "1 whole"
         },
         {
           "name": "Broccoli",
-          "canonical": "broccoli"
+          "canonical": "broccoli",
+          "amount": "1 1/2 to 2 cups florets"
         },
         {
           "name": "Coconut Oil",
-          "canonical": "coconut oil"
+          "canonical": "coconut oil",
+          "amount": "1 tsp"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         },
         {
           "name": "Sesame Seeds",
-          "canonical": "sesame seeds"
+          "canonical": "sesame seeds",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -1204,35 +1277,43 @@
       "ingredients": [
         {
           "name": "Sweet Potatoes",
-          "canonical": "sweet potatoes"
+          "canonical": "sweet potatoes",
+          "amount": "1 large or 2 small"
         },
         {
           "name": "Chickpeas",
-          "canonical": "chickpeas"
+          "canonical": "chickpeas",
+          "amount": "3/4 cup"
         },
         {
           "name": "Walnuts",
-          "canonical": "walnuts"
+          "canonical": "walnuts",
+          "amount": "2 tbsp"
         },
         {
           "name": "Coriander",
-          "canonical": "coriander"
+          "canonical": "coriander",
+          "amount": "1 tbsp chopped"
         },
         {
           "name": "Mint",
-          "canonical": "mint"
+          "canonical": "mint",
+          "amount": "1 tbsp chopped"
         },
         {
           "name": "Basil",
-          "canonical": "basil"
+          "canonical": "basil",
+          "amount": "1 tbsp chopped"
         },
         {
           "name": "Thyme",
-          "canonical": "thyme"
+          "canonical": "thyme",
+          "amount": "1 tsp leaves"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "2 tsp"
         }
       ],
       "steps": [
@@ -1264,11 +1345,13 @@
       "ingredients": [
         {
           "name": "Green Beans",
-          "canonical": "green beans"
+          "canonical": "green beans",
+          "amount": "1 1/2 cups"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -1292,11 +1375,13 @@
       "ingredients": [
         {
           "name": "Cauliflower",
-          "canonical": "cauliflower"
+          "canonical": "cauliflower",
+          "amount": "2 cups florets"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -1320,11 +1405,13 @@
       "ingredients": [
         {
           "name": "Lady's Finger (Okra)",
-          "canonical": "okra"
+          "canonical": "okra",
+          "amount": "1 1/2 cups"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -1535,6 +1622,773 @@
       ]
     }
   },
+  "dailySupply": {
+    "monday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Green Beans",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "tuesday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Blueberries",
+            "used": "3/4 cup",
+            "buy": "3 cups",
+            "store": "Costco"
+          },
+          {
+            "name": "Dragon Fruit",
+            "used": "1 cup",
+            "buy": "3 dragon fruits",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Cauliflower",
+            "used": "2 cups florets",
+            "buy": "2 medium heads",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "wednesday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Lady's Finger (Okra)",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "thursday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Blueberries",
+            "used": "3/4 cup",
+            "buy": "3 cups",
+            "store": "Costco"
+          },
+          {
+            "name": "Dragon Fruit",
+            "used": "1 cup",
+            "buy": "3 dragon fruits",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Herbs",
+        "items": [
+          {
+            "name": "Basil",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Coriander",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Mint",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Thyme",
+            "used": "1 tsp leaves",
+            "buy": "1 small bunch",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Chickpeas",
+            "used": "3/4 cup",
+            "buy": "2 cans or 3 cups cooked",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "2 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Walnuts",
+            "used": "2 tbsp",
+            "buy": "1 1/2 cups",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Green Beans",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sweet Potatoes",
+            "used": "1 large or 2 small",
+            "buy": "6 medium sweet potatoes",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "friday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Herbs",
+        "items": [
+          {
+            "name": "Basil",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Coriander",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Mint",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Thyme",
+            "used": "1 tsp leaves",
+            "buy": "1 small bunch",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Chickpeas",
+            "used": "3/4 cup",
+            "buy": "2 cans or 3 cups cooked",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "2 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Walnuts",
+            "used": "2 tbsp",
+            "buy": "1 1/2 cups",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Cauliflower",
+            "used": "2 cups florets",
+            "buy": "2 medium heads",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sweet Potatoes",
+            "used": "1 large or 2 small",
+            "buy": "6 medium sweet potatoes",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "saturday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Blueberries",
+            "used": "3/4 cup",
+            "buy": "3 cups",
+            "store": "Costco"
+          },
+          {
+            "name": "Dragon Fruit",
+            "used": "1 cup",
+            "buy": "3 dragon fruits",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Herbs",
+        "items": [
+          {
+            "name": "Basil",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Coriander",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Mint",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Thyme",
+            "used": "1 tsp leaves",
+            "buy": "1 small bunch",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Chickpeas",
+            "used": "3/4 cup",
+            "buy": "2 cans or 3 cups cooked",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "2 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Walnuts",
+            "used": "2 tbsp",
+            "buy": "1 1/2 cups",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Lady's Finger (Okra)",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sweet Potatoes",
+            "used": "1 large or 2 small",
+            "buy": "6 medium sweet potatoes",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "sunday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Green Beans",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ]
+  },
   "weeklySupply": [
     {
       "category": "Beverages",
@@ -1732,13 +2586,24 @@
     const mealsGrid = document.getElementById("meals-grid");
     const recipesGrid = document.getElementById("recipes-grid");
     const shoppingGrid = document.getElementById("shopping-grid");
+    const dailySupplyGrid = document.getElementById("daily-supply-grid");
     const weeklySupplyGrid = document.getElementById("weekly-supply-grid");
     const weeklyShoppingGrid = document.getElementById("weekly-shopping-grid");
     const pantryList = document.getElementById("pantry-list");
     const selectedDayTitle = document.getElementById("selected-day-title");
     const selectedDayCopy = document.getElementById("selected-day-copy");
+    const recipeEmpty = document.getElementById("recipe-empty");
+    const dayShoppingSection = document.getElementById("day-shopping-section");
+    const weeklyShoppingSection = document.getElementById("weekly-shopping-section");
+    const weeklySupplySection = document.getElementById("weekly-supply-section");
+    const toggleDayShopping = document.getElementById("toggle-day-shopping");
+    const toggleWeeklyShopping = document.getElementById("toggle-weekly-shopping");
+    const toggleWeeklySupply = document.getElementById("toggle-weekly-supply");
+    const openDayShopping = document.getElementById("open-day-shopping");
+    const openWeeklyShopping = document.getElementById("open-weekly-shopping");
 
     let activeDayId = storedDay && data.days.some((day) => day.id === storedDay) ? storedDay : data.defaultDay;
+    let activeRecipeId = null;
 
     function renderDayChips() {
       dayTrack.innerHTML = "";
@@ -1767,13 +2632,13 @@
         meal.dishIds.forEach((dishId) => {
           const dish = dishesById[dishId];
           const recipe = recipesById[dish.recipeId];
-          const item = document.createElement("a");
-          item.className = "meal-item";
-          item.href = `#recipe-${recipe.id}`;
-          item.addEventListener("click", (event) => {
-            event.preventDefault();
-            jumpToRecipe(recipe.id);
-          });
+        const item = document.createElement("button");
+        item.className = "meal-item";
+        item.type = "button";
+        item.addEventListener("click", (event) => {
+          event.preventDefault();
+            openRecipe(recipe.id);
+        });
           item.innerHTML = `
             <div class="meal-topline">
               <div class="dish-avatar">${dish.avatar}</div>
@@ -1793,33 +2658,64 @@
     function renderRecipes(day) {
       recipesGrid.innerHTML = "";
       const recipeIds = [...new Set(day.meals.flatMap((meal) => meal.dishIds.map((dishId) => dishesById[dishId].recipeId)))];
-      recipeIds.forEach((recipeId) => {
-        const recipe = recipesById[recipeId];
-        const card = document.createElement("article");
-        card.className = "panel recipe-card";
-        card.id = `recipe-${recipe.id}`;
-        const ingredients = recipe.ingredients.map((ingredient) => `<li>${ingredient.name}</li>`).join("");
-        const steps = recipe.steps.map((step) => `<li>${step}</li>`).join("");
-        card.innerHTML = `
-          <div class="panel-top">
-            <div class="recipe-title-group">
-              <div class="recipe-avatar"><span class="dish-icon">${recipe.icon}</span></div>
-              <div>
-                <h3>${recipe.title}</h3>
-                <p>${recipe.summary}</p>
-              </div>
+      if (!activeRecipeId || !recipeIds.includes(activeRecipeId)) {
+        recipeEmpty.hidden = false;
+        return;
+      }
+      const recipe = recipesById[activeRecipeId];
+      recipeEmpty.hidden = true;
+      const card = document.createElement("article");
+      card.className = "panel recipe-card";
+      card.id = `recipe-${recipe.id}`;
+      const ingredients = recipe.ingredients.map((ingredient) => `
+        <li>
+          <strong>${ingredient.name}</strong>
+          <span class="buy-quantity">Use: ${ingredient.amount}</span>
+        </li>
+      `).join("");
+      const steps = recipe.steps.map((step) => `<li>${step}</li>`).join("");
+      card.innerHTML = `
+        <div class="panel-top">
+          <div class="recipe-title-group">
+            <div class="recipe-avatar"><span class="dish-icon">${recipe.icon}</span></div>
+            <div>
+              <h3>${recipe.title}</h3>
+              <p>${recipe.summary}</p>
             </div>
-            <span class="method-pill">${recipe.method}</span>
           </div>
-          <div class="recipe-meta">
-            <span class="meta-pill">Prep ${recipe.prepMinutes} min</span>
-            <span class="meta-pill">Cook ${recipe.cookMinutes} min</span>
-          </div>
-          <ul class="ingredient-list">${ingredients}</ul>
-          <ol class="steps-list">${steps}</ol>
-          <div class="tip">${recipe.tip}</div>
+          <span class="method-pill">${recipe.method}</span>
+        </div>
+        <div class="recipe-meta">
+          <span class="meta-pill">Prep ${recipe.prepMinutes} min</span>
+          <span class="meta-pill">Cook ${recipe.cookMinutes} min</span>
+        </div>
+        <ul class="ingredient-list">${ingredients}</ul>
+        <ol class="steps-list">${steps}</ol>
+        <div class="tip">${recipe.tip}</div>
+      `;
+      recipesGrid.appendChild(card);
+    }
+
+    function renderDailySupply(day) {
+      dailySupplyGrid.innerHTML = "";
+      const groups = data.dailySupply[day.id] || [];
+      groups.forEach((group) => {
+        const card = document.createElement("article");
+        card.className = "panel shopping-card";
+        card.innerHTML = `
+          <span class="store-pill">${group.category}</span>
+          <ul class="supply-list">
+            ${group.items.map((item) => `
+              <li>
+                <strong>${item.name}</strong>
+                <span class="used-quantity">Use today: ${item.used}</span>
+                <span class="buy-quantity">Buy for the week: ${item.buy}</span>
+                <span>Best place to buy: ${item.store}</span>
+              </li>
+            `).join("")}
+          </ul>
         `;
-        recipesGrid.appendChild(card);
+        dailySupplyGrid.appendChild(card);
       });
     }
 
@@ -1834,7 +2730,7 @@
             ${group.items.map((item) => `
               <li>
                 <strong>${item.name}</strong>
-                <span class="buy-quantity">${item.quantity}</span>
+                <span class="buy-quantity">Buy for the week: ${item.quantity}</span>
                 <span>Best place to buy: ${item.store}</span>
               </li>
             `).join("")}
@@ -1891,14 +2787,25 @@
       pantryList.innerHTML = data.pantryBasics.map((item) => `<li class="pantry-pill">${item}</li>`).join("");
     }
 
-    function jumpToRecipe(recipeId) {
+    function openRecipe(recipeId) {
+      activeRecipeId = recipeId;
+      render();
       const recipeNode = document.getElementById(`recipe-${recipeId}`);
-      if (!recipeNode) {
-        return;
+      if (recipeNode) {
+        recipeNode.scrollIntoView({ behavior: "smooth", block: "start" });
+        recipeNode.classList.add("flash");
+        window.setTimeout(() => recipeNode.classList.remove("flash"), 1200);
       }
-      recipeNode.scrollIntoView({ behavior: "smooth", block: "start" });
-      recipeNode.classList.add("flash");
-      window.setTimeout(() => recipeNode.classList.remove("flash"), 1200);
+    }
+
+    function setExpanded(section, button, expanded, openLabel, closeLabel) {
+      section.hidden = !expanded;
+      button.textContent = expanded ? closeLabel : openLabel;
+    }
+
+    function openSection(section, button, openLabel, closeLabel) {
+      setExpanded(section, button, true, openLabel, closeLabel);
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function render() {
@@ -1908,8 +2815,26 @@
       renderDayChips();
       renderMeals(day);
       renderRecipes(day);
+      renderDailySupply(day);
       renderShopping(day);
     }
+
+    toggleDayShopping.addEventListener("click", () => {
+      setExpanded(dayShoppingSection, toggleDayShopping, dayShoppingSection.hidden, "Open Day Shopping", "Close Day Shopping");
+    });
+    toggleWeeklyShopping.addEventListener("click", () => {
+      setExpanded(weeklyShoppingSection, toggleWeeklyShopping, weeklyShoppingSection.hidden, "Open Weekly Store List", "Close Weekly Store List");
+    });
+    toggleWeeklySupply.addEventListener("click", () => {
+      setExpanded(weeklySupplySection, toggleWeeklySupply, weeklySupplySection.hidden, "Open Weekly Supply List", "Close Weekly Supply List");
+    });
+    openDayShopping.addEventListener("click", () => {
+      openSection(dayShoppingSection, toggleDayShopping, "Open Day Shopping", "Close Day Shopping");
+    });
+    openWeeklyShopping.addEventListener("click", () => {
+      openSection(weeklySupplySection, toggleWeeklySupply, "Open Weekly Supply List", "Close Weekly Supply List");
+      openSection(weeklyShoppingSection, toggleWeeklyShopping, "Open Weekly Store List", "Close Weekly Store List");
+    });
 
     renderWeeklySupply();
     renderWeeklyShopping();

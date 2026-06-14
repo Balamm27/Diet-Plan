@@ -407,11 +407,13 @@
       "ingredients": [
         {
           "name": "Flax Seeds",
-          "canonical": "flax seeds"
+          "canonical": "flax seeds",
+          "amount": "1 tbsp"
         },
         {
           "name": "Water",
-          "canonical": "water"
+          "canonical": "water",
+          "amount": "12 to 14 oz"
         }
       ],
       "steps": [
@@ -434,11 +436,13 @@
       "ingredients": [
         {
           "name": "Celery",
-          "canonical": "celery"
+          "canonical": "celery",
+          "amount": "4 to 5 stalks"
         },
         {
           "name": "Water",
-          "canonical": "water"
+          "canonical": "water",
+          "amount": "2 to 3 tbsp if blending"
         }
       ],
       "steps": [
@@ -461,15 +465,18 @@
       "ingredients": [
         {
           "name": "Mango",
-          "canonical": "mango"
+          "canonical": "mango",
+          "amount": "1 heaping cup"
         },
         {
           "name": "Banana",
-          "canonical": "banana"
+          "canonical": "banana",
+          "amount": "1 medium"
         },
         {
           "name": "Coconut Water",
-          "canonical": "coconut water"
+          "canonical": "coconut water",
+          "amount": "3/4 to 1 cup"
         }
       ],
       "steps": [
@@ -496,19 +503,23 @@
       "ingredients": [
         {
           "name": "Dragon Fruit",
-          "canonical": "dragon fruit"
+          "canonical": "dragon fruit",
+          "amount": "1 cup"
         },
         {
           "name": "Blueberries",
-          "canonical": "blueberries"
+          "canonical": "blueberries",
+          "amount": "3/4 cup"
         },
         {
           "name": "Banana",
-          "canonical": "banana"
+          "canonical": "banana",
+          "amount": "1 medium"
         },
         {
           "name": "Coconut Water",
-          "canonical": "coconut water"
+          "canonical": "coconut water",
+          "amount": "3/4 cup"
         }
       ],
       "steps": [
@@ -536,27 +547,33 @@
       "ingredients": [
         {
           "name": "Chicken Breast",
-          "canonical": "chicken breast"
+          "canonical": "chicken breast",
+          "amount": "6 to 8 oz"
         },
         {
           "name": "Navel Orange",
-          "canonical": "navel orange"
+          "canonical": "navel orange",
+          "amount": "1 whole"
         },
         {
           "name": "Broccoli",
-          "canonical": "broccoli"
+          "canonical": "broccoli",
+          "amount": "1 1/2 to 2 cups florets"
         },
         {
           "name": "Coconut Oil",
-          "canonical": "coconut oil"
+          "canonical": "coconut oil",
+          "amount": "1 tsp"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         },
         {
           "name": "Sesame Seeds",
-          "canonical": "sesame seeds"
+          "canonical": "sesame seeds",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -588,35 +605,43 @@
       "ingredients": [
         {
           "name": "Sweet Potatoes",
-          "canonical": "sweet potatoes"
+          "canonical": "sweet potatoes",
+          "amount": "1 large or 2 small"
         },
         {
           "name": "Chickpeas",
-          "canonical": "chickpeas"
+          "canonical": "chickpeas",
+          "amount": "3/4 cup"
         },
         {
           "name": "Walnuts",
-          "canonical": "walnuts"
+          "canonical": "walnuts",
+          "amount": "2 tbsp"
         },
         {
           "name": "Coriander",
-          "canonical": "coriander"
+          "canonical": "coriander",
+          "amount": "1 tbsp chopped"
         },
         {
           "name": "Mint",
-          "canonical": "mint"
+          "canonical": "mint",
+          "amount": "1 tbsp chopped"
         },
         {
           "name": "Basil",
-          "canonical": "basil"
+          "canonical": "basil",
+          "amount": "1 tbsp chopped"
         },
         {
           "name": "Thyme",
-          "canonical": "thyme"
+          "canonical": "thyme",
+          "amount": "1 tsp leaves"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "2 tsp"
         }
       ],
       "steps": [
@@ -648,11 +673,13 @@
       "ingredients": [
         {
           "name": "Green Beans",
-          "canonical": "green beans"
+          "canonical": "green beans",
+          "amount": "1 1/2 cups"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -676,11 +703,13 @@
       "ingredients": [
         {
           "name": "Cauliflower",
-          "canonical": "cauliflower"
+          "canonical": "cauliflower",
+          "amount": "2 cups florets"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -704,11 +733,13 @@
       "ingredients": [
         {
           "name": "Lady's Finger (Okra)",
-          "canonical": "okra"
+          "canonical": "okra",
+          "amount": "1 1/2 cups"
         },
         {
           "name": "Olive Oil",
-          "canonical": "olive oil"
+          "canonical": "olive oil",
+          "amount": "1 tsp"
         }
       ],
       "steps": [
@@ -918,6 +949,773 @@
         "Sweet Potatoes"
       ]
     }
+  },
+  "dailySupply": {
+    "monday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Green Beans",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "tuesday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Blueberries",
+            "used": "3/4 cup",
+            "buy": "3 cups",
+            "store": "Costco"
+          },
+          {
+            "name": "Dragon Fruit",
+            "used": "1 cup",
+            "buy": "3 dragon fruits",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Cauliflower",
+            "used": "2 cups florets",
+            "buy": "2 medium heads",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "wednesday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Lady's Finger (Okra)",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "thursday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Blueberries",
+            "used": "3/4 cup",
+            "buy": "3 cups",
+            "store": "Costco"
+          },
+          {
+            "name": "Dragon Fruit",
+            "used": "1 cup",
+            "buy": "3 dragon fruits",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Herbs",
+        "items": [
+          {
+            "name": "Basil",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Coriander",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Mint",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Thyme",
+            "used": "1 tsp leaves",
+            "buy": "1 small bunch",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Chickpeas",
+            "used": "3/4 cup",
+            "buy": "2 cans or 3 cups cooked",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "2 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Walnuts",
+            "used": "2 tbsp",
+            "buy": "1 1/2 cups",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Green Beans",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sweet Potatoes",
+            "used": "1 large or 2 small",
+            "buy": "6 medium sweet potatoes",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "friday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Herbs",
+        "items": [
+          {
+            "name": "Basil",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Coriander",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Mint",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Thyme",
+            "used": "1 tsp leaves",
+            "buy": "1 small bunch",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Chickpeas",
+            "used": "3/4 cup",
+            "buy": "2 cans or 3 cups cooked",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "2 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Walnuts",
+            "used": "2 tbsp",
+            "buy": "1 1/2 cups",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Cauliflower",
+            "used": "2 cups florets",
+            "buy": "2 medium heads",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sweet Potatoes",
+            "used": "1 large or 2 small",
+            "buy": "6 medium sweet potatoes",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "saturday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Blueberries",
+            "used": "3/4 cup",
+            "buy": "3 cups",
+            "store": "Costco"
+          },
+          {
+            "name": "Dragon Fruit",
+            "used": "1 cup",
+            "buy": "3 dragon fruits",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Herbs",
+        "items": [
+          {
+            "name": "Basil",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Coriander",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Mint",
+            "used": "1 tbsp chopped",
+            "buy": "1 bunch",
+            "store": "Costco"
+          },
+          {
+            "name": "Thyme",
+            "used": "1 tsp leaves",
+            "buy": "1 small bunch",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Chickpeas",
+            "used": "3/4 cup",
+            "buy": "2 cans or 3 cups cooked",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "2 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Walnuts",
+            "used": "2 tbsp",
+            "buy": "1 1/2 cups",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Lady's Finger (Okra)",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sweet Potatoes",
+            "used": "1 large or 2 small",
+            "buy": "6 medium sweet potatoes",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ],
+    "sunday": [
+      {
+        "category": "Beverages",
+        "items": [
+          {
+            "name": "Coconut Water",
+            "used": "3/4 to 1 cup",
+            "buy": "2 to 3 liters",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Fruit",
+        "items": [
+          {
+            "name": "Banana",
+            "used": "1 medium",
+            "buy": "7 bananas",
+            "store": "Costco"
+          },
+          {
+            "name": "Mango",
+            "used": "1 heaping cup",
+            "buy": "4 mangoes",
+            "store": "Costco"
+          },
+          {
+            "name": "Navel Orange",
+            "used": "1 whole",
+            "buy": "4 oranges",
+            "store": "Costco"
+          }
+        ]
+      },
+      {
+        "category": "Pantry",
+        "items": [
+          {
+            "name": "Coconut Oil",
+            "used": "1 tsp",
+            "buy": "1 small jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Flax Seeds",
+            "used": "1 tbsp",
+            "buy": "1 cup (about 250 g)",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Olive Oil",
+            "used": "1 tsp",
+            "buy": "1 bottle",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Sesame Seeds",
+            "used": "1 tsp",
+            "buy": "1 small packet or jar",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Produce",
+        "items": [
+          {
+            "name": "Broccoli",
+            "used": "1 1/2 to 2 cups florets",
+            "buy": "4 medium heads",
+            "store": "Costco"
+          },
+          {
+            "name": "Celery",
+            "used": "4 to 5 stalks",
+            "buy": "3 bunches",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          },
+          {
+            "name": "Green Beans",
+            "used": "1 1/2 cups",
+            "buy": "1 1/2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      },
+      {
+        "category": "Protein",
+        "items": [
+          {
+            "name": "Chicken Breast",
+            "used": "6 to 8 oz",
+            "buy": "2 lb",
+            "store": "Whole Foods / Fred Meyer / QFC"
+          }
+        ]
+      }
+    ]
   },
   "weeklySupply": [
     {
