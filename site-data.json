@@ -1,0 +1,926 @@
+{
+  "title": "Weekly Diet Dashboard",
+  "subtitle": "Tap a day to see the meals, recipes, and shopping details that matter right then.",
+  "generatedAt": "June 14, 2026",
+  "defaultDay": "monday",
+  "pantryBasics": [
+    "Salt",
+    "Black Pepper",
+    "Water",
+    "Neutral Oil",
+    "Olive Oil"
+  ],
+  "days": [
+    {
+      "id": "monday",
+      "name": "Monday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "beans"
+          ],
+          "labels": [
+            "Beans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuesday",
+      "name": "Tuesday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "berry-smoothie"
+          ],
+          "labels": [
+            "Berry Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "cauliflower"
+          ],
+          "labels": [
+            "Cauliflower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wednesday",
+      "name": "Wednesday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "ladys-finger"
+          ],
+          "labels": [
+            "Lady's finger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thursday",
+      "name": "Thursday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "berry-smoothie"
+          ],
+          "labels": [
+            "Berry Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "sweet-potatoes"
+          ],
+          "labels": [
+            "Sweet Potatoes"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "beans"
+          ],
+          "labels": [
+            "Beans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friday",
+      "name": "Friday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "sweet-potatoes"
+          ],
+          "labels": [
+            "Sweet Potatoes"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "cauliflower"
+          ],
+          "labels": [
+            "Cauliflower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saturday",
+      "name": "Saturday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "berry-smoothie"
+          ],
+          "labels": [
+            "Berry Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "sweet-potatoes"
+          ],
+          "labels": [
+            "Sweet Potatoes"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "ladys-finger"
+          ],
+          "labels": [
+            "Lady's finger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sunday",
+      "name": "Sunday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "beans"
+          ],
+          "labels": [
+            "Beans"
+          ]
+        }
+      ]
+    }
+  ],
+  "dishes": [
+    {
+      "id": "flax-seed-water",
+      "title": "Flax Seed Water",
+      "recipeId": "flax-seed-water",
+      "summary": "A simple soaked drink that feels light but grounding first thing in the morning."
+    },
+    {
+      "id": "celery-juice",
+      "title": "Celery Juice",
+      "recipeId": "celery-juice",
+      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink."
+    },
+    {
+      "id": "mango-smoothie",
+      "title": "Mango Smoothie",
+      "recipeId": "mango-smoothie",
+      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra."
+    },
+    {
+      "id": "orange-chicken",
+      "title": "Orange Chicken",
+      "recipeId": "orange-chicken",
+      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli."
+    },
+    {
+      "id": "beans",
+      "title": "Beans",
+      "recipeId": "beans",
+      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish."
+    },
+    {
+      "id": "berry-smoothie",
+      "title": "Berry Smoothie",
+      "recipeId": "berry-smoothie",
+      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth."
+    },
+    {
+      "id": "cauliflower",
+      "title": "Cauliflower",
+      "recipeId": "cauliflower",
+      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning."
+    },
+    {
+      "id": "ladys-finger",
+      "title": "Lady's finger",
+      "recipeId": "ladys-finger",
+      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about."
+    },
+    {
+      "id": "sweet-potatoes",
+      "title": "Sweet Potatoes",
+      "recipeId": "sweet-potatoes",
+      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish."
+    }
+  ],
+  "recipes": [
+    {
+      "id": "flax-seed-water",
+      "title": "Flax Seed Water",
+      "summary": "A simple soaked drink that feels light but grounding first thing in the morning.",
+      "method": "Soak and Stir",
+      "prepMinutes": 2,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Flax Seeds",
+          "canonical": "flax seeds"
+        },
+        {
+          "name": "Water",
+          "canonical": "water"
+        }
+      ],
+      "steps": [
+        "Stir 1 tablespoon flax seeds into a large glass of water.",
+        "Let it soak overnight or at least 6 hours so the water softens and thickens slightly.",
+        "Stir once more before drinking. Sip slowly while the seeds are suspended."
+      ],
+      "tip": "Chilled water makes this easier to drink, and the brief soak softens the texture noticeably.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "celery-juice",
+      "title": "Celery Juice",
+      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink.",
+      "method": "Blend or Juice",
+      "prepMinutes": 5,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Celery",
+          "canonical": "celery"
+        },
+        {
+          "name": "Water",
+          "canonical": "water"
+        }
+      ],
+      "steps": [
+        "Roughly chop celery and add it to a blender with a small splash of water.",
+        "Blend until smooth, adding just enough water to help it move.",
+        "Drink as-is for more fiber, or strain for a lighter juice texture."
+      ],
+      "tip": "Use only a little water so the celery flavor stays fresh instead of diluted.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "mango-smoothie",
+      "title": "Mango Smoothie",
+      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra.",
+      "method": "Blender",
+      "prepMinutes": 5,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Mango",
+          "canonical": "mango"
+        },
+        {
+          "name": "Banana",
+          "canonical": "banana"
+        },
+        {
+          "name": "Coconut Water",
+          "canonical": "coconut water"
+        }
+      ],
+      "steps": [
+        "Add chopped mango, banana, and cold coconut water to a blender.",
+        "Blend until silky and thick, scraping down the sides if needed.",
+        "Pour immediately for the freshest taste and creamiest texture."
+      ],
+      "tip": "If the fruit is cold, the smoothie tastes richer without needing ice.",
+      "workbookIngredients": [
+        "Mango",
+        "Banana",
+        "Coconut Water"
+      ]
+    },
+    {
+      "id": "berry-smoothie",
+      "title": "Berry Smoothie",
+      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth.",
+      "method": "Blender",
+      "prepMinutes": 5,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Dragon Fruit",
+          "canonical": "dragon fruit"
+        },
+        {
+          "name": "Blueberries",
+          "canonical": "blueberries"
+        },
+        {
+          "name": "Banana",
+          "canonical": "banana"
+        },
+        {
+          "name": "Coconut Water",
+          "canonical": "coconut water"
+        }
+      ],
+      "steps": [
+        "Add dragon fruit, blueberries, banana, and coconut water to a blender.",
+        "Blend until the berries disappear and the color turns evenly vibrant.",
+        "Taste for thickness and add a small splash of coconut water only if needed."
+      ],
+      "tip": "Blend the blueberries fully so the drink stays smooth instead of slightly seedy.",
+      "workbookIngredients": [
+        "Dragon Fruit",
+        "Blueberries",
+        "Banana",
+        "Coconut Water"
+      ]
+    },
+    {
+      "id": "orange-chicken",
+      "title": "Orange Chicken",
+      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli.",
+      "method": "Pan and Oven",
+      "prepMinutes": 12,
+      "cookMinutes": 20,
+      "ingredients": [
+        {
+          "name": "Chicken Breast",
+          "canonical": "chicken breast"
+        },
+        {
+          "name": "Navel Orange",
+          "canonical": "navel orange"
+        },
+        {
+          "name": "Broccoli",
+          "canonical": "broccoli"
+        },
+        {
+          "name": "Coconut Oil",
+          "canonical": "coconut oil"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        },
+        {
+          "name": "Sesame Seeds",
+          "canonical": "sesame seeds"
+        }
+      ],
+      "steps": [
+        "Season chicken breast with salt and pepper, then sear it in a hot pan with coconut oil until lightly golden.",
+        "Transfer the chicken to the oven to finish cooking while you toss broccoli with olive oil, salt, and pepper and roast it until the edges darken.",
+        "Return the pan to medium heat, squeeze in the navel orange juice, and let it reduce to a glossy citrus coating.",
+        "Slice the chicken, toss it in the reduced orange glaze, and plate with the roasted broccoli.",
+        "Finish with sesame seeds for crunch."
+      ],
+      "tip": "Roasting the broccoli separately keeps it crisp instead of watery, which makes the orange glaze taste sharper and cleaner.",
+      "workbookIngredients": [
+        "Chicken Breast",
+        "Coconut Oil",
+        "Navel Orange",
+        "Brocolli",
+        "Olive Oil",
+        "Sesame Seeds"
+      ]
+    },
+    {
+      "id": "sweet-potatoes",
+      "title": "Sweet Potatoes",
+      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish.",
+      "method": "Oven and Pan",
+      "prepMinutes": 15,
+      "cookMinutes": 30,
+      "ingredients": [
+        {
+          "name": "Sweet Potatoes",
+          "canonical": "sweet potatoes"
+        },
+        {
+          "name": "Chickpeas",
+          "canonical": "chickpeas"
+        },
+        {
+          "name": "Walnuts",
+          "canonical": "walnuts"
+        },
+        {
+          "name": "Coriander",
+          "canonical": "coriander"
+        },
+        {
+          "name": "Mint",
+          "canonical": "mint"
+        },
+        {
+          "name": "Basil",
+          "canonical": "basil"
+        },
+        {
+          "name": "Thyme",
+          "canonical": "thyme"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Roast halved or cubed sweet potatoes with olive oil, salt, pepper, and thyme until deeply tender and browned at the edges.",
+        "Warm chickpeas in a pan with a little olive oil, salt, and pepper just until they start to dry and lightly crisp.",
+        "Toast walnuts briefly in a dry pan so they smell nutty and become more fragrant.",
+        "Roughly chop coriander, mint, and basil together to make a bright herb finish.",
+        "Pile the chickpeas and walnuts over the roasted sweet potatoes and scatter the fresh herbs over everything just before serving."
+      ],
+      "tip": "Keep the herbs off the heat until the end so the bowl tastes fresh instead of muted.",
+      "workbookIngredients": [
+        "Chick Pea",
+        "Walnut",
+        "Coriander",
+        "Mint",
+        "Basil",
+        "Thyme"
+      ]
+    },
+    {
+      "id": "beans",
+      "title": "Beans",
+      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish.",
+      "method": "Stovetop Pan",
+      "prepMinutes": 5,
+      "cookMinutes": 10,
+      "ingredients": [
+        {
+          "name": "Green Beans",
+          "canonical": "green beans"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Heat a wide pan with olive oil until hot.",
+        "Add green beans in one layer and season with salt and pepper.",
+        "Cook, tossing only occasionally, until the beans blister in places but stay slightly crisp.",
+        "Serve right away while the beans still have a little snap."
+      ],
+      "tip": "Leaving the beans mostly undisturbed at first gives better browning and more flavor.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "cauliflower",
+      "title": "Cauliflower",
+      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning.",
+      "method": "Oven or Air Fryer",
+      "prepMinutes": 8,
+      "cookMinutes": 18,
+      "ingredients": [
+        {
+          "name": "Cauliflower",
+          "canonical": "cauliflower"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Cut cauliflower into medium florets and coat with olive oil, salt, and pepper.",
+        "Roast or air fry until the edges are deeply golden and the centers are tender.",
+        "Turn once halfway through so the color develops evenly.",
+        "Serve hot while the edges are still crisp."
+      ],
+      "tip": "Do not overcrowd the tray or basket or the cauliflower will steam instead of roast.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "ladys-finger",
+      "title": "Lady's Finger",
+      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about.",
+      "method": "Stovetop Pan",
+      "prepMinutes": 8,
+      "cookMinutes": 12,
+      "ingredients": [
+        {
+          "name": "Lady's Finger Okra",
+          "canonical": "lady's finger okra"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Dry the okra thoroughly, then slice it into larger pieces so it browns instead of steams.",
+        "Heat olive oil in a wide pan and add the okra in a single layer.",
+        "Season with salt and pepper and cook over medium-high heat, stirring only occasionally.",
+        "Keep cooking until the cut edges darken and the pieces feel dry and tender."
+      ],
+      "tip": "The drier the okra is before it hits the pan, the better the final texture will be.",
+      "workbookIngredients": []
+    }
+  ],
+  "dayShopping": {
+    "monday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Broccoli",
+            "Coconut Water",
+            "Mango",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Sesame Seeds"
+      ]
+    },
+    "tuesday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Blueberries",
+            "Broccoli",
+            "Coconut Water",
+            "Dragon Fruit",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Cauliflower",
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Sesame Seeds"
+      ]
+    },
+    "wednesday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Broccoli",
+            "Coconut Water",
+            "Mango",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Lady's Finger Okra",
+        "Sesame Seeds"
+      ]
+    },
+    "thursday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Basil",
+            "Blueberries",
+            "Coconut Water",
+            "Coriander",
+            "Dragon Fruit",
+            "Mint",
+            "Thyme",
+            "Walnuts"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Chickpeas",
+        "Flax Seeds",
+        "Green Beans",
+        "Sweet Potatoes"
+      ]
+    },
+    "friday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Basil",
+            "Coconut Water",
+            "Coriander",
+            "Mango",
+            "Mint",
+            "Thyme",
+            "Walnuts"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Cauliflower",
+        "Celery",
+        "Chickpeas",
+        "Flax Seeds",
+        "Sweet Potatoes"
+      ]
+    },
+    "saturday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Basil",
+            "Blueberries",
+            "Coconut Water",
+            "Coriander",
+            "Dragon Fruit",
+            "Mint",
+            "Thyme",
+            "Walnuts"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Chickpeas",
+        "Flax Seeds",
+        "Lady's Finger Okra",
+        "Sweet Potatoes"
+      ]
+    },
+    "sunday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Broccoli",
+            "Coconut Water",
+            "Mango",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Sesame Seeds"
+      ]
+    },
+    "weekly": {
+      "unassigned": [
+        "Cauliflower",
+        "Celery",
+        "Chickpeas",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Lady's Finger Okra",
+        "Sesame Seeds",
+        "Sweet Potatoes"
+      ]
+    }
+  },
+  "weeklyShopping": [
+    {
+      "store": "Costco",
+      "items": [
+        "Banana",
+        "Mango",
+        "Coconut Water",
+        "Dragon Fruit",
+        "Blueberries",
+        "Navel Orange",
+        "Broccoli",
+        "Walnuts",
+        "Coriander",
+        "Mint",
+        "Basil",
+        "Thyme"
+      ]
+    },
+    {
+      "store": "Whole Foods / Fred Meyer / QFC",
+      "items": [
+        "Chicken Breast"
+      ]
+    },
+    {
+      "store": "Needs Store Assignment",
+      "items": [
+        "Cauliflower",
+        "Celery",
+        "Chickpeas",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Lady's Finger Okra",
+        "Sesame Seeds",
+        "Sweet Potatoes"
+      ]
+    }
+  ],
+  "pdfPath": "output/weekly-diet-dashboard.pdf"
+}

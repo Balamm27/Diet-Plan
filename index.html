@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weekly Diet Dashboard</title>
+  <meta name="description" content="Tap a day to see the meals, recipes, and shopping details that matter right then." />
+  <style>
+    :root {
+      --bg-1: #f7f2e9;
+      --bg-2: #efe3cf;
+      --panel: rgba(255, 250, 242, 0.92);
+      --panel-strong: #fffdf8;
+      --ink: #203127;
+      --muted: #5b675d;
+      --accent: #1f6a52;
+      --accent-strong: #16503e;
+      --accent-soft: #dcebdc;
+      --warm: #d48c24;
+      --line: rgba(32, 49, 39, 0.1);
+      --shadow: 0 18px 40px rgba(63, 48, 25, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(212, 140, 36, 0.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(31, 106, 82, 0.18), transparent 28%),
+        linear-gradient(180deg, var(--bg-1) 0%, #f2eadc 48%, var(--bg-2) 100%);
+      min-height: 100vh;
+    }
+    .shell {
+      width: min(calc(100% - 20px), var(--max));
+      margin: 0 auto;
+      padding: 18px 0 40px;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(255, 251, 245, 0.98), rgba(250, 244, 231, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -60px;
+      bottom: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(31, 106, 82, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(31, 106, 82, 0.09);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(36px, 8vw, 72px);
+      line-height: 0.95;
+      max-width: 9ch;
+    }
+    .subtitle {
+      max-width: 52ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .hero-meta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .meta-pill, .method-pill, .store-pill, .pantry-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(32, 49, 39, 0.08);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .top-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .action-link {
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(31, 106, 82, 0.18);
+    }
+    .action-link.secondary {
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      box-shadow: none;
+    }
+    .day-bar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      margin: 18px 0 22px;
+      padding: 10px 0 4px;
+      backdrop-filter: blur(16px);
+    }
+    .day-track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+    .day-track::-webkit-scrollbar { display: none; }
+    .day-chip {
+      flex: 0 0 auto;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 16px;
+      background: rgba(255, 251, 245, 0.9);
+      color: var(--ink);
+      font-weight: 800;
+      box-shadow: 0 10px 20px rgba(32, 49, 39, 0.08);
+      cursor: pointer;
+    }
+    .day-chip.active {
+      background: var(--accent);
+      color: white;
+    }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin: 22px 0 14px;
+    }
+    .section-heading h2 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .section-heading p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.45;
+      max-width: 58ch;
+    }
+    .selected-day-shell, .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+    .selected-day-shell {
+      padding: 18px;
+    }
+    .selected-day-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+    .selected-day-head h3 {
+      margin: 0;
+      font-size: clamp(30px, 6vw, 44px);
+    }
+    .selected-day-head small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--warm);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .meals-grid, .recipes-grid, .shopping-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .meals-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .meal-card, .panel {
+      padding: 16px;
+    }
+    .meal-card {
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+    }
+    .meal-card h4 {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .meal-list {
+      display: grid;
+      gap: 10px;
+    }
+    .meal-item {
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--panel-strong);
+      border: 1px solid rgba(32, 49, 39, 0.06);
+    }
+    .meal-item strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .meal-item span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .recipes-grid, .shopping-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+    .recipe-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .ingredient-list, .steps-list, .shopping-list, .pantry-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .ingredient-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .ingredient-list li {
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    .steps-list {
+      display: grid;
+      gap: 10px;
+      counter-reset: recipe-step;
+      margin-bottom: 12px;
+    }
+    .steps-list li {
+      position: relative;
+      padding-left: 38px;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .steps-list li::before {
+      counter-increment: recipe-step;
+      content: counter(recipe-step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(31, 106, 82, 0.12);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+    }
+    .tip {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(212, 140, 36, 0.08);
+      color: #7d5413;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .shopping-card h3 {
+      margin-bottom: 8px;
+    }
+    .shopping-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .shopping-list li {
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(32, 49, 39, 0.08);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+    .shopping-note {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    details.weekly {
+      margin-top: 18px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(32, 49, 39, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    details.weekly summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 16px 18px;
+      font-weight: 800;
+    }
+    details.weekly summary::-webkit-details-marker { display: none; }
+    .weekly-body {
+      padding: 0 18px 18px;
+    }
+    .pantry-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .footer-note {
+      margin-top: 26px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+    @media (max-width: 880px) {
+      .meals-grid, .recipes-grid, .shopping-grid {
+        grid-template-columns: 1fr;
+      }
+      .selected-day-head {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+      body {
+        background: white;
+      }
+      .shell {
+        width: 100%;
+        padding: 0;
+      }
+      .hero, .selected-day-shell, .panel {
+        box-shadow: none;
+        background: white;
+      }
+      .day-bar {
+        position: static;
+        backdrop-filter: none;
+      }
+      .meals-grid, .recipes-grid, .shopping-grid {
+        grid-template-columns: 1fr;
+      }
+      .action-link {
+        color: var(--ink);
+        border: 1px solid var(--line);
+        background: white;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">Public Share Link Ready</span>
+      <h1>Weekly Diet Dashboard</h1>
+      <p class="subtitle">Tap a day to see the meals, recipes, and shopping details that matter right then.</p>
+      <div class="hero-meta">
+        <span class="meta-pill">Tap a day, no login required</span>
+        <span class="meta-pill">Recipes stay inside your ingredient rules</span>
+        <span class="meta-pill">Weekly and day-specific shopping views</span>
+      </div>
+      <div class="top-actions">
+        <a class="action-link" href="#day-view">Jump to Day View</a>
+        <a class="action-link secondary" href="output/weekly-diet-dashboard.pdf">Open PDF Backup</a>
+      </div>
+    </section>
+
+    <nav class="day-bar" aria-label="Pick a day">
+      <div class="day-track" id="day-track"></div>
+    </nav>
+
+    <section id="day-view" class="selected-day-shell">
+      <div class="selected-day-head">
+        <div>
+          <small>Selected Day</small>
+          <h3 id="selected-day-title">Monday</h3>
+        </div>
+        <p id="selected-day-copy" class="subtitle">Meals, recipes, and shopping are focused on the day you choose.</p>
+      </div>
+      <div class="meals-grid" id="meals-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <h2>Recipes For This Day</h2>
+          <p>Each recipe stays inside your workbook ingredients plus pantry basics only.</p>
+        </div>
+      </div>
+      <div class="recipes-grid" id="recipes-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <h2>Shopping For This Day</h2>
+          <p>Store lists are filtered to the ingredients tied to the day you selected.</p>
+        </div>
+      </div>
+      <div class="shopping-grid" id="shopping-grid"></div>
+      <details class="weekly">
+        <summary>See the full weekly shopping list</summary>
+        <div class="weekly-body">
+          <div class="shopping-grid" id="weekly-shopping-grid"></div>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <h2>Pantry Basics Used In Recipes</h2>
+          <p>These are the only non-workbook basics assumed anywhere on the site.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <ul class="pantry-list" id="pantry-list"></ul>
+      </div>
+    </section>
+
+    <p class="footer-note">Generated from your workbook on June 14, 2026. Share the public site link with anyone who needs the plan.</p>
+  </main>
+
+  <script>
+    const data = {
+  "title": "Weekly Diet Dashboard",
+  "subtitle": "Tap a day to see the meals, recipes, and shopping details that matter right then.",
+  "generatedAt": "June 14, 2026",
+  "defaultDay": "monday",
+  "pantryBasics": [
+    "Salt",
+    "Black Pepper",
+    "Water",
+    "Neutral Oil",
+    "Olive Oil"
+  ],
+  "days": [
+    {
+      "id": "monday",
+      "name": "Monday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "beans"
+          ],
+          "labels": [
+            "Beans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuesday",
+      "name": "Tuesday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "berry-smoothie"
+          ],
+          "labels": [
+            "Berry Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "cauliflower"
+          ],
+          "labels": [
+            "Cauliflower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wednesday",
+      "name": "Wednesday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "ladys-finger"
+          ],
+          "labels": [
+            "Lady's finger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thursday",
+      "name": "Thursday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "berry-smoothie"
+          ],
+          "labels": [
+            "Berry Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "sweet-potatoes"
+          ],
+          "labels": [
+            "Sweet Potatoes"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "beans"
+          ],
+          "labels": [
+            "Beans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friday",
+      "name": "Friday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "sweet-potatoes"
+          ],
+          "labels": [
+            "Sweet Potatoes"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "cauliflower"
+          ],
+          "labels": [
+            "Cauliflower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saturday",
+      "name": "Saturday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "berry-smoothie"
+          ],
+          "labels": [
+            "Berry Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "sweet-potatoes"
+          ],
+          "labels": [
+            "Sweet Potatoes"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "ladys-finger"
+          ],
+          "labels": [
+            "Lady's finger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sunday",
+      "name": "Sunday",
+      "meals": [
+        {
+          "mealType": "Morning Cleanse",
+          "dishIds": [
+            "flax-seed-water",
+            "celery-juice"
+          ],
+          "labels": [
+            "Flax Seed Water",
+            "Celery Juice"
+          ]
+        },
+        {
+          "mealType": "Breakfast",
+          "dishIds": [
+            "mango-smoothie"
+          ],
+          "labels": [
+            "Mango Smoothie"
+          ]
+        },
+        {
+          "mealType": "Lunch",
+          "dishIds": [
+            "orange-chicken"
+          ],
+          "labels": [
+            "Orange Chicken"
+          ]
+        },
+        {
+          "mealType": "Dinner",
+          "dishIds": [
+            "beans"
+          ],
+          "labels": [
+            "Beans"
+          ]
+        }
+      ]
+    }
+  ],
+  "dishes": [
+    {
+      "id": "flax-seed-water",
+      "title": "Flax Seed Water",
+      "recipeId": "flax-seed-water",
+      "summary": "A simple soaked drink that feels light but grounding first thing in the morning."
+    },
+    {
+      "id": "celery-juice",
+      "title": "Celery Juice",
+      "recipeId": "celery-juice",
+      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink."
+    },
+    {
+      "id": "mango-smoothie",
+      "title": "Mango Smoothie",
+      "recipeId": "mango-smoothie",
+      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra."
+    },
+    {
+      "id": "orange-chicken",
+      "title": "Orange Chicken",
+      "recipeId": "orange-chicken",
+      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli."
+    },
+    {
+      "id": "beans",
+      "title": "Beans",
+      "recipeId": "beans",
+      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish."
+    },
+    {
+      "id": "berry-smoothie",
+      "title": "Berry Smoothie",
+      "recipeId": "berry-smoothie",
+      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth."
+    },
+    {
+      "id": "cauliflower",
+      "title": "Cauliflower",
+      "recipeId": "cauliflower",
+      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning."
+    },
+    {
+      "id": "ladys-finger",
+      "title": "Lady's finger",
+      "recipeId": "ladys-finger",
+      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about."
+    },
+    {
+      "id": "sweet-potatoes",
+      "title": "Sweet Potatoes",
+      "recipeId": "sweet-potatoes",
+      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish."
+    }
+  ],
+  "recipes": [
+    {
+      "id": "flax-seed-water",
+      "title": "Flax Seed Water",
+      "summary": "A simple soaked drink that feels light but grounding first thing in the morning.",
+      "method": "Soak and Stir",
+      "prepMinutes": 2,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Flax Seeds",
+          "canonical": "flax seeds"
+        },
+        {
+          "name": "Water",
+          "canonical": "water"
+        }
+      ],
+      "steps": [
+        "Stir 1 tablespoon flax seeds into a large glass of water.",
+        "Let it soak overnight or at least 6 hours so the water softens and thickens slightly.",
+        "Stir once more before drinking. Sip slowly while the seeds are suspended."
+      ],
+      "tip": "Chilled water makes this easier to drink, and the brief soak softens the texture noticeably.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "celery-juice",
+      "title": "Celery Juice",
+      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink.",
+      "method": "Blend or Juice",
+      "prepMinutes": 5,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Celery",
+          "canonical": "celery"
+        },
+        {
+          "name": "Water",
+          "canonical": "water"
+        }
+      ],
+      "steps": [
+        "Roughly chop celery and add it to a blender with a small splash of water.",
+        "Blend until smooth, adding just enough water to help it move.",
+        "Drink as-is for more fiber, or strain for a lighter juice texture."
+      ],
+      "tip": "Use only a little water so the celery flavor stays fresh instead of diluted.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "mango-smoothie",
+      "title": "Mango Smoothie",
+      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra.",
+      "method": "Blender",
+      "prepMinutes": 5,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Mango",
+          "canonical": "mango"
+        },
+        {
+          "name": "Banana",
+          "canonical": "banana"
+        },
+        {
+          "name": "Coconut Water",
+          "canonical": "coconut water"
+        }
+      ],
+      "steps": [
+        "Add chopped mango, banana, and cold coconut water to a blender.",
+        "Blend until silky and thick, scraping down the sides if needed.",
+        "Pour immediately for the freshest taste and creamiest texture."
+      ],
+      "tip": "If the fruit is cold, the smoothie tastes richer without needing ice.",
+      "workbookIngredients": [
+        "Mango",
+        "Banana",
+        "Coconut Water"
+      ]
+    },
+    {
+      "id": "berry-smoothie",
+      "title": "Berry Smoothie",
+      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth.",
+      "method": "Blender",
+      "prepMinutes": 5,
+      "cookMinutes": 0,
+      "ingredients": [
+        {
+          "name": "Dragon Fruit",
+          "canonical": "dragon fruit"
+        },
+        {
+          "name": "Blueberries",
+          "canonical": "blueberries"
+        },
+        {
+          "name": "Banana",
+          "canonical": "banana"
+        },
+        {
+          "name": "Coconut Water",
+          "canonical": "coconut water"
+        }
+      ],
+      "steps": [
+        "Add dragon fruit, blueberries, banana, and coconut water to a blender.",
+        "Blend until the berries disappear and the color turns evenly vibrant.",
+        "Taste for thickness and add a small splash of coconut water only if needed."
+      ],
+      "tip": "Blend the blueberries fully so the drink stays smooth instead of slightly seedy.",
+      "workbookIngredients": [
+        "Dragon Fruit",
+        "Blueberries",
+        "Banana",
+        "Coconut Water"
+      ]
+    },
+    {
+      "id": "orange-chicken",
+      "title": "Orange Chicken",
+      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli.",
+      "method": "Pan and Oven",
+      "prepMinutes": 12,
+      "cookMinutes": 20,
+      "ingredients": [
+        {
+          "name": "Chicken Breast",
+          "canonical": "chicken breast"
+        },
+        {
+          "name": "Navel Orange",
+          "canonical": "navel orange"
+        },
+        {
+          "name": "Broccoli",
+          "canonical": "broccoli"
+        },
+        {
+          "name": "Coconut Oil",
+          "canonical": "coconut oil"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        },
+        {
+          "name": "Sesame Seeds",
+          "canonical": "sesame seeds"
+        }
+      ],
+      "steps": [
+        "Season chicken breast with salt and pepper, then sear it in a hot pan with coconut oil until lightly golden.",
+        "Transfer the chicken to the oven to finish cooking while you toss broccoli with olive oil, salt, and pepper and roast it until the edges darken.",
+        "Return the pan to medium heat, squeeze in the navel orange juice, and let it reduce to a glossy citrus coating.",
+        "Slice the chicken, toss it in the reduced orange glaze, and plate with the roasted broccoli.",
+        "Finish with sesame seeds for crunch."
+      ],
+      "tip": "Roasting the broccoli separately keeps it crisp instead of watery, which makes the orange glaze taste sharper and cleaner.",
+      "workbookIngredients": [
+        "Chicken Breast",
+        "Coconut Oil",
+        "Navel Orange",
+        "Brocolli",
+        "Olive Oil",
+        "Sesame Seeds"
+      ]
+    },
+    {
+      "id": "sweet-potatoes",
+      "title": "Sweet Potatoes",
+      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish.",
+      "method": "Oven and Pan",
+      "prepMinutes": 15,
+      "cookMinutes": 30,
+      "ingredients": [
+        {
+          "name": "Sweet Potatoes",
+          "canonical": "sweet potatoes"
+        },
+        {
+          "name": "Chickpeas",
+          "canonical": "chickpeas"
+        },
+        {
+          "name": "Walnuts",
+          "canonical": "walnuts"
+        },
+        {
+          "name": "Coriander",
+          "canonical": "coriander"
+        },
+        {
+          "name": "Mint",
+          "canonical": "mint"
+        },
+        {
+          "name": "Basil",
+          "canonical": "basil"
+        },
+        {
+          "name": "Thyme",
+          "canonical": "thyme"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Roast halved or cubed sweet potatoes with olive oil, salt, pepper, and thyme until deeply tender and browned at the edges.",
+        "Warm chickpeas in a pan with a little olive oil, salt, and pepper just until they start to dry and lightly crisp.",
+        "Toast walnuts briefly in a dry pan so they smell nutty and become more fragrant.",
+        "Roughly chop coriander, mint, and basil together to make a bright herb finish.",
+        "Pile the chickpeas and walnuts over the roasted sweet potatoes and scatter the fresh herbs over everything just before serving."
+      ],
+      "tip": "Keep the herbs off the heat until the end so the bowl tastes fresh instead of muted.",
+      "workbookIngredients": [
+        "Chick Pea",
+        "Walnut",
+        "Coriander",
+        "Mint",
+        "Basil",
+        "Thyme"
+      ]
+    },
+    {
+      "id": "beans",
+      "title": "Beans",
+      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish.",
+      "method": "Stovetop Pan",
+      "prepMinutes": 5,
+      "cookMinutes": 10,
+      "ingredients": [
+        {
+          "name": "Green Beans",
+          "canonical": "green beans"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Heat a wide pan with olive oil until hot.",
+        "Add green beans in one layer and season with salt and pepper.",
+        "Cook, tossing only occasionally, until the beans blister in places but stay slightly crisp.",
+        "Serve right away while the beans still have a little snap."
+      ],
+      "tip": "Leaving the beans mostly undisturbed at first gives better browning and more flavor.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "cauliflower",
+      "title": "Cauliflower",
+      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning.",
+      "method": "Oven or Air Fryer",
+      "prepMinutes": 8,
+      "cookMinutes": 18,
+      "ingredients": [
+        {
+          "name": "Cauliflower",
+          "canonical": "cauliflower"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Cut cauliflower into medium florets and coat with olive oil, salt, and pepper.",
+        "Roast or air fry until the edges are deeply golden and the centers are tender.",
+        "Turn once halfway through so the color develops evenly.",
+        "Serve hot while the edges are still crisp."
+      ],
+      "tip": "Do not overcrowd the tray or basket or the cauliflower will steam instead of roast.",
+      "workbookIngredients": []
+    },
+    {
+      "id": "ladys-finger",
+      "title": "Lady's Finger",
+      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about.",
+      "method": "Stovetop Pan",
+      "prepMinutes": 8,
+      "cookMinutes": 12,
+      "ingredients": [
+        {
+          "name": "Lady's Finger Okra",
+          "canonical": "lady's finger okra"
+        },
+        {
+          "name": "Olive Oil",
+          "canonical": "olive oil"
+        }
+      ],
+      "steps": [
+        "Dry the okra thoroughly, then slice it into larger pieces so it browns instead of steams.",
+        "Heat olive oil in a wide pan and add the okra in a single layer.",
+        "Season with salt and pepper and cook over medium-high heat, stirring only occasionally.",
+        "Keep cooking until the cut edges darken and the pieces feel dry and tender."
+      ],
+      "tip": "The drier the okra is before it hits the pan, the better the final texture will be.",
+      "workbookIngredients": []
+    }
+  ],
+  "dayShopping": {
+    "monday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Broccoli",
+            "Coconut Water",
+            "Mango",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Sesame Seeds"
+      ]
+    },
+    "tuesday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Blueberries",
+            "Broccoli",
+            "Coconut Water",
+            "Dragon Fruit",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Cauliflower",
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Sesame Seeds"
+      ]
+    },
+    "wednesday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Broccoli",
+            "Coconut Water",
+            "Mango",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Lady's Finger Okra",
+        "Sesame Seeds"
+      ]
+    },
+    "thursday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Basil",
+            "Blueberries",
+            "Coconut Water",
+            "Coriander",
+            "Dragon Fruit",
+            "Mint",
+            "Thyme",
+            "Walnuts"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Chickpeas",
+        "Flax Seeds",
+        "Green Beans",
+        "Sweet Potatoes"
+      ]
+    },
+    "friday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Basil",
+            "Coconut Water",
+            "Coriander",
+            "Mango",
+            "Mint",
+            "Thyme",
+            "Walnuts"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Cauliflower",
+        "Celery",
+        "Chickpeas",
+        "Flax Seeds",
+        "Sweet Potatoes"
+      ]
+    },
+    "saturday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Basil",
+            "Blueberries",
+            "Coconut Water",
+            "Coriander",
+            "Dragon Fruit",
+            "Mint",
+            "Thyme",
+            "Walnuts"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Chickpeas",
+        "Flax Seeds",
+        "Lady's Finger Okra",
+        "Sweet Potatoes"
+      ]
+    },
+    "sunday": {
+      "stores": [
+        {
+          "store": "Costco",
+          "items": [
+            "Banana",
+            "Broccoli",
+            "Coconut Water",
+            "Mango",
+            "Navel Orange"
+          ]
+        },
+        {
+          "store": "Whole Foods / Fred Meyer / QFC",
+          "items": [
+            "Chicken Breast"
+          ]
+        }
+      ],
+      "unassigned": [
+        "Celery",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Sesame Seeds"
+      ]
+    },
+    "weekly": {
+      "unassigned": [
+        "Cauliflower",
+        "Celery",
+        "Chickpeas",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Lady's Finger Okra",
+        "Sesame Seeds",
+        "Sweet Potatoes"
+      ]
+    }
+  },
+  "weeklyShopping": [
+    {
+      "store": "Costco",
+      "items": [
+        "Banana",
+        "Mango",
+        "Coconut Water",
+        "Dragon Fruit",
+        "Blueberries",
+        "Navel Orange",
+        "Broccoli",
+        "Walnuts",
+        "Coriander",
+        "Mint",
+        "Basil",
+        "Thyme"
+      ]
+    },
+    {
+      "store": "Whole Foods / Fred Meyer / QFC",
+      "items": [
+        "Chicken Breast"
+      ]
+    },
+    {
+      "store": "Needs Store Assignment",
+      "items": [
+        "Cauliflower",
+        "Celery",
+        "Chickpeas",
+        "Coconut Oil",
+        "Flax Seeds",
+        "Green Beans",
+        "Lady's Finger Okra",
+        "Sesame Seeds",
+        "Sweet Potatoes"
+      ]
+    }
+  ],
+  "pdfPath": "output/weekly-diet-dashboard.pdf"
+};
+    const stateKey = "diet-plan-selected-day-v1";
+    const storedDay = localStorage.getItem(stateKey);
+    const dishesById = Object.fromEntries(data.dishes.map((dish) => [dish.id, dish]));
+    const recipesById = Object.fromEntries(data.recipes.map((recipe) => [recipe.id, recipe]));
+
+    const dayTrack = document.getElementById("day-track");
+    const mealsGrid = document.getElementById("meals-grid");
+    const recipesGrid = document.getElementById("recipes-grid");
+    const shoppingGrid = document.getElementById("shopping-grid");
+    const weeklyShoppingGrid = document.getElementById("weekly-shopping-grid");
+    const pantryList = document.getElementById("pantry-list");
+    const selectedDayTitle = document.getElementById("selected-day-title");
+    const selectedDayCopy = document.getElementById("selected-day-copy");
+
+    let activeDayId = storedDay && data.days.some((day) => day.id === storedDay) ? storedDay : data.defaultDay;
+
+    function renderDayChips() {
+      dayTrack.innerHTML = "";
+      data.days.forEach((day) => {
+        const button = document.createElement("button");
+        button.className = "day-chip" + (day.id === activeDayId ? " active" : "");
+        button.textContent = day.name.slice(0, 3);
+        button.setAttribute("aria-label", day.name);
+        button.addEventListener("click", () => {
+          activeDayId = day.id;
+          localStorage.setItem(stateKey, activeDayId);
+          render();
+        });
+        dayTrack.appendChild(button);
+      });
+    }
+
+    function renderMeals(day) {
+      mealsGrid.innerHTML = "";
+      day.meals.forEach((meal) => {
+        const card = document.createElement("article");
+        card.className = "meal-card";
+        card.innerHTML = `<h4>${meal.mealType}</h4>`;
+        const list = document.createElement("div");
+        list.className = "meal-list";
+        meal.dishIds.forEach((dishId) => {
+          const dish = dishesById[dishId];
+          const recipe = recipesById[dish.recipeId];
+          const item = document.createElement("div");
+          item.className = "meal-item";
+          item.innerHTML = `
+            <strong>${dish.title}</strong>
+            <span>${recipe.summary}</span>
+          `;
+          list.appendChild(item);
+        });
+        card.appendChild(list);
+        mealsGrid.appendChild(card);
+      });
+    }
+
+    function renderRecipes(day) {
+      recipesGrid.innerHTML = "";
+      const recipeIds = [...new Set(day.meals.flatMap((meal) => meal.dishIds.map((dishId) => dishesById[dishId].recipeId)))];
+      recipeIds.forEach((recipeId) => {
+        const recipe = recipesById[recipeId];
+        const card = document.createElement("article");
+        card.className = "panel";
+        const ingredients = recipe.ingredients.map((ingredient) => `<li>${ingredient.name}</li>`).join("");
+        const steps = recipe.steps.map((step) => `<li>${step}</li>`).join("");
+        card.innerHTML = `
+          <div class="panel-top">
+            <div>
+              <h3>${recipe.title}</h3>
+              <p>${recipe.summary}</p>
+            </div>
+            <span class="method-pill">${recipe.method}</span>
+          </div>
+          <div class="recipe-meta">
+            <span class="meta-pill">Prep ${recipe.prepMinutes} min</span>
+            <span class="meta-pill">Cook ${recipe.cookMinutes} min</span>
+          </div>
+          <ul class="ingredient-list">${ingredients}</ul>
+          <ol class="steps-list">${steps}</ol>
+          <div class="tip">${recipe.tip}</div>
+        `;
+        recipesGrid.appendChild(card);
+      });
+    }
+
+    function renderShopping(day) {
+      shoppingGrid.innerHTML = "";
+      const shopping = data.dayShopping[day.id];
+      const cards = [];
+      shopping.stores.forEach((store) => {
+        cards.push({ store: store.store, items: store.items });
+      });
+      if (shopping.unassigned.length) {
+        cards.push({ store: "Needs Store Assignment", items: shopping.unassigned });
+      }
+
+      if (!cards.length) {
+        const empty = document.createElement("article");
+        empty.className = "panel shopping-card";
+        empty.innerHTML = `<h3>No shopping list mapped</h3><p>The workbook does not tie store items to this day strongly enough to filter them.</p>`;
+        shoppingGrid.appendChild(empty);
+        return;
+      }
+
+      cards.forEach((store) => {
+        const card = document.createElement("article");
+        card.className = "panel shopping-card";
+        card.innerHTML = `
+          <span class="store-pill">${store.store}</span>
+          <ul class="shopping-list">${store.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+        `;
+        shoppingGrid.appendChild(card);
+      });
+    }
+
+    function renderWeeklyShopping() {
+      weeklyShoppingGrid.innerHTML = "";
+      data.weeklyShopping.forEach((store) => {
+        const card = document.createElement("article");
+        card.className = "panel shopping-card";
+        card.innerHTML = `
+          <span class="store-pill">${store.store}</span>
+          <ul class="shopping-list">${store.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+        `;
+        weeklyShoppingGrid.appendChild(card);
+      });
+    }
+
+    function renderPantry() {
+      pantryList.innerHTML = data.pantryBasics.map((item) => `<li class="pantry-pill">${item}</li>`).join("");
+    }
+
+    function render() {
+      const day = data.days.find((entry) => entry.id === activeDayId) || data.days[0];
+      selectedDayTitle.textContent = day.name;
+      selectedDayCopy.textContent = `${day.name} is focused for fast scanning: meals first, recipes next, shopping last.`;
+      renderDayChips();
+      renderMeals(day);
+      renderRecipes(day);
+      renderShopping(day);
+    }
+
+    renderWeeklyShopping();
+    renderPantry();
+    render();
+  </script>
+</body>
+</html>
