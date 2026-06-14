@@ -5,20 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Weekly Diet Dashboard</title>
   <meta name="description" content="Tap a day to see the meals, recipes, and shopping details that matter right then." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-1: #f7f2e9;
-      --bg-2: #efe3cf;
-      --panel: rgba(255, 250, 242, 0.92);
-      --panel-strong: #fffdf8;
-      --ink: #203127;
-      --muted: #5b675d;
-      --accent: #1f6a52;
-      --accent-strong: #16503e;
-      --accent-soft: #dcebdc;
-      --warm: #d48c24;
-      --line: rgba(32, 49, 39, 0.1);
-      --shadow: 0 18px 40px rgba(63, 48, 25, 0.12);
+      --bg-1: #fff0de;
+      --bg-2: #ffe4f2;
+      --bg-3: #e5fff1;
+      --panel: rgba(255, 250, 247, 0.88);
+      --panel-strong: rgba(255, 255, 255, 0.92);
+      --ink: #182329;
+      --muted: #56616a;
+      --accent: #ff5c8a;
+      --accent-strong: #ff3f74;
+      --accent-soft: #ffe3ee;
+      --mint: #7ce7b8;
+      --sky: #c9f4ff;
+      --warm: #ff9b42;
+      --line: rgba(24, 35, 41, 0.08);
+      --shadow: 0 24px 48px rgba(100, 67, 95, 0.12);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 16px;
@@ -29,11 +35,12 @@
     body {
       margin: 0;
       color: var(--ink);
-      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-family: "DM Sans", "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(212, 140, 36, 0.18), transparent 26%),
-        radial-gradient(circle at top right, rgba(31, 106, 82, 0.18), transparent 28%),
-        linear-gradient(180deg, var(--bg-1) 0%, #f2eadc 48%, var(--bg-2) 100%);
+        radial-gradient(circle at top left, rgba(255, 92, 138, 0.18), transparent 22%),
+        radial-gradient(circle at top right, rgba(124, 231, 184, 0.24), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(201, 244, 255, 0.24), transparent 20%),
+        linear-gradient(180deg, var(--bg-1) 0%, #fff7ef 42%, var(--bg-2) 78%, var(--bg-3) 100%);
       min-height: 100vh;
     }
     .shell {
@@ -46,7 +53,9 @@
       overflow: hidden;
       border-radius: 32px;
       padding: 24px;
-      background: linear-gradient(135deg, rgba(255, 251, 245, 0.98), rgba(250, 244, 231, 0.9));
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 244, 249, 0.82)),
+        radial-gradient(circle at top right, rgba(124, 231, 184, 0.24), transparent 35%);
       border: 1px solid rgba(255, 255, 255, 0.75);
       box-shadow: var(--shadow);
     }
@@ -58,7 +67,7 @@
       right: -60px;
       bottom: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(31, 106, 82, 0.18), transparent 68%);
+      background: radial-gradient(circle, rgba(255, 92, 138, 0.18), transparent 68%);
       pointer-events: none;
     }
     .eyebrow {
@@ -67,8 +76,8 @@
       align-items: center;
       padding: 7px 12px;
       border-radius: 999px;
-      background: rgba(31, 106, 82, 0.09);
-      color: var(--accent);
+      background: rgba(255, 92, 138, 0.1);
+      color: var(--accent-strong);
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -76,15 +85,17 @@
     }
     h1 {
       margin: 14px 0 10px;
-      font-size: clamp(36px, 8vw, 72px);
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: clamp(30px, 7vw, 60px);
       line-height: 0.95;
       max-width: 9ch;
+      letter-spacing: -0.04em;
     }
     .subtitle {
       max-width: 52ch;
       margin: 0;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 15px;
       line-height: 1.55;
     }
     .hero-meta {
@@ -99,8 +110,8 @@
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(32, 49, 39, 0.08);
-      background: rgba(255, 255, 255, 0.72);
-      font-size: 13px;
+      background: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
       color: var(--muted);
     }
     .top-actions {
@@ -111,12 +122,12 @@
     }
     .action-link {
       text-decoration: none;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
       border-radius: 999px;
       padding: 12px 16px;
       font-weight: 700;
-      box-shadow: 0 10px 24px rgba(31, 106, 82, 0.18);
+      box-shadow: 0 12px 26px rgba(255, 92, 138, 0.24);
     }
     .action-link.secondary {
       background: rgba(255, 255, 255, 0.86);
@@ -144,14 +155,15 @@
       border: 0;
       border-radius: 999px;
       padding: 13px 16px;
-      background: rgba(255, 251, 245, 0.9);
+      background: rgba(255, 255, 255, 0.76);
       color: var(--ink);
       font-weight: 800;
-      box-shadow: 0 10px 20px rgba(32, 49, 39, 0.08);
+      font-size: 13px;
+      box-shadow: 0 10px 20px rgba(100, 67, 95, 0.08);
       cursor: pointer;
     }
     .day-chip.active {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
     }
     .section-heading {
@@ -163,7 +175,9 @@
     }
     .section-heading h2 {
       margin: 0;
-      font-size: 28px;
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: 24px;
+      letter-spacing: -0.03em;
     }
     .section-heading p {
       margin: 6px 0 0;
@@ -189,7 +203,9 @@
     }
     .selected-day-head h3 {
       margin: 0;
-      font-size: clamp(30px, 6vw, 44px);
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: clamp(26px, 5vw, 40px);
+      letter-spacing: -0.04em;
     }
     .selected-day-head small {
       display: block;
@@ -217,7 +233,7 @@
     .meal-card h4 {
       margin: 0 0 10px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -225,20 +241,52 @@
       display: grid;
       gap: 10px;
     }
+    .meal-topline {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .dish-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255, 92, 138, 0.16), rgba(124, 231, 184, 0.28));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--ink);
+      flex: 0 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    .dish-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
     .meal-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
       padding: 12px;
       border-radius: 14px;
       background: var(--panel-strong);
       border: 1px solid rgba(32, 49, 39, 0.06);
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    }
+    .meal-item:hover, .meal-item:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(32, 49, 39, 0.08);
+      border-color: rgba(31, 106, 82, 0.28);
+      outline: none;
     }
     .meal-item strong {
       display: block;
-      font-size: 16px;
-      margin-bottom: 4px;
+      font-size: 15px;
+      margin-bottom: 2px;
     }
     .meal-item span {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.4;
     }
     .recipes-grid, .shopping-grid {
@@ -246,7 +294,13 @@
     }
     .panel h3 {
       margin: 0 0 10px;
-      font-size: 22px;
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+    .recipe-card.flash {
+      outline: 3px solid rgba(31, 106, 82, 0.3);
+      box-shadow: 0 0 0 6px rgba(31, 106, 82, 0.08);
     }
     .panel p {
       margin: 0;
@@ -259,6 +313,24 @@
       gap: 12px;
       align-items: start;
       margin-bottom: 12px;
+    }
+    .recipe-title-group {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .recipe-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 92, 138, 0.16), rgba(124, 231, 184, 0.28));
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.76);
+    }
+    .recipe-avatar .dish-icon {
+      font-size: 24px;
     }
     .recipe-meta {
       display: flex;
@@ -278,10 +350,10 @@
       margin-bottom: 14px;
     }
     .ingredient-list li {
-      background: var(--accent-soft);
+      background: linear-gradient(135deg, var(--accent-soft), rgba(201, 244, 255, 0.8));
       border-radius: 999px;
       padding: 8px 12px;
-      font-size: 14px;
+      font-size: 13px;
     }
     .steps-list {
       display: grid;
@@ -305,7 +377,7 @@
       height: 26px;
       border-radius: 50%;
       background: rgba(31, 106, 82, 0.12);
-      color: var(--accent);
+      color: var(--accent-strong);
       font-size: 13px;
       font-weight: 800;
       display: grid;
@@ -315,10 +387,22 @@
       margin-top: 10px;
       padding: 12px;
       border-radius: 14px;
-      background: rgba(212, 140, 36, 0.08);
-      color: #7d5413;
+      background: linear-gradient(135deg, rgba(255, 155, 66, 0.12), rgba(255, 92, 138, 0.08));
+      color: #8a4c1a;
       font-size: 14px;
       line-height: 1.45;
+    }
+    .section-sticker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
     }
     .shopping-card h3 {
       margin-bottom: 8px;
@@ -340,6 +424,38 @@
       margin-top: 12px;
       color: var(--muted);
       line-height: 1.45;
+    }
+    .weekly-supply-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .supply-list {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .supply-list li {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(32, 49, 39, 0.08);
+    }
+    .supply-list strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .supply-list span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: 14px;
+    }
+    .buy-quantity {
+      color: var(--accent-strong);
+      font-weight: 700;
     }
     details.weekly {
       margin-top: 18px;
@@ -371,7 +487,7 @@
       font-size: 13px;
     }
     @media (max-width: 880px) {
-      .meals-grid, .recipes-grid, .shopping-grid {
+      .meals-grid, .recipes-grid, .shopping-grid, .weekly-supply-grid {
         grid-template-columns: 1fr;
       }
       .selected-day-head {
@@ -399,7 +515,7 @@
         position: static;
         backdrop-filter: none;
       }
-      .meals-grid, .recipes-grid, .shopping-grid {
+      .meals-grid, .recipes-grid, .shopping-grid, .weekly-supply-grid {
         grid-template-columns: 1fr;
       }
       .action-link {
@@ -446,6 +562,7 @@
     <section>
       <div class="section-heading">
         <div>
+          <div class="section-sticker">✨ Tap any meal card to jump to its recipe</div>
           <h2>Recipes For This Day</h2>
           <p>Each recipe stays inside your workbook ingredients plus pantry basics only.</p>
         </div>
@@ -456,6 +573,18 @@
     <section>
       <div class="section-heading">
         <div>
+          <div class="section-sticker">🛒 One-person weekly buy guide</div>
+          <h2>Weekly Supply Buy List</h2>
+          <p>These quantities are estimated for one person following this exact weekly plan.</p>
+        </div>
+      </div>
+      <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <div class="section-sticker">🧺 Filtered by selected day</div>
           <h2>Shopping For This Day</h2>
           <p>Store lists are filtered to the ingredients tied to the day you selected.</p>
         </div>
@@ -812,55 +941,73 @@
       "id": "flax-seed-water",
       "title": "Flax Seed Water",
       "recipeId": "flax-seed-water",
-      "summary": "A simple soaked drink that feels light but grounding first thing in the morning."
+      "summary": "A simple soaked drink that feels light but grounding first thing in the morning.",
+      "icon": "\ud83d\udca7",
+      "avatar": "FS"
     },
     {
       "id": "celery-juice",
       "title": "Celery Juice",
       "recipeId": "celery-juice",
-      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink."
+      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink.",
+      "icon": "\ud83e\udd6c",
+      "avatar": "CJ"
     },
     {
       "id": "mango-smoothie",
       "title": "Mango Smoothie",
       "recipeId": "mango-smoothie",
-      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra."
+      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra.",
+      "icon": "\ud83e\udd6d",
+      "avatar": "MS"
     },
     {
       "id": "orange-chicken",
       "title": "Orange Chicken",
       "recipeId": "orange-chicken",
-      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli."
+      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli.",
+      "icon": "\ud83c\udf4a",
+      "avatar": "OC"
     },
     {
       "id": "beans",
       "title": "Beans",
       "recipeId": "beans",
-      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish."
+      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish.",
+      "icon": "\ud83e\udedb",
+      "avatar": "GB"
     },
     {
       "id": "berry-smoothie",
       "title": "Berry Smoothie",
       "recipeId": "berry-smoothie",
-      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth."
+      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth.",
+      "icon": "\ud83e\uded0",
+      "avatar": "BS"
     },
     {
       "id": "cauliflower",
       "title": "Cauliflower",
       "recipeId": "cauliflower",
-      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning."
+      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning.",
+      "icon": "\ud83e\udd66",
+      "avatar": "CF"
     },
     {
       "id": "ladys-finger",
       "title": "Lady's finger",
       "recipeId": "ladys-finger",
-      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about."
+      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about.",
+      "icon": "\u2728",
+      "avatar": "OK"
     },
     {
       "id": "sweet-potatoes",
       "title": "Sweet Potatoes",
       "recipeId": "sweet-potatoes",
-      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish."
+      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish.",
+      "icon": "\ud83c\udf60",
+      "avatar": "SP"
     }
   ],
   "recipes": [
@@ -869,6 +1016,8 @@
       "title": "Flax Seed Water",
       "summary": "A simple soaked drink that feels light but grounding first thing in the morning.",
       "method": "Soak and Stir",
+      "icon": "\ud83d\udca7",
+      "avatar": "FS",
       "prepMinutes": 2,
       "cookMinutes": 0,
       "ingredients": [
@@ -894,6 +1043,8 @@
       "title": "Celery Juice",
       "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink.",
       "method": "Blend or Juice",
+      "icon": "\ud83e\udd6c",
+      "avatar": "CJ",
       "prepMinutes": 5,
       "cookMinutes": 0,
       "ingredients": [
@@ -919,6 +1070,8 @@
       "title": "Mango Smoothie",
       "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra.",
       "method": "Blender",
+      "icon": "\ud83e\udd6d",
+      "avatar": "MS",
       "prepMinutes": 5,
       "cookMinutes": 0,
       "ingredients": [
@@ -952,6 +1105,8 @@
       "title": "Berry Smoothie",
       "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth.",
       "method": "Blender",
+      "icon": "\ud83e\uded0",
+      "avatar": "BS",
       "prepMinutes": 5,
       "cookMinutes": 0,
       "ingredients": [
@@ -990,6 +1145,8 @@
       "title": "Orange Chicken",
       "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli.",
       "method": "Pan and Oven",
+      "icon": "\ud83c\udf4a",
+      "avatar": "OC",
       "prepMinutes": 12,
       "cookMinutes": 20,
       "ingredients": [
@@ -1040,6 +1197,8 @@
       "title": "Sweet Potatoes",
       "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish.",
       "method": "Oven and Pan",
+      "icon": "\ud83c\udf60",
+      "avatar": "SP",
       "prepMinutes": 15,
       "cookMinutes": 30,
       "ingredients": [
@@ -1098,6 +1257,8 @@
       "title": "Beans",
       "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish.",
       "method": "Stovetop Pan",
+      "icon": "\ud83e\udedb",
+      "avatar": "GB",
       "prepMinutes": 5,
       "cookMinutes": 10,
       "ingredients": [
@@ -1124,6 +1285,8 @@
       "title": "Cauliflower",
       "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning.",
       "method": "Oven or Air Fryer",
+      "icon": "\ud83e\udd66",
+      "avatar": "CF",
       "prepMinutes": 8,
       "cookMinutes": 18,
       "ingredients": [
@@ -1150,12 +1313,14 @@
       "title": "Lady's Finger",
       "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about.",
       "method": "Stovetop Pan",
+      "icon": "\u2728",
+      "avatar": "OK",
       "prepMinutes": 8,
       "cookMinutes": 12,
       "ingredients": [
         {
-          "name": "Lady's Finger Okra",
-          "canonical": "lady's finger okra"
+          "name": "Lady's Finger (Okra)",
+          "canonical": "okra"
         },
         {
           "name": "Olive Oil",
@@ -1251,7 +1416,7 @@
         "Celery",
         "Coconut Oil",
         "Flax Seeds",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sesame Seeds"
       ]
     },
@@ -1325,7 +1490,7 @@
         "Celery",
         "Chickpeas",
         "Flax Seeds",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sweet Potatoes"
       ]
     },
@@ -1364,12 +1529,159 @@
         "Coconut Oil",
         "Flax Seeds",
         "Green Beans",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sesame Seeds",
         "Sweet Potatoes"
       ]
     }
   },
+  "weeklySupply": [
+    {
+      "category": "Beverages",
+      "items": [
+        {
+          "name": "Coconut Water",
+          "quantity": "2 to 3 liters",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Fruit",
+      "items": [
+        {
+          "name": "Banana",
+          "quantity": "7 bananas",
+          "store": "Costco"
+        },
+        {
+          "name": "Blueberries",
+          "quantity": "3 cups",
+          "store": "Costco"
+        },
+        {
+          "name": "Dragon Fruit",
+          "quantity": "3 dragon fruits",
+          "store": "Costco"
+        },
+        {
+          "name": "Mango",
+          "quantity": "4 mangoes",
+          "store": "Costco"
+        },
+        {
+          "name": "Navel Orange",
+          "quantity": "4 oranges",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Herbs",
+      "items": [
+        {
+          "name": "Basil",
+          "quantity": "1 bunch",
+          "store": "Costco"
+        },
+        {
+          "name": "Coriander",
+          "quantity": "1 bunch",
+          "store": "Costco"
+        },
+        {
+          "name": "Mint",
+          "quantity": "1 bunch",
+          "store": "Costco"
+        },
+        {
+          "name": "Thyme",
+          "quantity": "1 small bunch",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Pantry",
+      "items": [
+        {
+          "name": "Chickpeas",
+          "quantity": "2 cans or 3 cups cooked",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Coconut Oil",
+          "quantity": "1 small jar",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Flax Seeds",
+          "quantity": "1 cup (about 250 g)",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Olive Oil",
+          "quantity": "1 bottle",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Sesame Seeds",
+          "quantity": "1 small packet or jar",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Walnuts",
+          "quantity": "1 1/2 cups",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Produce",
+      "items": [
+        {
+          "name": "Broccoli",
+          "quantity": "4 medium heads",
+          "store": "Costco"
+        },
+        {
+          "name": "Cauliflower",
+          "quantity": "2 medium heads",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Celery",
+          "quantity": "3 bunches",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Green Beans",
+          "quantity": "1 1/2 lb",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Lady's Finger (Okra)",
+          "quantity": "1 1/2 lb",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Sweet Potatoes",
+          "quantity": "6 medium sweet potatoes",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        }
+      ]
+    },
+    {
+      "category": "Protein",
+      "items": [
+        {
+          "name": "Chicken Breast",
+          "quantity": "2 lb",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        }
+      ]
+    }
+  ],
   "weeklyShopping": [
     {
       "store": "Costco",
@@ -1403,7 +1715,7 @@
         "Coconut Oil",
         "Flax Seeds",
         "Green Beans",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sesame Seeds",
         "Sweet Potatoes"
       ]
@@ -1420,6 +1732,7 @@
     const mealsGrid = document.getElementById("meals-grid");
     const recipesGrid = document.getElementById("recipes-grid");
     const shoppingGrid = document.getElementById("shopping-grid");
+    const weeklySupplyGrid = document.getElementById("weekly-supply-grid");
     const weeklyShoppingGrid = document.getElementById("weekly-shopping-grid");
     const pantryList = document.getElementById("pantry-list");
     const selectedDayTitle = document.getElementById("selected-day-title");
@@ -1454,11 +1767,21 @@
         meal.dishIds.forEach((dishId) => {
           const dish = dishesById[dishId];
           const recipe = recipesById[dish.recipeId];
-          const item = document.createElement("div");
+          const item = document.createElement("a");
           item.className = "meal-item";
+          item.href = `#recipe-${recipe.id}`;
+          item.addEventListener("click", (event) => {
+            event.preventDefault();
+            jumpToRecipe(recipe.id);
+          });
           item.innerHTML = `
-            <strong>${dish.title}</strong>
-            <span>${recipe.summary}</span>
+            <div class="meal-topline">
+              <div class="dish-avatar">${dish.avatar}</div>
+              <div>
+                <strong>${dish.icon} ${dish.title}</strong>
+                <span>${recipe.summary}</span>
+              </div>
+            </div>
           `;
           list.appendChild(item);
         });
@@ -1473,14 +1796,18 @@
       recipeIds.forEach((recipeId) => {
         const recipe = recipesById[recipeId];
         const card = document.createElement("article");
-        card.className = "panel";
+        card.className = "panel recipe-card";
+        card.id = `recipe-${recipe.id}`;
         const ingredients = recipe.ingredients.map((ingredient) => `<li>${ingredient.name}</li>`).join("");
         const steps = recipe.steps.map((step) => `<li>${step}</li>`).join("");
         card.innerHTML = `
           <div class="panel-top">
-            <div>
-              <h3>${recipe.title}</h3>
-              <p>${recipe.summary}</p>
+            <div class="recipe-title-group">
+              <div class="recipe-avatar"><span class="dish-icon">${recipe.icon}</span></div>
+              <div>
+                <h3>${recipe.title}</h3>
+                <p>${recipe.summary}</p>
+              </div>
             </div>
             <span class="method-pill">${recipe.method}</span>
           </div>
@@ -1493,6 +1820,27 @@
           <div class="tip">${recipe.tip}</div>
         `;
         recipesGrid.appendChild(card);
+      });
+    }
+
+    function renderWeeklySupply() {
+      weeklySupplyGrid.innerHTML = "";
+      data.weeklySupply.forEach((group) => {
+        const card = document.createElement("article");
+        card.className = "panel shopping-card";
+        card.innerHTML = `
+          <span class="store-pill">${group.category}</span>
+          <ul class="supply-list">
+            ${group.items.map((item) => `
+              <li>
+                <strong>${item.name}</strong>
+                <span class="buy-quantity">${item.quantity}</span>
+                <span>Best place to buy: ${item.store}</span>
+              </li>
+            `).join("")}
+          </ul>
+        `;
+        weeklySupplyGrid.appendChild(card);
       });
     }
 
@@ -1543,6 +1891,16 @@
       pantryList.innerHTML = data.pantryBasics.map((item) => `<li class="pantry-pill">${item}</li>`).join("");
     }
 
+    function jumpToRecipe(recipeId) {
+      const recipeNode = document.getElementById(`recipe-${recipeId}`);
+      if (!recipeNode) {
+        return;
+      }
+      recipeNode.scrollIntoView({ behavior: "smooth", block: "start" });
+      recipeNode.classList.add("flash");
+      window.setTimeout(() => recipeNode.classList.remove("flash"), 1200);
+    }
+
     function render() {
       const day = data.days.find((entry) => entry.id === activeDayId) || data.days[0];
       selectedDayTitle.textContent = day.name;
@@ -1553,6 +1911,7 @@
       renderShopping(day);
     }
 
+    renderWeeklySupply();
     renderWeeklyShopping();
     renderPantry();
     render();

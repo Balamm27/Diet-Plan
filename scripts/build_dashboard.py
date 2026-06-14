@@ -55,6 +55,7 @@ CANONICAL_OVERRIDES = {
     "beans": "green beans",
     "cauliflower": "cauliflower",
     "lady's finger": "okra",
+    "lady's finger okra": "okra",
     "okra": "okra",
     "celery juice": "celery",
     "flax seed water": "flax seeds",
@@ -85,6 +86,18 @@ DISPLAY_NAMES = {
     "okra": "Lady's Finger (Okra)",
     "celery": "Celery",
     "flax seeds": "Flax Seeds",
+}
+
+DISH_VISUALS = {
+    "flax-seed-water": {"icon": "💧", "avatar": "FS"},
+    "celery-juice": {"icon": "🥬", "avatar": "CJ"},
+    "mango-smoothie": {"icon": "🥭", "avatar": "MS"},
+    "berry-smoothie": {"icon": "🫐", "avatar": "BS"},
+    "orange-chicken": {"icon": "🍊", "avatar": "OC"},
+    "sweet-potatoes": {"icon": "🍠", "avatar": "SP"},
+    "beans": {"icon": "🫛", "avatar": "GB"},
+    "cauliflower": {"icon": "🥦", "avatar": "CF"},
+    "ladys-finger": {"icon": "✨", "avatar": "OK"},
 }
 
 RECIPE_DETAILS = {
@@ -239,6 +252,34 @@ RECIPE_DETAILS = {
     },
 }
 
+WEEKLY_QUANTITY_GUIDE = {
+    "flax seeds": {"quantity": "1 cup (about 250 g)", "category": "Pantry"},
+    "celery": {"quantity": "3 bunches", "category": "Produce"},
+    "mango": {"quantity": "4 mangoes", "category": "Fruit"},
+    "banana": {"quantity": "7 bananas", "category": "Fruit"},
+    "coconut water": {"quantity": "2 to 3 liters", "category": "Beverages"},
+    "dragon fruit": {"quantity": "3 dragon fruits", "category": "Fruit"},
+    "blueberries": {"quantity": "3 cups", "category": "Fruit"},
+    "chicken breast": {"quantity": "2 lb", "category": "Protein"},
+    "navel orange": {"quantity": "4 oranges", "category": "Fruit"},
+    "broccoli": {"quantity": "4 medium heads", "category": "Produce"},
+    "sesame seeds": {"quantity": "1 small packet or jar", "category": "Pantry"},
+    "sweet potatoes": {"quantity": "6 medium sweet potatoes", "category": "Produce"},
+    "chickpeas": {"quantity": "2 cans or 3 cups cooked", "category": "Pantry"},
+    "walnuts": {"quantity": "1 1/2 cups", "category": "Pantry"},
+    "coriander": {"quantity": "1 bunch", "category": "Herbs"},
+    "mint": {"quantity": "1 bunch", "category": "Herbs"},
+    "basil": {"quantity": "1 bunch", "category": "Herbs"},
+    "thyme": {"quantity": "1 small bunch", "category": "Herbs"},
+    "green beans": {"quantity": "1 1/2 lb", "category": "Produce"},
+    "cauliflower": {"quantity": "2 medium heads", "category": "Produce"},
+    "okra": {"quantity": "1 1/2 lb", "category": "Produce"},
+    "olive oil": {"quantity": "1 bottle", "category": "Pantry"},
+    "coconut oil": {"quantity": "1 small jar", "category": "Pantry"},
+}
+
+DEFAULT_STORE = "Whole Foods / Fred Meyer / QFC"
+
 
 def clean(value: object) -> str:
     if value is None:
@@ -372,6 +413,8 @@ def build_recipes(workbook_recipes: dict[str, list[str]]) -> tuple[list[dict], d
             "title": details["title"],
             "summary": details["summary"],
             "method": details["method"],
+            "icon": DISH_VISUALS.get(recipe_id, {}).get("icon", "🍽️"),
+            "avatar": DISH_VISUALS.get(recipe_id, {}).get("avatar", "PL"),
             "prepMinutes": details["prepMinutes"],
             "cookMinutes": details["cookMinutes"],
             "ingredients": listed_ingredients,
@@ -403,6 +446,8 @@ def build_dishes(days: list[dict], recipe_by_id: dict[str, dict]) -> list[dict]:
                     "title": label,
                     "recipeId": recipe["id"],
                     "summary": recipe["summary"],
+                    "icon": recipe["icon"],
+                    "avatar": recipe["avatar"],
                 }
     return list(seen.values())
 
@@ -413,6 +458,39 @@ def build_store_lookup(store_lists: list[dict]) -> dict[str, list[str]]:
         for item in store["items"]:
             lookup.setdefault(item["canonical"], []).append(store["store"])
     return lookup
+
+
+def build_weekly_supply_list(recipe_by_id: dict[str, dict], store_lookup: dict[str, list[str]]) -> list[dict]:
+    ingredient_keys = []
+    for recipe in recipe_by_id.values():
+        for ingredient in recipe["ingredients"]:
+            canonical = ingredient["canonical"]
+            if canonical in {"water"}:
+                continue
+            if canonical not in ingredient_keys:
+                ingredient_keys.append(canonical)
+
+    grouped = {}
+    for canonical in ingredient_keys:
+        guide = WEEKLY_QUANTITY_GUIDE.get(canonical)
+        if not guide:
+            continue
+        store = store_lookup.get(canonical, [DEFAULT_STORE])[0]
+        grouped.setdefault(guide["category"], []).append(
+            {
+                "name": display_name(canonical),
+                "quantity": guide["quantity"],
+                "store": store,
+            }
+        )
+
+    return [
+        {
+            "category": category,
+            "items": sorted(items, key=lambda item: item["name"].lower()),
+        }
+        for category, items in sorted(grouped.items(), key=lambda pair: pair[0].lower())
+    ]
 
 
 def build_day_shopping(days: list[dict], recipe_by_id: dict[str, dict], store_lookup: dict[str, list[str]]) -> dict[str, dict]:
@@ -470,6 +548,7 @@ def build_data() -> dict:
     store_lookup = build_store_lookup(store_lists)
     day_shopping = build_day_shopping(days, recipe_by_id, store_lookup)
     weekly_shopping = build_weekly_shopping(store_lists, day_shopping["weekly"]["unassigned"])
+    weekly_supply = build_weekly_supply_list(recipe_by_id, store_lookup)
 
     return {
         "title": "Weekly Diet Dashboard",
@@ -481,6 +560,7 @@ def build_data() -> dict:
         "dishes": dishes,
         "recipes": recipes,
         "dayShopping": day_shopping,
+        "weeklySupply": weekly_supply,
         "weeklyShopping": weekly_shopping,
         "pdfPath": "output/weekly-diet-dashboard.pdf",
     }
@@ -497,20 +577,26 @@ def build_html(data: dict) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content="{escape(data['subtitle'])}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg-1: #f7f2e9;
-      --bg-2: #efe3cf;
-      --panel: rgba(255, 250, 242, 0.92);
-      --panel-strong: #fffdf8;
-      --ink: #203127;
-      --muted: #5b675d;
-      --accent: #1f6a52;
-      --accent-strong: #16503e;
-      --accent-soft: #dcebdc;
-      --warm: #d48c24;
-      --line: rgba(32, 49, 39, 0.1);
-      --shadow: 0 18px 40px rgba(63, 48, 25, 0.12);
+      --bg-1: #fff0de;
+      --bg-2: #ffe4f2;
+      --bg-3: #e5fff1;
+      --panel: rgba(255, 250, 247, 0.88);
+      --panel-strong: rgba(255, 255, 255, 0.92);
+      --ink: #182329;
+      --muted: #56616a;
+      --accent: #ff5c8a;
+      --accent-strong: #ff3f74;
+      --accent-soft: #ffe3ee;
+      --mint: #7ce7b8;
+      --sky: #c9f4ff;
+      --warm: #ff9b42;
+      --line: rgba(24, 35, 41, 0.08);
+      --shadow: 0 24px 48px rgba(100, 67, 95, 0.12);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 16px;
@@ -521,11 +607,12 @@ def build_html(data: dict) -> str:
     body {{
       margin: 0;
       color: var(--ink);
-      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-family: "DM Sans", "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(212, 140, 36, 0.18), transparent 26%),
-        radial-gradient(circle at top right, rgba(31, 106, 82, 0.18), transparent 28%),
-        linear-gradient(180deg, var(--bg-1) 0%, #f2eadc 48%, var(--bg-2) 100%);
+        radial-gradient(circle at top left, rgba(255, 92, 138, 0.18), transparent 22%),
+        radial-gradient(circle at top right, rgba(124, 231, 184, 0.24), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(201, 244, 255, 0.24), transparent 20%),
+        linear-gradient(180deg, var(--bg-1) 0%, #fff7ef 42%, var(--bg-2) 78%, var(--bg-3) 100%);
       min-height: 100vh;
     }}
     .shell {{
@@ -538,7 +625,9 @@ def build_html(data: dict) -> str:
       overflow: hidden;
       border-radius: 32px;
       padding: 24px;
-      background: linear-gradient(135deg, rgba(255, 251, 245, 0.98), rgba(250, 244, 231, 0.9));
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 244, 249, 0.82)),
+        radial-gradient(circle at top right, rgba(124, 231, 184, 0.24), transparent 35%);
       border: 1px solid rgba(255, 255, 255, 0.75);
       box-shadow: var(--shadow);
     }}
@@ -550,7 +639,7 @@ def build_html(data: dict) -> str:
       right: -60px;
       bottom: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(31, 106, 82, 0.18), transparent 68%);
+      background: radial-gradient(circle, rgba(255, 92, 138, 0.18), transparent 68%);
       pointer-events: none;
     }}
     .eyebrow {{
@@ -559,8 +648,8 @@ def build_html(data: dict) -> str:
       align-items: center;
       padding: 7px 12px;
       border-radius: 999px;
-      background: rgba(31, 106, 82, 0.09);
-      color: var(--accent);
+      background: rgba(255, 92, 138, 0.1);
+      color: var(--accent-strong);
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -568,15 +657,17 @@ def build_html(data: dict) -> str:
     }}
     h1 {{
       margin: 14px 0 10px;
-      font-size: clamp(36px, 8vw, 72px);
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: clamp(30px, 7vw, 60px);
       line-height: 0.95;
       max-width: 9ch;
+      letter-spacing: -0.04em;
     }}
     .subtitle {{
       max-width: 52ch;
       margin: 0;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 15px;
       line-height: 1.55;
     }}
     .hero-meta {{
@@ -591,8 +682,8 @@ def build_html(data: dict) -> str:
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(32, 49, 39, 0.08);
-      background: rgba(255, 255, 255, 0.72);
-      font-size: 13px;
+      background: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
       color: var(--muted);
     }}
     .top-actions {{
@@ -603,12 +694,12 @@ def build_html(data: dict) -> str:
     }}
     .action-link {{
       text-decoration: none;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
       border-radius: 999px;
       padding: 12px 16px;
       font-weight: 700;
-      box-shadow: 0 10px 24px rgba(31, 106, 82, 0.18);
+      box-shadow: 0 12px 26px rgba(255, 92, 138, 0.24);
     }}
     .action-link.secondary {{
       background: rgba(255, 255, 255, 0.86);
@@ -636,14 +727,15 @@ def build_html(data: dict) -> str:
       border: 0;
       border-radius: 999px;
       padding: 13px 16px;
-      background: rgba(255, 251, 245, 0.9);
+      background: rgba(255, 255, 255, 0.76);
       color: var(--ink);
       font-weight: 800;
-      box-shadow: 0 10px 20px rgba(32, 49, 39, 0.08);
+      font-size: 13px;
+      box-shadow: 0 10px 20px rgba(100, 67, 95, 0.08);
       cursor: pointer;
     }}
     .day-chip.active {{
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
     }}
     .section-heading {{
@@ -655,7 +747,9 @@ def build_html(data: dict) -> str:
     }}
     .section-heading h2 {{
       margin: 0;
-      font-size: 28px;
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: 24px;
+      letter-spacing: -0.03em;
     }}
     .section-heading p {{
       margin: 6px 0 0;
@@ -681,7 +775,9 @@ def build_html(data: dict) -> str:
     }}
     .selected-day-head h3 {{
       margin: 0;
-      font-size: clamp(30px, 6vw, 44px);
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: clamp(26px, 5vw, 40px);
+      letter-spacing: -0.04em;
     }}
     .selected-day-head small {{
       display: block;
@@ -709,7 +805,7 @@ def build_html(data: dict) -> str:
     .meal-card h4 {{
       margin: 0 0 10px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }}
@@ -717,20 +813,52 @@ def build_html(data: dict) -> str:
       display: grid;
       gap: 10px;
     }}
+    .meal-topline {{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }}
+    .dish-avatar {{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255, 92, 138, 0.16), rgba(124, 231, 184, 0.28));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--ink);
+      flex: 0 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }}
+    .dish-icon {{
+      font-size: 20px;
+      line-height: 1;
+    }}
     .meal-item {{
+      display: block;
+      text-decoration: none;
+      color: inherit;
       padding: 12px;
       border-radius: 14px;
       background: var(--panel-strong);
       border: 1px solid rgba(32, 49, 39, 0.06);
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    }}
+    .meal-item:hover, .meal-item:focus {{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(32, 49, 39, 0.08);
+      border-color: rgba(31, 106, 82, 0.28);
+      outline: none;
     }}
     .meal-item strong {{
       display: block;
-      font-size: 16px;
-      margin-bottom: 4px;
+      font-size: 15px;
+      margin-bottom: 2px;
     }}
     .meal-item span {{
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.4;
     }}
     .recipes-grid, .shopping-grid {{
@@ -738,7 +866,13 @@ def build_html(data: dict) -> str:
     }}
     .panel h3 {{
       margin: 0 0 10px;
-      font-size: 22px;
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }}
+    .recipe-card.flash {{
+      outline: 3px solid rgba(31, 106, 82, 0.3);
+      box-shadow: 0 0 0 6px rgba(31, 106, 82, 0.08);
     }}
     .panel p {{
       margin: 0;
@@ -751,6 +885,24 @@ def build_html(data: dict) -> str:
       gap: 12px;
       align-items: start;
       margin-bottom: 12px;
+    }}
+    .recipe-title-group {{
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }}
+    .recipe-avatar {{
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 92, 138, 0.16), rgba(124, 231, 184, 0.28));
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.76);
+    }}
+    .recipe-avatar .dish-icon {{
+      font-size: 24px;
     }}
     .recipe-meta {{
       display: flex;
@@ -770,10 +922,10 @@ def build_html(data: dict) -> str:
       margin-bottom: 14px;
     }}
     .ingredient-list li {{
-      background: var(--accent-soft);
+      background: linear-gradient(135deg, var(--accent-soft), rgba(201, 244, 255, 0.8));
       border-radius: 999px;
       padding: 8px 12px;
-      font-size: 14px;
+      font-size: 13px;
     }}
     .steps-list {{
       display: grid;
@@ -797,7 +949,7 @@ def build_html(data: dict) -> str:
       height: 26px;
       border-radius: 50%;
       background: rgba(31, 106, 82, 0.12);
-      color: var(--accent);
+      color: var(--accent-strong);
       font-size: 13px;
       font-weight: 800;
       display: grid;
@@ -807,10 +959,22 @@ def build_html(data: dict) -> str:
       margin-top: 10px;
       padding: 12px;
       border-radius: 14px;
-      background: rgba(212, 140, 36, 0.08);
-      color: #7d5413;
+      background: linear-gradient(135deg, rgba(255, 155, 66, 0.12), rgba(255, 92, 138, 0.08));
+      color: #8a4c1a;
       font-size: 14px;
       line-height: 1.45;
+    }}
+    .section-sticker {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
     }}
     .shopping-card h3 {{
       margin-bottom: 8px;
@@ -832,6 +996,38 @@ def build_html(data: dict) -> str:
       margin-top: 12px;
       color: var(--muted);
       line-height: 1.45;
+    }}
+    .weekly-supply-grid {{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }}
+    .supply-list {{
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }}
+    .supply-list li {{
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(32, 49, 39, 0.08);
+    }}
+    .supply-list strong {{
+      display: block;
+      margin-bottom: 4px;
+    }}
+    .supply-list span {{
+      display: block;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: 14px;
+    }}
+    .buy-quantity {{
+      color: var(--accent-strong);
+      font-weight: 700;
     }}
     details.weekly {{
       margin-top: 18px;
@@ -863,7 +1059,7 @@ def build_html(data: dict) -> str:
       font-size: 13px;
     }}
     @media (max-width: 880px) {{
-      .meals-grid, .recipes-grid, .shopping-grid {{
+      .meals-grid, .recipes-grid, .shopping-grid, .weekly-supply-grid {{
         grid-template-columns: 1fr;
       }}
       .selected-day-head {{
@@ -891,7 +1087,7 @@ def build_html(data: dict) -> str:
         position: static;
         backdrop-filter: none;
       }}
-      .meals-grid, .recipes-grid, .shopping-grid {{
+      .meals-grid, .recipes-grid, .shopping-grid, .weekly-supply-grid {{
         grid-template-columns: 1fr;
       }}
       .action-link {{
@@ -938,6 +1134,7 @@ def build_html(data: dict) -> str:
     <section>
       <div class="section-heading">
         <div>
+          <div class="section-sticker">✨ Tap any meal card to jump to its recipe</div>
           <h2>Recipes For This Day</h2>
           <p>Each recipe stays inside your workbook ingredients plus pantry basics only.</p>
         </div>
@@ -948,6 +1145,18 @@ def build_html(data: dict) -> str:
     <section>
       <div class="section-heading">
         <div>
+          <div class="section-sticker">🛒 One-person weekly buy guide</div>
+          <h2>Weekly Supply Buy List</h2>
+          <p>These quantities are estimated for one person following this exact weekly plan.</p>
+        </div>
+      </div>
+      <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <div class="section-sticker">🧺 Filtered by selected day</div>
           <h2>Shopping For This Day</h2>
           <p>Store lists are filtered to the ingredients tied to the day you selected.</p>
         </div>
@@ -987,6 +1196,7 @@ def build_html(data: dict) -> str:
     const mealsGrid = document.getElementById("meals-grid");
     const recipesGrid = document.getElementById("recipes-grid");
     const shoppingGrid = document.getElementById("shopping-grid");
+    const weeklySupplyGrid = document.getElementById("weekly-supply-grid");
     const weeklyShoppingGrid = document.getElementById("weekly-shopping-grid");
     const pantryList = document.getElementById("pantry-list");
     const selectedDayTitle = document.getElementById("selected-day-title");
@@ -1021,11 +1231,21 @@ def build_html(data: dict) -> str:
         meal.dishIds.forEach((dishId) => {{
           const dish = dishesById[dishId];
           const recipe = recipesById[dish.recipeId];
-          const item = document.createElement("div");
+          const item = document.createElement("a");
           item.className = "meal-item";
+          item.href = `#recipe-${{recipe.id}}`;
+          item.addEventListener("click", (event) => {{
+            event.preventDefault();
+            jumpToRecipe(recipe.id);
+          }});
           item.innerHTML = `
-            <strong>${{dish.title}}</strong>
-            <span>${{recipe.summary}}</span>
+            <div class="meal-topline">
+              <div class="dish-avatar">${{dish.avatar}}</div>
+              <div>
+                <strong>${{dish.icon}} ${{dish.title}}</strong>
+                <span>${{recipe.summary}}</span>
+              </div>
+            </div>
           `;
           list.appendChild(item);
         }});
@@ -1040,14 +1260,18 @@ def build_html(data: dict) -> str:
       recipeIds.forEach((recipeId) => {{
         const recipe = recipesById[recipeId];
         const card = document.createElement("article");
-        card.className = "panel";
+        card.className = "panel recipe-card";
+        card.id = `recipe-${{recipe.id}}`;
         const ingredients = recipe.ingredients.map((ingredient) => `<li>${{ingredient.name}}</li>`).join("");
         const steps = recipe.steps.map((step) => `<li>${{step}}</li>`).join("");
         card.innerHTML = `
           <div class="panel-top">
-            <div>
-              <h3>${{recipe.title}}</h3>
-              <p>${{recipe.summary}}</p>
+            <div class="recipe-title-group">
+              <div class="recipe-avatar"><span class="dish-icon">${{recipe.icon}}</span></div>
+              <div>
+                <h3>${{recipe.title}}</h3>
+                <p>${{recipe.summary}}</p>
+              </div>
             </div>
             <span class="method-pill">${{recipe.method}}</span>
           </div>
@@ -1060,6 +1284,27 @@ def build_html(data: dict) -> str:
           <div class="tip">${{recipe.tip}}</div>
         `;
         recipesGrid.appendChild(card);
+      }});
+    }}
+
+    function renderWeeklySupply() {{
+      weeklySupplyGrid.innerHTML = "";
+      data.weeklySupply.forEach((group) => {{
+        const card = document.createElement("article");
+        card.className = "panel shopping-card";
+        card.innerHTML = `
+          <span class="store-pill">${{group.category}}</span>
+          <ul class="supply-list">
+            ${{group.items.map((item) => `
+              <li>
+                <strong>${{item.name}}</strong>
+                <span class="buy-quantity">${{item.quantity}}</span>
+                <span>Best place to buy: ${{item.store}}</span>
+              </li>
+            `).join("")}}
+          </ul>
+        `;
+        weeklySupplyGrid.appendChild(card);
       }});
     }}
 
@@ -1110,6 +1355,16 @@ def build_html(data: dict) -> str:
       pantryList.innerHTML = data.pantryBasics.map((item) => `<li class="pantry-pill">${{item}}</li>`).join("");
     }}
 
+    function jumpToRecipe(recipeId) {{
+      const recipeNode = document.getElementById(`recipe-${{recipeId}}`);
+      if (!recipeNode) {{
+        return;
+      }}
+      recipeNode.scrollIntoView({{ behavior: "smooth", block: "start" }});
+      recipeNode.classList.add("flash");
+      window.setTimeout(() => recipeNode.classList.remove("flash"), 1200);
+    }}
+
     function render() {{
       const day = data.days.find((entry) => entry.id === activeDayId) || data.days[0];
       selectedDayTitle.textContent = day.name;
@@ -1120,6 +1375,7 @@ def build_html(data: dict) -> str:
       renderShopping(day);
     }}
 
+    renderWeeklySupply();
     renderWeeklyShopping();
     renderPantry();
     render();

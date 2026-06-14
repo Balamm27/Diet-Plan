@@ -325,55 +325,73 @@
       "id": "flax-seed-water",
       "title": "Flax Seed Water",
       "recipeId": "flax-seed-water",
-      "summary": "A simple soaked drink that feels light but grounding first thing in the morning."
+      "summary": "A simple soaked drink that feels light but grounding first thing in the morning.",
+      "icon": "\ud83d\udca7",
+      "avatar": "FS"
     },
     {
       "id": "celery-juice",
       "title": "Celery Juice",
       "recipeId": "celery-juice",
-      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink."
+      "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink.",
+      "icon": "\ud83e\udd6c",
+      "avatar": "CJ"
     },
     {
       "id": "mango-smoothie",
       "title": "Mango Smoothie",
       "recipeId": "mango-smoothie",
-      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra."
+      "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra.",
+      "icon": "\ud83e\udd6d",
+      "avatar": "MS"
     },
     {
       "id": "orange-chicken",
       "title": "Orange Chicken",
       "recipeId": "orange-chicken",
-      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli."
+      "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli.",
+      "icon": "\ud83c\udf4a",
+      "avatar": "OC"
     },
     {
       "id": "beans",
       "title": "Beans",
       "recipeId": "beans",
-      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish."
+      "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish.",
+      "icon": "\ud83e\udedb",
+      "avatar": "GB"
     },
     {
       "id": "berry-smoothie",
       "title": "Berry Smoothie",
       "recipeId": "berry-smoothie",
-      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth."
+      "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth.",
+      "icon": "\ud83e\uded0",
+      "avatar": "BS"
     },
     {
       "id": "cauliflower",
       "title": "Cauliflower",
       "recipeId": "cauliflower",
-      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning."
+      "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning.",
+      "icon": "\ud83e\udd66",
+      "avatar": "CF"
     },
     {
       "id": "ladys-finger",
       "title": "Lady's finger",
       "recipeId": "ladys-finger",
-      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about."
+      "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about.",
+      "icon": "\u2728",
+      "avatar": "OK"
     },
     {
       "id": "sweet-potatoes",
       "title": "Sweet Potatoes",
       "recipeId": "sweet-potatoes",
-      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish."
+      "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish.",
+      "icon": "\ud83c\udf60",
+      "avatar": "SP"
     }
   ],
   "recipes": [
@@ -382,6 +400,8 @@
       "title": "Flax Seed Water",
       "summary": "A simple soaked drink that feels light but grounding first thing in the morning.",
       "method": "Soak and Stir",
+      "icon": "\ud83d\udca7",
+      "avatar": "FS",
       "prepMinutes": 2,
       "cookMinutes": 0,
       "ingredients": [
@@ -407,6 +427,8 @@
       "title": "Celery Juice",
       "summary": "Clean, fresh, and mild, with the option to keep the fiber in for a fuller drink.",
       "method": "Blend or Juice",
+      "icon": "\ud83e\udd6c",
+      "avatar": "CJ",
       "prepMinutes": 5,
       "cookMinutes": 0,
       "ingredients": [
@@ -432,6 +454,8 @@
       "title": "Mango Smoothie",
       "summary": "Thick, naturally sweet, and creamy from banana without needing anything extra.",
       "method": "Blender",
+      "icon": "\ud83e\udd6d",
+      "avatar": "MS",
       "prepMinutes": 5,
       "cookMinutes": 0,
       "ingredients": [
@@ -465,6 +489,8 @@
       "title": "Berry Smoothie",
       "summary": "Bright and juicy, with dragon fruit keeping it light and blueberries adding depth.",
       "method": "Blender",
+      "icon": "\ud83e\uded0",
+      "avatar": "BS",
       "prepMinutes": 5,
       "cookMinutes": 0,
       "ingredients": [
@@ -503,6 +529,8 @@
       "title": "Orange Chicken",
       "summary": "Citrusy and savory with caramelized edges on the chicken and crisp-tender broccoli.",
       "method": "Pan and Oven",
+      "icon": "\ud83c\udf4a",
+      "avatar": "OC",
       "prepMinutes": 12,
       "cookMinutes": 20,
       "ingredients": [
@@ -553,6 +581,8 @@
       "title": "Sweet Potatoes",
       "summary": "Roasted sweet potatoes layered with warm chickpeas, toasted walnuts, and a fresh herb finish.",
       "method": "Oven and Pan",
+      "icon": "\ud83c\udf60",
+      "avatar": "SP",
       "prepMinutes": 15,
       "cookMinutes": 30,
       "ingredients": [
@@ -611,6 +641,8 @@
       "title": "Beans",
       "summary": "A fast pan-cooked green bean side with blistered spots and a clean savory finish.",
       "method": "Stovetop Pan",
+      "icon": "\ud83e\udedb",
+      "avatar": "GB",
       "prepMinutes": 5,
       "cookMinutes": 10,
       "ingredients": [
@@ -637,6 +669,8 @@
       "title": "Cauliflower",
       "summary": "Golden roasted cauliflower that turns sweet and nutty without needing extra seasoning.",
       "method": "Oven or Air Fryer",
+      "icon": "\ud83e\udd66",
+      "avatar": "CF",
       "prepMinutes": 8,
       "cookMinutes": 18,
       "ingredients": [
@@ -663,12 +697,14 @@
       "title": "Lady's Finger",
       "summary": "Dry-cooked okra with lightly charred edges and none of the slimy texture people worry about.",
       "method": "Stovetop Pan",
+      "icon": "\u2728",
+      "avatar": "OK",
       "prepMinutes": 8,
       "cookMinutes": 12,
       "ingredients": [
         {
-          "name": "Lady's Finger Okra",
-          "canonical": "lady's finger okra"
+          "name": "Lady's Finger (Okra)",
+          "canonical": "okra"
         },
         {
           "name": "Olive Oil",
@@ -764,7 +800,7 @@
         "Celery",
         "Coconut Oil",
         "Flax Seeds",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sesame Seeds"
       ]
     },
@@ -838,7 +874,7 @@
         "Celery",
         "Chickpeas",
         "Flax Seeds",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sweet Potatoes"
       ]
     },
@@ -877,12 +913,159 @@
         "Coconut Oil",
         "Flax Seeds",
         "Green Beans",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sesame Seeds",
         "Sweet Potatoes"
       ]
     }
   },
+  "weeklySupply": [
+    {
+      "category": "Beverages",
+      "items": [
+        {
+          "name": "Coconut Water",
+          "quantity": "2 to 3 liters",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Fruit",
+      "items": [
+        {
+          "name": "Banana",
+          "quantity": "7 bananas",
+          "store": "Costco"
+        },
+        {
+          "name": "Blueberries",
+          "quantity": "3 cups",
+          "store": "Costco"
+        },
+        {
+          "name": "Dragon Fruit",
+          "quantity": "3 dragon fruits",
+          "store": "Costco"
+        },
+        {
+          "name": "Mango",
+          "quantity": "4 mangoes",
+          "store": "Costco"
+        },
+        {
+          "name": "Navel Orange",
+          "quantity": "4 oranges",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Herbs",
+      "items": [
+        {
+          "name": "Basil",
+          "quantity": "1 bunch",
+          "store": "Costco"
+        },
+        {
+          "name": "Coriander",
+          "quantity": "1 bunch",
+          "store": "Costco"
+        },
+        {
+          "name": "Mint",
+          "quantity": "1 bunch",
+          "store": "Costco"
+        },
+        {
+          "name": "Thyme",
+          "quantity": "1 small bunch",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Pantry",
+      "items": [
+        {
+          "name": "Chickpeas",
+          "quantity": "2 cans or 3 cups cooked",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Coconut Oil",
+          "quantity": "1 small jar",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Flax Seeds",
+          "quantity": "1 cup (about 250 g)",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Olive Oil",
+          "quantity": "1 bottle",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Sesame Seeds",
+          "quantity": "1 small packet or jar",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Walnuts",
+          "quantity": "1 1/2 cups",
+          "store": "Costco"
+        }
+      ]
+    },
+    {
+      "category": "Produce",
+      "items": [
+        {
+          "name": "Broccoli",
+          "quantity": "4 medium heads",
+          "store": "Costco"
+        },
+        {
+          "name": "Cauliflower",
+          "quantity": "2 medium heads",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Celery",
+          "quantity": "3 bunches",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Green Beans",
+          "quantity": "1 1/2 lb",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Lady's Finger (Okra)",
+          "quantity": "1 1/2 lb",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        },
+        {
+          "name": "Sweet Potatoes",
+          "quantity": "6 medium sweet potatoes",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        }
+      ]
+    },
+    {
+      "category": "Protein",
+      "items": [
+        {
+          "name": "Chicken Breast",
+          "quantity": "2 lb",
+          "store": "Whole Foods / Fred Meyer / QFC"
+        }
+      ]
+    }
+  ],
   "weeklyShopping": [
     {
       "store": "Costco",
@@ -916,7 +1099,7 @@
         "Coconut Oil",
         "Flax Seeds",
         "Green Beans",
-        "Lady's Finger Okra",
+        "Lady's Finger (Okra)",
         "Sesame Seeds",
         "Sweet Potatoes"
       ]

@@ -18,6 +18,8 @@ That is the link you can share with anyone. They do not need GitHub, a login, or
 - `scripts/build_dashboard.py`: rebuilds the site from the workbook
 - `scripts/export_pdf.mjs`: rebuilds the PDF from the generated site
 
+The weekly buy quantities shown on the site are estimated for one person following this exact weekly plan.
+
 ## Simple update steps
 
 1. Put the latest workbook at the repo root as `Diet Plan.xlsx`.
