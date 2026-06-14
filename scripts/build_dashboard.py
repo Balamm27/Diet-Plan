@@ -1756,6 +1756,10 @@ def build_html(data: dict) -> str:
       section.scrollIntoView({{ behavior: "smooth", block: "start" }});
     }}
 
+    function closeSection(section, button, openLabel, closeLabel) {{
+      setExpanded(section, button, false, openLabel, closeLabel);
+    }}
+
     function render() {{
       const day = data.days.find((entry) => entry.id === activeDayId) || data.days[0];
       recipePeopleCount.textContent = String(recipePeople);
@@ -1766,7 +1770,9 @@ def build_html(data: dict) -> str:
       renderMeals(day);
       renderRecipes(day);
       renderDailySupply(day);
+      renderWeeklySupply();
       renderShopping(day);
+      renderWeeklyShopping();
     }}
 
     toggleDayShopping.addEventListener("click", () => {{
@@ -1779,11 +1785,14 @@ def build_html(data: dict) -> str:
       setExpanded(weeklySupplySection, toggleWeeklySupply, weeklySupplySection.hidden, "Open Weekly Supply List", "Close Weekly Supply List");
     }});
     openDayShopping.addEventListener("click", () => {{
+      closeSection(weeklySupplySection, toggleWeeklySupply, "Open Weekly Supply List", "Close Weekly Supply List");
+      closeSection(weeklyShoppingSection, toggleWeeklyShopping, "Open Weekly Store List", "Close Weekly Store List");
       openSection(dayShoppingSection, toggleDayShopping, "Open Day Shopping", "Close Day Shopping");
     }});
     openWeeklyShopping.addEventListener("click", () => {{
+      closeSection(dayShoppingSection, toggleDayShopping, "Open Day Shopping", "Close Day Shopping");
+      closeSection(weeklyShoppingSection, toggleWeeklyShopping, "Open Weekly Store List", "Close Weekly Store List");
       openSection(weeklySupplySection, toggleWeeklySupply, "Open Weekly Supply List", "Close Weekly Supply List");
-      openSection(weeklyShoppingSection, toggleWeeklyShopping, "Open Weekly Store List", "Close Weekly Store List");
     }});
     recipeMinus.addEventListener("click", () => {{
       recipePeople = Math.max(1, recipePeople - 1);
@@ -1802,8 +1811,6 @@ def build_html(data: dict) -> str:
       render();
     }});
 
-    renderWeeklySupply();
-    renderWeeklyShopping();
     renderPantry();
     render();
   </script>
