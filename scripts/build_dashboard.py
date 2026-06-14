@@ -167,6 +167,7 @@ RECIPE_DETAILS = {
         "method": "Soak and Stir",
         "prepMinutes": 2,
         "cookMinutes": 0,
+        "cookGuide": ["No heat", "Soak 6 hr or overnight"],
         "ingredients": [
             {"name": "Flax Seeds", "amount": "1 tbsp"},
             {"name": "Water", "amount": "12 to 14 oz"},
@@ -184,6 +185,7 @@ RECIPE_DETAILS = {
         "method": "Blend or Juice",
         "prepMinutes": 5,
         "cookMinutes": 0,
+        "cookGuide": ["No heat", "Blend 1 to 2 min"],
         "ingredients": [
             {"name": "Celery", "amount": "4 to 5 stalks"},
             {"name": "Water", "amount": "2 to 3 tbsp if blending"},
@@ -201,6 +203,7 @@ RECIPE_DETAILS = {
         "method": "Blender",
         "prepMinutes": 5,
         "cookMinutes": 0,
+        "cookGuide": ["No heat", "Blend 45 to 60 sec"],
         "ingredients": [
             {"name": "Mango", "amount": "1 heaping cup"},
             {"name": "Banana", "amount": "1 medium"},
@@ -219,6 +222,7 @@ RECIPE_DETAILS = {
         "method": "Blender",
         "prepMinutes": 5,
         "cookMinutes": 0,
+        "cookGuide": ["No heat", "Blend 45 to 60 sec"],
         "ingredients": [
             {"name": "Dragon Fruit", "amount": "1 cup"},
             {"name": "Blueberries", "amount": "3/4 cup"},
@@ -238,6 +242,7 @@ RECIPE_DETAILS = {
         "method": "Pan and Oven",
         "prepMinutes": 12,
         "cookMinutes": 20,
+        "cookGuide": ["Pan: medium-high", "Oven: 425F", "Chicken: 165F inside"],
         "ingredients": [
             {"name": "Chicken Breast", "amount": "6 to 8 oz"},
             {"name": "Navel Orange", "amount": "1 whole"},
@@ -247,13 +252,14 @@ RECIPE_DETAILS = {
             {"name": "Sesame Seeds", "amount": "1 tsp"},
         ],
         "steps": [
-            "Season chicken breast with salt and pepper, then sear it in a hot pan with coconut oil until lightly golden.",
-            "Transfer the chicken to the oven to finish cooking while you toss broccoli with olive oil, salt, and pepper and roast it until the edges darken.",
-            "Return the pan to medium heat, squeeze in the navel orange juice, and let it reduce to a glossy citrus coating.",
-            "Slice the chicken, toss it in the reduced orange glaze, and plate with the roasted broccoli.",
-            "Finish with sesame seeds for crunch.",
+            "Preheat the oven to 425F. Pat the chicken dry, season both sides with salt and pepper, and heat a pan over medium-high heat for about 1 minute before adding the coconut oil.",
+            "Sear the chicken for 3 to 4 minutes on the first side and 2 to 3 minutes on the second side, just until golden outside but not fully cooked through.",
+            "Move the chicken to a small tray or oven-safe pan and bake at 425F for 8 to 12 minutes, or until the thickest part reaches 165F.",
+            "While the chicken finishes, toss the broccoli with olive oil, salt, and pepper and roast it at 425F for 12 to 15 minutes until the edges darken and the stems feel tender.",
+            "Set the chicken aside to rest for 3 minutes. Put the original pan back over medium heat, squeeze in the navel orange juice, and let it bubble for 2 to 3 minutes until it reduces slightly and looks glossy.",
+            "Slice the chicken, coat it in the orange glaze, plate with the roasted broccoli, and finish with sesame seeds.",
         ],
-        "tip": "Roasting the broccoli separately keeps it crisp instead of watery, which makes the orange glaze taste sharper and cleaner.",
+        "tip": "If the orange juice starts boiling too hard, lower the pan to medium-low so it reduces gently instead of turning bitter.",
     },
     "sweet-potatoes": {
         "title": "Sweet Potatoes",
@@ -261,6 +267,7 @@ RECIPE_DETAILS = {
         "method": "Oven and Pan",
         "prepMinutes": 15,
         "cookMinutes": 30,
+        "cookGuide": ["Oven: 425F", "Pan: medium", "Walnuts: 2 to 3 min"],
         "ingredients": [
             {"name": "Sweet Potatoes", "amount": "1 large or 2 small"},
             {"name": "Chickpeas", "amount": "3/4 cup"},
@@ -272,11 +279,12 @@ RECIPE_DETAILS = {
             {"name": "Olive Oil", "amount": "2 tsp"},
         ],
         "steps": [
-            "Roast halved or cubed sweet potatoes with olive oil, salt, pepper, and thyme until deeply tender and browned at the edges.",
-            "Warm chickpeas in a pan with a little olive oil, salt, and pepper just until they start to dry and lightly crisp.",
-            "Toast walnuts briefly in a dry pan so they smell nutty and become more fragrant.",
-            "Roughly chop coriander, mint, and basil together to make a bright herb finish.",
-            "Pile the chickpeas and walnuts over the roasted sweet potatoes and scatter the fresh herbs over everything just before serving.",
+            "Preheat the oven to 425F. Cut the sweet potatoes into cubes or lengthwise halves, toss with olive oil, thyme, salt, and pepper, and spread them on a tray in one layer.",
+            "Roast the sweet potatoes at 425F for 25 to 30 minutes, flipping once halfway through, until the edges are browned and the center is soft when pierced with a fork.",
+            "While they roast, heat a pan over medium heat with a small splash of olive oil and cook the chickpeas for 5 to 6 minutes, stirring occasionally, until they feel warmer, drier, and slightly crisp.",
+            "In a dry pan over medium-low heat, toast the walnuts for 2 to 3 minutes, shaking the pan often, until fragrant. Take them off the heat as soon as they smell nutty.",
+            "Finely chop the coriander, mint, and basil together so they are ready as a fresh topping.",
+            "Pile the warm chickpeas and walnuts over the roasted sweet potatoes and finish with the chopped herbs right before serving.",
         ],
         "tip": "Keep the herbs off the heat until the end so the bowl tastes fresh instead of muted.",
     },
@@ -286,14 +294,15 @@ RECIPE_DETAILS = {
         "method": "Stovetop Pan",
         "prepMinutes": 5,
         "cookMinutes": 10,
+        "cookGuide": ["Pan: medium-high", "Cook: 6 to 8 min"],
         "ingredients": [
             {"name": "Green Beans", "amount": "1 1/2 cups"},
             {"name": "Olive Oil", "amount": "1 tsp"},
         ],
         "steps": [
-            "Heat a wide pan with olive oil until hot.",
-            "Add green beans in one layer and season with salt and pepper.",
-            "Cook, tossing only occasionally, until the beans blister in places but stay slightly crisp.",
+            "Heat a wide pan over medium-high heat for about 1 minute, then add the olive oil.",
+            "Add the green beans in one layer, season with salt and pepper, and let them sit undisturbed for 2 minutes so they start to blister.",
+            "Continue cooking for another 4 to 6 minutes, tossing only once or twice, until the beans have browned spots but still keep a slight snap.",
             "Serve right away while the beans still have a little snap.",
         ],
         "tip": "Leaving the beans mostly undisturbed at first gives better browning and more flavor.",
@@ -304,14 +313,16 @@ RECIPE_DETAILS = {
         "method": "Oven or Air Fryer",
         "prepMinutes": 8,
         "cookMinutes": 18,
+        "cookGuide": ["Oven: 425F", "Air fryer: 390F", "Cook: 12 to 22 min"],
         "ingredients": [
             {"name": "Cauliflower", "amount": "2 cups florets"},
             {"name": "Olive Oil", "amount": "1 tsp"},
         ],
         "steps": [
-            "Cut cauliflower into medium florets and coat with olive oil, salt, and pepper.",
-            "Roast or air fry until the edges are deeply golden and the centers are tender.",
-            "Turn once halfway through so the color develops evenly.",
+            "For the oven method, preheat to 425F. For the air fryer method, preheat to 390F for 3 minutes if your model supports it.",
+            "Cut the cauliflower into medium florets and coat with olive oil, salt, and pepper.",
+            "Roast in the oven at 425F for 18 to 22 minutes, or air fry at 390F for 12 to 15 minutes, turning once halfway through in either method.",
+            "Cook until the edges are deeply golden and the thickest pieces are tender when pierced with a fork.",
             "Serve hot while the edges are still crisp.",
         ],
         "tip": "Do not overcrowd the tray or basket or the cauliflower will steam instead of roast.",
@@ -322,17 +333,18 @@ RECIPE_DETAILS = {
         "method": "Stovetop Pan",
         "prepMinutes": 8,
         "cookMinutes": 12,
+        "cookGuide": ["Pan: medium-high", "Cook: 8 to 10 min"],
         "ingredients": [
             {"name": "Lady's Finger (Okra)", "amount": "1 1/2 cups"},
             {"name": "Olive Oil", "amount": "1 tsp"},
         ],
         "steps": [
-            "Dry the okra thoroughly, then slice it into larger pieces so it browns instead of steams.",
-            "Heat olive oil in a wide pan and add the okra in a single layer.",
-            "Season with salt and pepper and cook over medium-high heat, stirring only occasionally.",
-            "Keep cooking until the cut edges darken and the pieces feel dry and tender.",
+            "Dry the okra very well with a towel, then slice it into larger pieces so it browns instead of steaming.",
+            "Heat a wide pan over medium-high heat for about 1 minute, add the olive oil, then spread the okra in one layer.",
+            "Season with salt and pepper and cook for 3 minutes without stirring so the first side starts to char.",
+            "Cook for another 5 to 7 minutes, stirring only occasionally, until the cut edges darken and the pieces feel dry and tender.",
         ],
-        "tip": "The drier the okra is before it hits the pan, the better the final texture will be.",
+        "tip": "If the okra starts releasing too much moisture, lower the heat slightly and keep cooking uncovered so the pan dries back out.",
     },
 }
 
@@ -512,6 +524,7 @@ def build_recipes(workbook_recipes: dict[str, list[str]]) -> tuple[list[dict], d
             "avatar": DISH_VISUALS.get(recipe_id, {}).get("avatar", "PL"),
             "prepMinutes": details["prepMinutes"],
             "cookMinutes": details["cookMinutes"],
+            "cookGuide": details.get("cookGuide", []),
             "ingredients": listed_ingredients,
             "steps": details["steps"],
             "tip": details["tip"],
@@ -1107,6 +1120,25 @@ def build_html(data: dict) -> str:
       gap: 8px;
       margin: 12px 0;
     }}
+    .cook-guide {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+    }}
+    .guide-pill {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(20, 36, 51, 0.08);
+      border: 1px solid rgba(20, 36, 51, 0.08);
+      color: #244258;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }}
     .ingredient-list, .steps-list, .shopping-list, .pantry-list {{
       margin: 0;
       padding: 0;
@@ -1588,6 +1620,7 @@ def build_html(data: dict) -> str:
         </li>
       `).join("");
       const steps = recipe.steps.map((step) => `<li>${{step}}</li>`).join("");
+      const cookGuide = (recipe.cookGuide || []).map((guide) => `<span class="guide-pill">${{guide}}</span>`).join("");
       card.innerHTML = `
         <div class="panel-top">
           <div class="recipe-title-group">
@@ -1603,6 +1636,7 @@ def build_html(data: dict) -> str:
           <span class="meta-pill">Prep ${{recipe.prepMinutes}} min</span>
           <span class="meta-pill">Cook ${{recipe.cookMinutes}} min</span>
         </div>
+        ${{cookGuide ? `<div class="cook-guide">${{cookGuide}}</div>` : ""}}
         <ul class="ingredient-list">${{ingredients}}</ul>
         <ol class="steps-list">${{steps}}</ol>
         <div class="tip">${{recipe.tip}}</div>
