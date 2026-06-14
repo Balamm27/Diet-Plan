@@ -70,6 +70,14 @@
       background: radial-gradient(circle, rgba(255, 92, 138, 0.18), transparent 68%);
       pointer-events: none;
     }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes fadeRise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .eyebrow {
       display: inline-flex;
       gap: 8px;
@@ -168,6 +176,14 @@
     .day-chip.active {
       background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: white;
+      box-shadow: 0 14px 26px rgba(255, 92, 138, 0.28);
+    }
+    .focus-layout, .logistics-layout {
+      display: grid;
+      gap: 18px;
+    }
+    .recipe-stage, .pantry-stage {
+      min-width: 0;
     }
     .section-heading {
       display: flex;
@@ -175,6 +191,9 @@
       align-items: end;
       gap: 16px;
       margin: 22px 0 14px;
+    }
+    .section-heading.compact {
+      margin-top: 0;
     }
     .section-heading h2 {
       margin: 0;
@@ -193,6 +212,9 @@
       border: 1px solid rgba(255, 255, 255, 0.7);
       box-shadow: var(--shadow);
       border-radius: var(--radius-xl);
+    }
+    .recipe-stage .panel, .selected-day-shell, .shopping-card, .pantry-stage .panel {
+      animation: fadeRise 240ms ease;
     }
     .selected-day-shell {
       padding: 18px;
@@ -261,6 +283,7 @@
       color: var(--ink);
       flex: 0 0 auto;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+      animation: floaty 3.2s ease-in-out infinite;
     }
     .dish-icon {
       font-size: 20px;
@@ -333,6 +356,7 @@
       place-items: center;
       flex: 0 0 auto;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.76);
+      animation: floaty 3.6s ease-in-out infinite;
     }
     .recipe-avatar .dish-icon {
       font-size: 24px;
@@ -539,6 +563,34 @@
         align-items: start;
       }
     }
+    @media (min-width: 881px) {
+      .focus-layout {
+        grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+        align-items: start;
+      }
+      .recipe-stage {
+        position: sticky;
+        top: 88px;
+      }
+      .logistics-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pantry-stage {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (min-width: 1240px) {
+      .shell {
+        width: min(calc(100% - 36px), 1320px);
+      }
+      .logistics-layout {
+        grid-template-columns: 1fr 1fr 0.78fr;
+        align-items: start;
+      }
+      .pantry-stage {
+        grid-column: auto;
+      }
+    }
     @media print {
       @page {
         size: A4;
@@ -589,81 +641,85 @@
       <div class="day-track" id="day-track"></div>
     </nav>
 
-    <section id="day-view" class="selected-day-shell">
-      <div class="selected-day-head">
-        <div>
-          <small>Selected Day</small>
-          <h3 id="selected-day-title">Monday</h3>
+    <section class="focus-layout">
+      <section id="day-view" class="selected-day-shell">
+        <div class="selected-day-head">
+          <div>
+            <small>Selected Day</small>
+            <h3 id="selected-day-title">Monday</h3>
+          </div>
+          <p id="selected-day-copy" class="subtitle">Meals, recipes, and shopping are focused on the day you choose.</p>
         </div>
-        <p id="selected-day-copy" class="subtitle">Meals, recipes, and shopping are focused on the day you choose.</p>
-      </div>
-      <div class="meals-grid" id="meals-grid"></div>
+        <div class="meals-grid" id="meals-grid"></div>
+      </section>
+
+      <section class="recipe-stage">
+        <div class="section-heading compact">
+          <div>
+            <div class="section-sticker">✨ Tap a meal to open its recipe</div>
+            <h2>Recipe Focus</h2>
+            <p>Only one recipe opens at a time so the page stays calm and easy to scan.</p>
+          </div>
+        </div>
+        <div id="recipe-empty" class="panel">
+          <h3>Choose a meal card above</h3>
+          <p>Tap any breakfast, lunch, dinner, or cleanse item to open the matching recipe with the exact amount used.</p>
+        </div>
+        <div class="recipes-grid" id="recipes-grid"></div>
+      </section>
     </section>
 
-    <section>
-      <div class="section-heading">
-        <div>
-          <div class="section-sticker">✨ Tap a meal to open its recipe</div>
-          <h2>Recipe Focus</h2>
-          <p>Only one recipe opens at a time so the page stays calm and easy to scan.</p>
+    <section class="logistics-layout">
+      <section>
+        <div class="section-heading">
+          <div>
+            <div class="section-sticker">🛒 One-person weekly buy guide</div>
+            <h2>Weekly Supply Buy List</h2>
+            <p>These quantities are estimated for one person following this exact weekly plan.</p>
+          </div>
         </div>
-      </div>
-      <div id="recipe-empty" class="panel">
-        <h3>Choose a meal card above</h3>
-        <p>Tap any breakfast, lunch, dinner, or cleanse item to open the matching recipe with the exact amount used.</p>
-      </div>
-      <div class="recipes-grid" id="recipes-grid"></div>
-    </section>
+        <div class="shopping-toggle-row">
+          <button class="toggle-button" type="button" id="toggle-weekly-supply">Open Weekly Supply List</button>
+        </div>
+        <div class="collapsible-section" id="weekly-supply-section" hidden>
+          <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
+        </div>
+      </section>
 
-    <section>
-      <div class="section-heading">
-        <div>
-          <div class="section-sticker">🛒 One-person weekly buy guide</div>
-          <h2>Weekly Supply Buy List</h2>
-          <p>These quantities are estimated for one person following this exact weekly plan.</p>
+      <section>
+        <div class="section-heading">
+          <div>
+            <div class="section-sticker">🧺 Filtered by selected day</div>
+            <h2>Shopping For This Day</h2>
+            <p>Open this only when you need to buy for the currently selected day.</p>
+          </div>
         </div>
-      </div>
-      <div class="shopping-toggle-row">
-        <button class="toggle-button" type="button" id="toggle-weekly-supply">Open Weekly Supply List</button>
-      </div>
-      <div class="collapsible-section" id="weekly-supply-section" hidden>
-        <div class="weekly-supply-grid" id="weekly-supply-grid"></div>
-      </div>
-    </section>
+        <div class="shopping-toggle-row">
+          <button class="toggle-button" type="button" id="toggle-day-shopping">Open Day Shopping</button>
+        </div>
+        <div class="collapsible-section" id="day-shopping-section" hidden>
+          <div class="weekly-supply-grid" id="daily-supply-grid"></div>
+          <div class="shopping-grid" id="shopping-grid"></div>
+        </div>
+        <div class="shopping-toggle-row">
+          <button class="toggle-button subtle" type="button" id="toggle-weekly-shopping">Open Weekly Store List</button>
+        </div>
+        <div class="collapsible-section" id="weekly-shopping-section" hidden>
+          <div class="shopping-grid" id="weekly-shopping-grid"></div>
+        </div>
+      </section>
 
-    <section>
-      <div class="section-heading">
-        <div>
-          <div class="section-sticker">🧺 Filtered by selected day</div>
-          <h2>Shopping For This Day</h2>
-          <p>Open this only when you need to buy for the currently selected day.</p>
+      <section class="pantry-stage">
+        <div class="section-heading">
+          <div>
+            <h2>Pantry Basics Used In Recipes</h2>
+            <p>These are the only non-workbook basics assumed anywhere on the site.</p>
+          </div>
         </div>
-      </div>
-      <div class="shopping-toggle-row">
-        <button class="toggle-button" type="button" id="toggle-day-shopping">Open Day Shopping</button>
-      </div>
-      <div class="collapsible-section" id="day-shopping-section" hidden>
-        <div class="weekly-supply-grid" id="daily-supply-grid"></div>
-        <div class="shopping-grid" id="shopping-grid"></div>
-      </div>
-      <div class="shopping-toggle-row">
-        <button class="toggle-button subtle" type="button" id="toggle-weekly-shopping">Open Weekly Store List</button>
-      </div>
-      <div class="collapsible-section" id="weekly-shopping-section" hidden>
-        <div class="shopping-grid" id="weekly-shopping-grid"></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-heading">
-        <div>
-          <h2>Pantry Basics Used In Recipes</h2>
-          <p>These are the only non-workbook basics assumed anywhere on the site.</p>
+        <div class="panel">
+          <ul class="pantry-list" id="pantry-list"></ul>
         </div>
-      </div>
-      <div class="panel">
-        <ul class="pantry-list" id="pantry-list"></ul>
-      </div>
+      </section>
     </section>
 
     <p class="footer-note">Generated from your workbook on June 14, 2026. Share the public site link with anyone who needs the plan.</p>

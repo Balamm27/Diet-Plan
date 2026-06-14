@@ -17,6 +17,7 @@ That is the link you can share with anyone. They do not need GitHub, a login, or
 - `output/weekly-diet-dashboard.pdf`: printable backup version
 - `scripts/build_dashboard.py`: rebuilds the site from the workbook
 - `scripts/export_pdf.mjs`: rebuilds the PDF from the generated site
+- `tools/build_launcher.sh`: rebuilds the custom Mac launcher apps and icon
 
 The weekly buy quantities shown on the site are estimated for one person following this exact weekly plan.
 
@@ -28,6 +29,7 @@ The weekly buy quantities shown on the site are estimated for one person followi
 ```bash
 /Users/bala/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_dashboard.py
 /Users/bala/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node scripts/export_pdf.mjs
+/Users/bala/Documents/Codex/Diet\ Plan/tools/build_launcher.sh
 ```
 
 3. Commit the changed files.
@@ -42,3 +44,4 @@ The weekly buy quantities shown on the site are estimated for one person followi
   - black pepper
   - water
   - neutral oil or olive oil
+- Launcher apps are created locally in the project folder and on the Desktop.

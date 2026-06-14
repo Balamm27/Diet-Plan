@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 dashboard/
 Diet Plan.xlsx
+Diet Dashboard.app/
+assets/DietDashboard.iconset/
